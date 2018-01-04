@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button Content="Alexis es gay">            
+        <Button Content="Alexis es gay y andré se la come">            
         </Button>
     </Grid>
 </Window>
