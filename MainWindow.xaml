@@ -5,6 +5,10 @@
     <Grid>
         <Button Content="Alexis es gay y andré se la come">            
         </Button>
-        <TextBlock Text="Test" FontWeight="Bold"/>
+        <StackPanel>
+            <TextBlock Text="Test" FontWeight="Bold"/>
+            <TextBlock Text="Test2" FontWeight="Bold"/>
+        </StackPanel>
+        
     </Grid>
 </Window>
