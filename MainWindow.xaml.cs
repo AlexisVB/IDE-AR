@@ -23,6 +23,25 @@ namespace IDE_AR
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                //restaurar el estado desde los atributos del objeto
+                //de la clase settings referenciado por default
+                Rect restoreBounds = Properties.Settings.Default.MainRestoreBounds;
+                Left = restoreBounds.Left;
+                Top = restoreBounds.Top;
+                Width = restoreBounds.Width;
+                Height = restoreBounds.Height;
+                WindowState = Properties.Settings.Default.MainWindowState;
+            }
+            catch{}            
+        }
+        private void MainWindow_Closing(Object Sender,System.ComponentModel.CancelEventArgs e)
+        {
+            //Guardar el estado desde los atributos
+            Properties.Settings.Default.MainRestoreBounds = RestoreBounds;
+            Properties.Settings.Default.MainWindowState = WindowState;
+            Properties.Settings.Default.Save();
         }
     }
 }
