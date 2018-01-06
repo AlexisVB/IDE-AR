@@ -3,13 +3,106 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="800" Width="1300" Background="LightSlateGray">
 
-    <Grid>
-        
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Text="Test" FontWeight="Bold"/>
-            <TextBlock Text="Test2" FontWeight="Bold"/>
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!--Barra de Menus-->
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Vertical">
+            
+            <Menu Name="BarraDeMenus" Background="Gray">
+                <MenuItem Name="MenuArchivo" Header="_Archivo">
+                    <MenuItem Name="ArchivoAbrir" Header="A_brir">
+                        <MenuItem.Icon>
+                            <Image Source="Imagenes/ArchivoAbrir.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Name="MenuEditar" Header="_Editar">                    
+                </MenuItem>
+                <MenuItem Name="MenuOpciones" Header="_Opciones">
+                    <MenuItem Name="OpcionesFuente" Header="_Fuente">
+                        <MenuItem Name="OpcionesFuentePredeterminado" Header="Predeterminada"/>
+                        <MenuItem Name="OpcionesFuenteCourier" Header="Courier new"/>
+                        <MenuItem Name="OpcionesFuenteArial" Header="Arial"/>
+                    </MenuItem>
+                    <MenuItem Name="OpcionesTamano" Header="_Tamaño">
+                        <MenuItem Name="OpcionesPredeterminado" Header="Predeterminado"/>
+                        <MenuItem Name="OpcionesTamano10" Header="10"/>
+                        <MenuItem Name="OpcionesTamano12" Header="12"/>
+                        <MenuItem Name="OpcionesTamano14" Header="14"/>
+                        <MenuItem Name="OpcionesTamano16" Header="16"/>
+                        <MenuItem Name="OpcionesTamano18" Header="18"/>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Name="MenuAyuda" Header="_Ayuda">
+                    <MenuItem Name="AyudaAcercaDe" Header="Acerca de"/>
+                </MenuItem>
+
+            </Menu>
+            
+            
         </StackPanel>
+        <!--Barra de Herramientas-->
+        <StackPanel Grid.Row="1" Grid.Column="1"  >
+            <ToolBar Name="BarraDeHerramientas" Background="DarkGray">
+                <Button Name="btArAbrir">
+                    <!--<Image Source="Imagenes/ArchivoAbrir.png" />La imagen no se muestra-->
+                    <TextBlock>Abrir</TextBlock>
+                </Button>
+                <Button Name="btArGuardar">
+                    <TextBlock>Guardar</TextBlock>
+                </Button>
+                <Separator></Separator>
+                <Button Name="btArCortar">
+                    <TextBlock>Cortar</TextBlock>
+                </Button>
+                <Button Name="btArCopiar">
+                    <TextBlock>Copiar</TextBlock>
+                </Button>
+                <Button Name="btArPegar">
+                    <TextBlock>Pegar</TextBlock>
+                </Button>
+            </ToolBar>
+        </StackPanel>
+        <!--Barra de estado-->
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+            <StatusBar Name="BarraDeEstado" Background="Gray">             
+                <TextBlock>Listo</TextBlock >
+            </StatusBar>
+        </StackPanel>
+        <!--Barra lateral izquierda-->
+       
+            <Grid Grid.Row="1" Grid.Column="0"
+                  Grid.RowSpan="2" ShowGridLines="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0"></StackPanel>
+            <StackPanel Grid.Column="1"></StackPanel>
+            <StackPanel Grid.Column="2"></StackPanel>
+        </Grid>
         
+        <!--Barra lateral derecha-->
+        <StackPanel Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" >
+
+        </StackPanel>
+        <!--centro principal-->
+        <StackPanel Grid.Row="2" Grid.Column="1" >
+            <TextBox Name="ctEditor" AcceptsReturn="True" TextWrapping="Wrap" AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto" Margin="5"
+                     ></TextBox>            
+        </StackPanel>
     </Grid>
     
 </Window>
