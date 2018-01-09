@@ -100,11 +100,11 @@
 
         </StackPanel>
         <!--centro principal-->
-        <StackPanel Grid.Row="2" Grid.Column="1" >
+        <Grid Grid.Row="2" Grid.Column="1" >
             <TextBox Name="ctEditor" AcceptsReturn="True" TextWrapping="Wrap" AcceptsTab="True"
                      VerticalScrollBarVisibility="Auto" Margin="5"
                      ></TextBox>            
-        </StackPanel>
+        </Grid>
     </Grid>
     
 </Window>
