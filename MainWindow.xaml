@@ -78,7 +78,7 @@
         <!--Barra de estado-->
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <StatusBar Name="BarraDeEstado" Background="Gray">             
-                <TextBlock>Listo</TextBlock >
+                <TextBlock>Listo:empezamos</TextBlock >
             </StatusBar>
         </StackPanel>
         <!--Barra lateral izquierda-->
@@ -101,9 +101,10 @@
         </StackPanel>
         <!--centro principal-->
         <Grid Grid.Row="2" Grid.Column="1" >
-            <TextBox Name="ctEditor" AcceptsReturn="True" TextWrapping="Wrap" AcceptsTab="True"
-                     VerticalScrollBarVisibility="Auto" Margin="5"
-                     ></TextBox>            
+            <RichTextBox Name="ctEditor" AcceptsReturn="True"  AcceptsTab="True"
+                     VerticalScrollBarVisibility="Auto" Margin="5">           
+                 
+            </RichTextBox>            
         </Grid>
     </Grid>
     

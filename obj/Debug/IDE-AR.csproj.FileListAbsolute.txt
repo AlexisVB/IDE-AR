@@ -1,1 +1,13 @@
 c:\users\alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe.config
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.pdb
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\App.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.g.resources
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE_AR.Properties.Resources.resources
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.Cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.exe
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.pdb
