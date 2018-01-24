@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="IDE_AR.Lista"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IDE_AR"
+             mc:Ignorable="d" 
+             d:DesignHeight="60" d:DesignWidth="60">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <!--Barra que señala en que servidor estas-->
+            <ColumnDefinition Width="Auto"/>
+            <!---->
+            <ColumnDefinition Width="Auto"/>
+            <!--Main content-->
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Barra de servidor-->
+        <Border Background="Red" Width="5"/>
+
+        <!--Foto de server padding-->
+        <Border Grid.Column="1" Padding="8">
+            <!--Foto de server background-->
+            <Border Background="Blue"
+                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                    CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
+                <!--Foto de server text-->
+                <TextBlock Text="1F"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="LightGray"   />
+
+            </Border>
+        </Border>
+    </Grid>
+</UserControl>
