@@ -1,11 +1,25 @@
 ﻿<Window x:Class="IDE_AR.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:IDE_AR" 
         Title="MainWindow" Height="800" Width="1300" Background="LightSlateGray"
         MinHeight="400" MinWidth="550"
+        Loaded="MainWindow_Loaded"
         Closing="MainWindow_Closing">
-
-    <Grid ShowGridLines="True">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:MainWindow.RCGuardar}"
+                        Executed="ExecutedRCGuardar"
+                        CanExecute="CanExecuteRCGuardar"/>   
+        <CommandBinding Command="ApplicationCommands.Close"
+                        Executed="ArchivoSalir_Click"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+G"
+                    Command="{x:Static local:MainWindow.RCGuardar}"/>
+        <KeyBinding Gesture="Ctrl+S"
+                    Command="ApplicationCommands.Close"/>
+    </Window.InputBindings>
+    <Grid ShowGridLines="false">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="3*"/>
@@ -22,31 +36,83 @@
             
             <Menu Name="BarraDeMenus" Background="Gray">
                 <MenuItem Name="MenuArchivo" Header="_Archivo">
-                    <MenuItem Name="ArchivoAbrir" Header="A_brir">
-                        <MenuItem.Icon>
-                            <Image Source="Imagenes/ArchivoAbrir.png"/>
+                    <MenuItem Name="ArchivoAbrir" Header="_Abrir"
+                              InputGestureText="Ctrl+A">
+                        <MenuItem.Icon >
+                            <Image Source="Images/abrir.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem Name="ArchivoGuardar" Header="_Guardar"
+                              InputGestureText="Ctrl+G"
+                              Command="{x:Static local:MainWindow.RCGuardar}">
+                        <MenuItem.Icon >
+                            <Image Source="Images/guardar.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="ArchivoSalir" Header="_Salir"
+                              InputGestureText="Ctrl+S"
+                              Command="Close">                        
+                    </MenuItem>
                 </MenuItem>
-                <MenuItem Name="MenuEditar" Header="_Editar">                    
+                <MenuItem Name="MenuEditar" Header="_Editar">   
+                    <MenuItem Name="EditarDeshacer" Header="Deshacer"
+                              Command="ApplicationCommands.Undo">
+                        <MenuItem.Icon >
+                            <Image Source="Images/deshacer.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="EditarRehacer" Header="Rehacer"
+                              Command="ApplicationCommands.Redo">
+                        <MenuItem.Icon >
+                            <Image Source="Images/rehacer.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem> 
+                    <MenuItem Name="EditarCopiar" Header="Copiar"
+                              Command="Copy">
+                        <MenuItem.Icon >
+                            <Image Source="Images/copiar.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem> 
+                    <MenuItem Name="EditarCortar" Header="Cortar"
+                              Command="Cut" >
+                        <MenuItem.Icon >
+                            <Image Source="Images/cortar.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem> 
+                    <MenuItem Name="EditarPegar" Header="Pegar"
+                              Command="Paste">
+                        <MenuItem.Icon >
+                            <Image Source="Images/pegar.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem> 
+                    <MenuItem Name="EditarEliminar" Header="Eliminar">
+                        <MenuItem.Icon >
+                            <Image Source="Images/eliminar.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem> 
+                    
                 </MenuItem>
                 <MenuItem Name="MenuOpciones" Header="_Opciones">
                     <MenuItem Name="OpcionesFuente" Header="_Fuente">
-                        <MenuItem Name="OpcionesFuentePredeterminado" Header="Predeterminada"/>
-                        <MenuItem Name="OpcionesFuenteCourier" Header="Courier new"/>
-                        <MenuItem Name="OpcionesFuenteArial" Header="Arial"/>
+                        <MenuItem Name="OpcionesFuentePredeterminado" Header="Predeterminada" IsChecked="True" Click="OpcionesFuentePredeterminada_Click"/>
+                        <MenuItem Name="OpcionesFuenteCourier" Header="Courier new" Click="OpcionesFuenteCourier_Click"/>
+                        <MenuItem Name="OpcionesFuenteArial" Header="Arial" Click="OpcionesFuenteArial_Click"/>
                     </MenuItem>
                     <MenuItem Name="OpcionesTamano" Header="_Tamaño">
-                        <MenuItem Name="OpcionesPredeterminado" Header="Predeterminado"/>
-                        <MenuItem Name="OpcionesTamano10" Header="10"/>
-                        <MenuItem Name="OpcionesTamano12" Header="12"/>
-                        <MenuItem Name="OpcionesTamano14" Header="14"/>
-                        <MenuItem Name="OpcionesTamano16" Header="16"/>
-                        <MenuItem Name="OpcionesTamano18" Header="18"/>
+                        <MenuItem Name="OpcionesPredeterminado" Header="Predeterminado" IsChecked="True" Click="OpcionesFuenteSize_Click"/>
+                        <MenuItem Name="OpcionesTamano10" Header="10" Click="OpcionesFuenteSize_Click"/>
+                        <MenuItem Name="OpcionesTamano12" Header="12" Click="OpcionesFuenteSize_Click"/>
+                        <MenuItem Name="OpcionesTamano14" Header="14" Click="OpcionesFuenteSize_Click"/>
+                        <MenuItem Name="OpcionesTamano16" Header="16" Click="OpcionesFuenteSize_Click"/>
+                        <MenuItem Name="OpcionesTamano18" Header="18" Click="OpcionesFuenteSize_Click"/>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Name="MenuAyuda" Header="_Ayuda">
-                    <MenuItem Name="AyudaAcercaDe" Header="Acerca de"/>
+                    <MenuItem Name="AyudaAcercaDe" Header="Acerca de" Click="acercaDe_Click">
+                        <MenuItem.Icon>
+                            <Image Source="Images/acercaDe.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
 
             </Menu>
@@ -55,31 +121,59 @@
         </StackPanel>
         <!--Barra de Herramientas-->
         <StackPanel Grid.Row="1" Grid.Column="1"  >
-            <ToolBar Name="BarraDeHerramientas" Background="DarkGray">
-                <Button Name="btArAbrir">
-                    <!--<Image Source="Imagenes/ArchivoAbrir.png" />La imagen no se muestra-->
-                    <TextBlock>Abrir</TextBlock>
+            <ToolBar Name="BarraDeHerramientas" Background="DarkGray" >
+                <Button Name="btArAbrir" Width="30" Height="30" ToolTip="Abrir">
+                    <Image Source="Images/abrir.png"  />                                    
                 </Button>
-                <Button Name="btArGuardar">
-                    <TextBlock>Guardar</TextBlock>
+                <Button Name="btArGuardar"
+                        Width="30" Height="30"
+                        Command="{x:Static local:MainWindow.RCGuardar}"
+                        ToolTip="Guardar">
+                    <Image Source="Images/guardar.png"/>
                 </Button>
                 <Separator></Separator>
-                <Button Name="btArCortar">
-                    <TextBlock>Cortar</TextBlock>
+                <Button Name="btArCortar"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"
+                        Command="Cut"
+                        ToolTip="Cortar">
+                    <Image Source="Images/cortar.png"/>
                 </Button>
-                <Button Name="btArCopiar">
-                    <TextBlock>Copiar</TextBlock>
+                <Button Name="btArCopiar"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"
+                        Command="Copy"
+                        ToolTip="Copiar">
+                    <Image Source="Images/copiar.png"/>
                 </Button>
-                <Button Name="btArPegar">
-                    <TextBlock>Pegar</TextBlock>
+                <Button Name="btArPegar"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"
+                        Command="Paste"
+                        ToolTip="Pegar">
+                    <Image Source="Images/pegar.png" />
+                </Button>
+                <Button Name="btDeshacer"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"                        
+                        ToolTip="Deshacer"
+                        Command="ApplicationCommands.Undo">
+                    <Image Source="Images/deshacer.png" />
+                </Button>
+                <Button Name="btRehacer"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"                        
+                        ToolTip="Rehacer"
+                        Command="ApplicationCommands.Redo">
+                    <Image Source="Images/rehacer.png" />
                 </Button>
             </ToolBar>
         </StackPanel>
         <!--Barra de estado-->
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
             <StatusBar Name="BarraDeEstado" Background="Gray">             
-                <TextBlock>Listo:empezamos</TextBlock >
-                <TextBlock>Probando</TextBlock>
+                <TextBlock Name="txtEstado"></TextBlock >
+                
             </StatusBar>
         </StackPanel>
         <!--Barra lateral izquierda-->
@@ -103,8 +197,16 @@
         <!--centro principal-->
         <Grid Grid.Row="2" Grid.Column="1" >
             <RichTextBox Name="ctEditor" AcceptsReturn="True"  AcceptsTab="True"
-                     VerticalScrollBarVisibility="Auto" Margin="5">           
-                 
+                     VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,0,0,9.4"
+                    Background="LightGray"
+                         >
+                <RichTextBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Name="mcEditarCortar" Command="Cut"/>
+                        <MenuItem Name="mcEditarCopiar" Command="Copy"/>
+                        <MenuItem Name="mcEditarPegar" Command="Paste"/>
+                    </ContextMenu>
+                </RichTextBox.ContextMenu>
             </RichTextBox>            
         </Grid>
     </Grid>
