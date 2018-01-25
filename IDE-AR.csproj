@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Estilos\Colores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -103,6 +107,11 @@
     <Resource Include="Images\guardar.png" />
     <Resource Include="Images\pegar.png" />
     <Resource Include="Images\rehacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\actividades.xml" />
+    <Resource Include="Datos\grupos.xml" />
+    <Resource Include="Datos\materias.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

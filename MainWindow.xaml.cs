@@ -74,6 +74,20 @@ namespace IDE_AR
                              "-Alexis Daniel Villicaña Barrera";
             MessageBox.Show(creditos, "IDE-AR");
         }
+        public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Elemento seleccionado:" + lstMaterias.SelectedIndex);
+        }
+      
+        public void lstGrupo_SelectionChanged(Object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Elemento seleccionado:" + lstGrupos.SelectedIndex);
+        }
+
+        public void lstActividades_SelectionChanged(Object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show("Elemento seleccionado:" + lstActividades.SelectedIndex);
+        }
 
         //**************************************************************************************************
         //Eventos para la asignación de fuentes

@@ -19,6 +19,14 @@
         <KeyBinding Gesture="Ctrl+S"
                     Command="ApplicationCommands.Close"/>
     </Window.InputBindings>
+    <Window.Resources>
+        <XmlDataProvider x:Key="xmlMaterias"
+                         Source="Datos/materias.xml" XPath="materias"/>
+        <XmlDataProvider x:Key="xmlGrupos"
+                         Source="Datos/grupos.xml" XPath="grupos"/>
+        <XmlDataProvider x:Key="xmlActividades"
+                         Source="Datos/actividades.xml" XPath="actividades"/>
+    </Window.Resources>    
     <Grid ShowGridLines="false">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -177,19 +185,92 @@
             </StatusBar>
         </StackPanel>
         <!--Barra lateral izquierda-->
-       
+        
             <Grid Grid.Row="1" Grid.Column="0"
-                  Grid.RowSpan="2" ShowGridLines="True">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1*"/>
-                </Grid.ColumnDefinitions>
+                  Grid.RowSpan="2" ShowGridLines="True"
+                  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                
             </StackPanel>
             <StackPanel Grid.Column="1"></StackPanel>
-            <StackPanel Grid.Column="2"></StackPanel>
+                <StackPanel Grid.Column="2"></StackPanel>
+                <StackPanel Grid.Column="0" DataContext="{Binding Source={StaticResource xmlMaterias}}">
+                <TextBlock Text="Materias" Foreground="White"/>
+                 <ListView Name="lstMaterias" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding XPath=materia}"
+                  SelectionChanged="list1_SelectionChanged"                  
+                               Background="LightSlateGray">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel >
+                                <Ellipse Height="75" Width="75" >
+                                        <Ellipse.Fill>                                            
+                                        <ImageBrush ImageSource="{Binding XPath=foto}"/>
+                                        </Ellipse.Fill>
+                                    <Ellipse.ToolTip>
+                                        <TextBlock Text="{Binding XPath=nombre}"/>
+                                    </Ellipse.ToolTip>
+                                    </Ellipse>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>                  
+                    </ListView>
+                <Button>Añadir</Button>
+            </StackPanel>
+            <StackPanel Grid.Column="1" DataContext="{Binding Source={StaticResource xmlGrupos}}">
+                <TextBlock Text="Grupos" Foreground="White"/>
+                <ListView Name="lstGrupos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding XPath=grupo}"
+                  SelectionChanged="lstGrupo_SelectionChanged"                  
+                               Background="LightSlateGray"
+                          Margin="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel >
+                                <Ellipse Height="75" Width="75" >
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="{Binding XPath=foto}"/>
+                                    </Ellipse.Fill>
+                                    <Ellipse.ToolTip>
+                                        <TextBlock Text="{Binding XPath=nombre}"/>
+                                    </Ellipse.ToolTip>
+                                </Ellipse>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button>Añadir</Button>
+            </StackPanel>
+                <StackPanel Grid.Column="2"
+                        DataContext="{Binding Source={StaticResource xmlActividades}}">
+                    <TextBlock Text="Actividades" Foreground="White"/>
+                <ListView Name="lstActividades" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding XPath=actividad}"
+                  SelectionChanged="lstActividades_SelectionChanged"                  
+                  Background="LightSlateGray"
+                          Margin="0">
+                    <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Grid.Column="1" Padding="8">
+                                    <Border Background="{Binding XPath=color}"
+                                    Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                                    CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}">
+                                    <TextBlock Text="{Binding XPath=nick}"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    
+                                    />
+                                </Border>
+                                </Border>
+                        </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button>Añadir</Button>
+                </StackPanel>
         </Grid>
         
         <!--Barra lateral derecha-->

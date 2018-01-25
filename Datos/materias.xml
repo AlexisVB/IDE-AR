@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<materias>
+  <materia>
+    <foto>Images/listas/progra_basica.jpg</foto>
+    <nombre>Programación 1</nombre>   
+  </materia>
+  <materia>
+    <foto>Images/listas/android.png</foto>
+    <nombre>Programación Móvil</nombre>   
+  </materia>
+  <materia>
+        <foto>Images/listas/progra_web.jpg</foto>
+        <nombre>Programación web</nombre>          
+  </materia>
+  <materia>
+    <foto>Images/listas/progra_basica.jpg</foto>
+    <nombre>Programación 1</nombre>
+  </materia>
+</materias>

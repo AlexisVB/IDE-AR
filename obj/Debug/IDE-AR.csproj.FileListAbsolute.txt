@@ -24,3 +24,6 @@ C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MainWindow.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.g.resources
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE_AR.Properties.Resources.resources
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.Cache
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\App.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\Colores.baml

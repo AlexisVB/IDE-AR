@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actividades>
+  <actividad>
+    <color>BackgroundLightBrush</color>
+    <nombre>Actividad 1</nombre>
+    <nick>A1</nick>
+  </actividad>
+  <actividad>
+    <color>Blue</color>
+    <nombre>Actividad integradora</nombre>
+    <nick>AI</nick>
+  </actividad>
+  <actividad>
+    <color>Green</color>
+    <nombre>Exámen</nombre>
+    <nick>Ex</nick>
+  </actividad>  
+</actividades>
