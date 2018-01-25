@@ -93,6 +93,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\abrir.png" />
+    <Resource Include="Images\acercaDe.png" />
+    <Resource Include="Images\copiar.png" />
+    <Resource Include="Images\cortar.png" />
+    <Resource Include="Images\deshacer.png" />
+    <Resource Include="Images\eliminar.png" />
+    <Resource Include="Images\guardar.png" />
+    <Resource Include="Images\pegar.png" />
+    <Resource Include="Images\rehacer.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

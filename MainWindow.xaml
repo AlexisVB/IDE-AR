@@ -185,7 +185,9 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0"></StackPanel>
+            <StackPanel Grid.Column="0">
+                
+            </StackPanel>
             <StackPanel Grid.Column="1"></StackPanel>
             <StackPanel Grid.Column="2"></StackPanel>
         </Grid>
@@ -207,7 +209,8 @@
                         <MenuItem Name="mcEditarPegar" Command="Paste"/>
                     </ContextMenu>
                 </RichTextBox.ContextMenu>
-            </RichTextBox>            
+            </RichTextBox>
+            
         </Grid>
     </Grid>
     
