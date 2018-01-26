@@ -135,15 +135,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\abrir.png" />
     <Resource Include="Images\acercaDe.png" />
-    <Resource Include="Images\copiar.png" />
-    <Resource Include="Images\cortar.png" />
-    <Resource Include="Images\deshacer.png" />
     <Resource Include="Images\eliminar.png" />
-    <Resource Include="Images\guardar.png" />
-    <Resource Include="Images\pegar.png" />
-    <Resource Include="Images\rehacer.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Datos\actividades.xml" />
@@ -157,6 +150,30 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\abrir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cortar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pegar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\copiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rehacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deshacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\darkOpen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

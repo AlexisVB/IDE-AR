@@ -44,15 +44,17 @@
         <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Vertical">
             
             <Menu Name="BarraDeMenus" Background="{StaticResource PrimaryColorBrush}">
-                <MenuItem Name="MenuArchivo" Header="_Archivo">
+                <MenuItem Name="MenuArchivo" Header="_Archivo" >
                     <MenuItem Name="ArchivoAbrir" Header="_Abrir"
-                              InputGestureText="Ctrl+A">
+                              InputGestureText="Ctrl+A"
+                              >
                         <MenuItem.Icon >
-                            <Image Source="Images/abrir.png"/>
+                            <Image Source="Images/Dark/darkOpen.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Name="ArchivoGuardar" Header="_Guardar"
                               InputGestureText="Ctrl+G"
+                              Background="Black"
                               Command="{x:Static local:MainWindow.RCGuardar}">
                         <MenuItem.Icon >
                             <Image Source="Images/guardar.png"/>
