@@ -46,16 +46,17 @@
             <Menu Name="BarraDeMenus" Background="{StaticResource PrimaryColorBrush}">
                 <MenuItem Name="MenuArchivo" Header="_Archivo" >
                     <MenuItem Name="ArchivoAbrir" Header="_Abrir"
-                              InputGestureText="Ctrl+A"
-                              >
+                              InputGestureText="Ctrl+A">
                         <MenuItem.Icon >
-                            <Image Source="Images/Dark/darkOpen.png"/>
+                            <Image Source="Images/abrir.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Name="ArchivoGuardar" Header="_Guardar"
-                              InputGestureText="Ctrl+G"
-                              Background="Black"
+                    <MenuItem Name="ArchivoGuardar" 
+                              InputGestureText="Ctrl+G"                              
                               Command="{x:Static local:MainWindow.RCGuardar}">
+                        <MenuItem.Header>
+                            <TextBlock Text="Guardar" Foreground="White"/>
+                        </MenuItem.Header>                        
                         <MenuItem.Icon >
                             <Image Source="Images/guardar.png"/>
                         </MenuItem.Icon>
