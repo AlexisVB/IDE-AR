@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <grupos>
   <grupo>
-    <foto>Images/listas/grupo.png</foto>
-    <nombre>8C-1</nombre>   
+    <color>#f44336</color>
+    <nombre>8C-1</nombre>
+    <nick>8C</nick>
   </grupo>
   <grupo>
-    <foto>Images/listas/grupo2.png</foto>
-    <nombre>7c-1</nombre>
+    <color>#f44336</color>
+    <nombre>8A-2</nombre>
+    <nick>8A</nick>
   </grupo>
 </grupos>

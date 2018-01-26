@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using IDE_AR.Datos;
 namespace IDE_AR
 {
     /// <summary>
@@ -20,8 +20,10 @@ namespace IDE_AR
     /// </summary>
     public partial class MainWindow : Window
     {
+        private usuario miusuario;
         private FontFamily familiaPre;
         private double sizePre;
+        private configuracion ventanaConfiguracion;
         public static RoutedUICommand RCGuardar = new RoutedUICommand();
         public MainWindow()
         {
@@ -88,7 +90,33 @@ namespace IDE_AR
         {
             MessageBox.Show("Elemento seleccionado:" + lstActividades.SelectedIndex);
         }
-
+        public void btConfiguracion_Click(Object sender,RoutedEventArgs e)
+        {
+            ventanaConfiguracion = new configuracion();
+            //mostar la ventana
+            ventanaConfiguracion.ShowDialog();
+        }
+        public void btAdd1_Click(Object sender,RoutedEventArgs e)
+        {
+            AgregarMateria nuevaMateria = new AgregarMateria();
+            nuevaMateria.Owner = this;
+            //mostar la ventana
+            nuevaMateria.ShowDialog();
+        }
+        public void btAdd2_Click(Object sender, RoutedEventArgs e)
+        {
+            Agregar_Grupo nuevoGrupo = new Agregar_Grupo();
+            nuevoGrupo.Owner = this;
+            //mostar la ventana
+            nuevoGrupo.ShowDialog();
+        }
+        public void btAdd3_Click(Object sender, RoutedEventArgs e)
+        {
+            AgregarActividad nuevaActividad = new AgregarActividad();
+            nuevaActividad.Owner = this;
+            //mostar la ventana
+            nuevaActividad.ShowDialog();
+        }
         //**************************************************************************************************
         //Eventos para la asignación de fuentes
         private void OpcionesFuentePredeterminada_Click(Object sender, RoutedEventArgs e)

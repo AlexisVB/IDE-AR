@@ -8,7 +8,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <!--El orden es importante-->
                 <ResourceDictionary Source="Estilos/Colores.xaml"/>
+                <ResourceDictionary Source="Estilos/plantillas.xaml"/>
+                <ResourceDictionary Source="Estilos/plantillasBotones.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            
         </ResourceDictionary>
+       
     </Application.Resources>
 </Application>

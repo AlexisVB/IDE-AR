@@ -4,7 +4,28 @@
     <Color x:Key="BackgroundLight">#efefef</Color>
     <SolidColorBrush x:Key="BackgroundLightBrush" Color="{StaticResource BackgroundLight}"/>
 
-    <Color x:Key="BackgroundDark">#000000</Color>
+    <Color x:Key="BackgroundDark">#263238</Color>
     <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"/>
+    
+    <Color x:Key="DarkPrimaryColor">#455A64</Color>
+    <SolidColorBrush x:Key="DarkPrimaryColorBrush" Color="{StaticResource DarkPrimaryColor}"/>
+    
+    <Color x:Key="PrimaryColor">#37474f</Color>
+    <SolidColorBrush x:Key="PrimaryColorBrush" Color="{StaticResource PrimaryColor}"/>
+    
 
+    <Color x:Key="PrimaryRed">#f44336</Color>
+    <SolidColorBrush x:Key="PrimaryRedBrush" Color="{StaticResource PrimaryRed}"/>
+
+    <Color x:Key="EditorTexto">#36393e</Color>
+    <SolidColorBrush x:Key="EditorTextoBrush" Color="{StaticResource EditorTexto}"/>
+    
+    <Color x:Key="BarraLateralizquierda">#202225</Color>
+    <SolidColorBrush x:Key="BarraLateralIzquierdaBrush" Color="{StaticResource BarraLateralizquierda}"/>
+    
+    <Color x:Key="BarraLateralDerecha">#2f3136</Color>
+    <SolidColorBrush x:Key="BarraLateralDerechaBrush" Color="{StaticResource BarraLateralDerecha}"/>
+    
+    <Color x:Key="BarraConfiguracion">#2a2c31</Color>
+    <SolidColorBrush x:Key="BarraConfiguracionBrush" Color="{StaticResource BarraConfiguracion}"/>
 </ResourceDictionary>

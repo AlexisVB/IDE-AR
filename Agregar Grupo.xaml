@@ -1,0 +1,9 @@
+﻿<Window x:Class="IDE_AR.Agregar_Grupo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Agregar Grupo" Height="400" Width="400"
+        WindowStartupLocation="CenterOwner">
+    <Grid>
+        
+    </Grid>
+</Window>

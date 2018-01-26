@@ -1,0 +1,55 @@
+﻿<Window x:Class="IDE_AR.configuracion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="IDE-AR" Height="600" Width="1000"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource DarkPrimaryColorBrush}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="182"/>
+            <ColumnDefinition Width="245"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <TextBlock Width="230" Style="{StaticResource ResourceKey=TitulosConfiguracion}"><Run Text="Administrar"/></TextBlock>
+            <Separator BorderThickness="10" BorderBrush="White"  RenderTransformOrigin="0.5,0.5">
+                <Separator.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90.00"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Separator.RenderTransform>
+            </Separator>
+            <TextBlock Width="200" Style="{StaticResource ResourceKey=TitulosConfiguracion}"><Run Text="Configuración"/></TextBlock>
+        </StackPanel>
+        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,-0.4,-4.6">
+            <TabItem Header="Materias" Style="{StaticResource TabsItems}">
+                
+            </TabItem>
+            <TabItem Header="Grupos" Style="{StaticResource TabsItems}">
+
+            </TabItem>
+            <TabItem Header="Actividades" Style="{StaticResource TabsItems}">
+                <Grid>
+                    <TextBlock>1</TextBlock>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Mi cuenta" Style="{StaticResource TabsItems}">
+                <Grid>
+                    <Button Width="40" Height="20">Cerrar Seccion</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Notificaciones" Style="{StaticResource TabsItems}">
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</Window>

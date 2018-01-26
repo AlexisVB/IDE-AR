@@ -1,7 +1,6 @@
 c:\users\alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe.config
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.pdb
-C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.baml
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.g.cs
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\App.g.cs
@@ -27,3 +26,16 @@ C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\App.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\Colores.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\App.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.lref
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\Colores.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillas.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\configuracion.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\configuracion.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasBotones.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.g.cs
