@@ -22,7 +22,24 @@
             </Canvas>
         </StackPanel>     
     </DataTemplate>
-    <Style  x:Key="CrecerItem" >
+    <DataTemplate x:Key="plantilla2Listas">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding XPath=nombre}" Foreground="White" FontSize="14" FontFamily="Verdana"/>
+            <Ellipse Name="colorEstado" Width="15" Height="15"/>            
+        </StackPanel>  
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding XPath=estado}" Value="1">
+                <Setter TargetName="colorEstado" Property="Fill" Value="Green"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding XPath=estado}" Value="2">
+                <Setter TargetName="colorEstado" Property="Fill" Value="Orange"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding XPath=estado}" Value="0">
+                <Setter TargetName="colorEstado" Property="Fill" Value="Red"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    <Style  x:Key="CrecerItem">
         <Style.Triggers>
             <EventTrigger RoutedEvent="DockPanel.MouseEnter">
                 <BeginStoryboard>
@@ -75,5 +92,10 @@
         <Setter Property="Foreground" Value="White"/>      
 
     </Style>
-    
+
+    <Style  TargetType="ListView">
+        <Setter Property="BorderThickness" Value="0"/>
+      
+
+    </Style>
 </ResourceDictionary>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<alumnos>
+  <alumno>
+    <nombre>Alexis Daniel</nombre>
+    <estado>1</estado>
+  </alumno>
+<alumno>
+    <nombre>André Nicolás</nombre>
+    <estado>1</estado>
+  </alumno>
+<alumno>
+    <nombre>Argos Piña</nombre>
+    <estado>1</estado>
+  </alumno>
+</alumnos> 

@@ -27,6 +27,12 @@
                          Source="Datos/grupos.xml" XPath="grupos"/>
         <XmlDataProvider x:Key="xmlActividades"
                          Source="Datos/actividades.xml" XPath="actividades"/>
+        <XmlDataProvider x:Key="xmlAlumnosActivos"
+                         Source="Datos/alumnos.xml" XPath="alumnos"/>
+        <XmlDataProvider x:Key="xmlAlumnosInactivos"
+                         Source="Datos/alumnos2.xml" XPath="alumnos"/>
+        <XmlDataProvider x:Key="xmlAlumnosNoActivos"
+                         Source="Datos/alumnos3.xml" XPath="alumnos"/>
     </Window.Resources>    
     <Grid ShowGridLines="false">
         <Grid.ColumnDefinitions>
@@ -218,8 +224,9 @@
                 </ListView>
                 <Button Name="btnAdd2" 
                         Style="{StaticResource botonAdd}"
-                        Click="btAdd2_Click"/>
-                
+                        Click="btAdd2_Click">
+                </Button>
+
             </StackPanel>
             <StackPanel Grid.Column="2"
                         DataContext="{Binding Source={StaticResource xmlActividades}}">
@@ -268,8 +275,36 @@
 
         </Grid>
         <!--Barra lateral derecha-->
-        <StackPanel Grid.Row="2" Grid.Column="2" Background="{StaticResource BarraLateralDerechaBrush}" >
-
+        <StackPanel Grid.Row="2" Grid.Column="2" 
+                    Background="{StaticResource BarraLateralDerechaBrush}" 
+                    >
+            <TextBlock Text="-Alumnos activos-" FontSize="16" Foreground="Gray" />
+            <ListView Name="lstAlumnosActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding XPath=alumno}"
+                  SelectionChanged="lstActividades_SelectionChanged"                  
+                  Background="{StaticResource BarraLateralDerechaBrush}"
+                          Margin="0"
+                          ItemTemplate="{StaticResource plantilla2Listas}"
+                      DataContext="{Binding Source={StaticResource xmlAlumnosActivos}}">
+            </ListView>
+            <TextBlock Text="-Alumnos inactivos-" FontSize="16" Foreground="Gray"/>
+            <ListView Name="lstAlumnosInactivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding XPath=alumno}"
+                  SelectionChanged="lstActividades_SelectionChanged"                  
+                  Background="{StaticResource BarraLateralDerechaBrush}"
+                          Margin="0"
+                          ItemTemplate="{StaticResource plantilla2Listas}"
+                      DataContext="{Binding Source={StaticResource xmlAlumnosInactivos}}">
+            </ListView>
+            <TextBlock Text="-Alumnos no activos-" FontSize="16" Foreground="Gray"/>
+            <ListView Name="lstAlumnosNoActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                  ItemsSource="{Binding XPath=alumno}"
+                  SelectionChanged="lstActividades_SelectionChanged"                  
+                  Background="{StaticResource BarraLateralDerechaBrush}"
+                          Margin="0"
+                          ItemTemplate="{StaticResource plantilla2Listas}"
+                      DataContext="{Binding Source={StaticResource xmlAlumnosNoActivos}}">
+            </ListView>
         </StackPanel>
         <!--centro principal-->
         <Grid Grid.Row="2" Grid.Column="1" >

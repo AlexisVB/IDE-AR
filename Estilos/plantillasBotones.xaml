@@ -22,7 +22,7 @@
     <Style x:Key="botonAdd" TargetType="Button">
         <Setter Property="Content">
             <Setter.Value>
-                <TextBlock Foreground="White" Text="+" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Foreground="White"  FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             </Setter.Value>
         </Setter>
         <Setter Property="Margin" Value="5"/>

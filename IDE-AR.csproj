@@ -178,6 +178,15 @@
   <ItemGroup>
     <Resource Include="Images\salir.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\alumnos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\alumnos2.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\alumnos3.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
