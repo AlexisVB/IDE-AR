@@ -41,9 +41,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <!--Barra de Menus-->
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Vertical">
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Vertical" >
             
-            <Menu Name="BarraDeMenus" Background="{StaticResource PrimaryColorBrush}">
+            <Menu Name="BarraDeMenus" Background="{StaticResource BarraLateralIzquierdaBrush}">
                 <MenuItem Name="MenuArchivo" Header="_Archivo" >
                     <MenuItem Name="ArchivoAbrir" Header="_Abrir"
                               InputGestureText="Ctrl+A">
@@ -63,7 +63,10 @@
                     </MenuItem>
                     <MenuItem Name="ArchivoSalir" Header="_Salir"
                               InputGestureText="Ctrl+S"
-                              Command="Close">                        
+                              Command="Close">
+                        <MenuItem.Icon >
+                            <Image Source="Images/salir.png"/>
+                        </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Name="MenuEditar" Header="_Editar">   

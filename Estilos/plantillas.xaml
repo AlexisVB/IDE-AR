@@ -71,7 +71,7 @@
     
     <Style  TargetType="MenuItem">
         <Setter Property="Background" Value="#202225"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="12"/>
         <Setter Property="Foreground" Value="White"/>      
 
     </Style>
