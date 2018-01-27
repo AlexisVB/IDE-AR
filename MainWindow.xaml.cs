@@ -13,18 +13,34 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IDE_AR.Datos;
+using IDE_AR.DatosGlobales;
 namespace IDE_AR
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        private usuario miusuario;
-        private FontFamily familiaPre;
-        private double sizePre;
+    {        
         private configuracion ventanaConfiguracion;
+        //*********************Variables para las listas************************************
+        private List<materia> listAsignatures=new List<materia>();
+        private List<grupo> listGroups = new List<grupo>();
+        private List<actividad> listActivities = new List<actividad>();
+
+        private List<usuario> listStudentsActives = new List<usuario>();
+        private List<usuario> listStudentsInactives = new List<usuario>();
+        private List<usuario> listStudentsNoActives = new List<usuario>();
+
+        public materia materiaContexto;//Variable usada solo para darle contexto a la lista materias
+        public grupo grupoContexto;//Variable usada solo para darle contexto a la lista grupos
+        public actividad actividadContexto;//Variable usada solo para darle contexto a la lista actividades
+        public usuario usuarioContexto;//Variable usada solo para darle contexto a las listas de usuarios
+        //**********************************************************
+        //*************************Variables para el editor*********************************
+        private FontFamily familiaPre;
+        private double sizePre;        
         public static RoutedUICommand RCGuardar = new RoutedUICommand();
+        //**********************************************************************************        
         public MainWindow()
         {
             InitializeComponent();
@@ -38,9 +54,17 @@ namespace IDE_AR
                 Width = restoreBounds.Width;
                 Height = restoreBounds.Height;
                 WindowState = Properties.Settings.Default.MainWindowState;
-                txtEstado.Text = "Listo";
+                
             }
-            catch{}         
+            catch{}
+           VariablesGlobales.miusuario.IdUsuario = 1;
+           VariablesGlobales.miusuario.NombreUsuario = "Estudiante Vergas";
+           VariablesGlobales.miusuario.Grupo = "0";
+           VariablesGlobales.miusuario.Nombre = "Enchilada Verde";
+            busquedaDatosListas();
+            InicializarListas();
+            InicializacionDatos();
+             
         }
         private void  MainWindow_Loaded(Object sender,RoutedEventArgs e)
         {
@@ -55,6 +79,11 @@ namespace IDE_AR
             Properties.Settings.Default.Save();
         }
       
+        private void InicializacionDatos()
+        {            
+            txtEstado.Text = "Listo";
+            tbUserName.Text = VariablesGlobales.miusuario.NombreUsuario;
+        }
         private void ExecutedRCGuardar(Object sender, ExecutedRoutedEventArgs e)
         {
             //implementar aqui logica para la orden guardar
@@ -76,9 +105,40 @@ namespace IDE_AR
                              "-Alexis Daniel Villicaña Barrera";
             MessageBox.Show(creditos, "IDE-AR");
         }
+        //************************Funciones y eventos de las listas***********************************************
+        private void InicializarListas()
+        {
+            //Asignación de contextos
+            lstMaterias.DataContext = materiaContexto;
+            //lstGrupos.DataContext = grupoContexto;
+            //lstActividades.DataContext = actividadContexto;
+            //lstAlumnosActivos.DataContext = usuarioContexto;
+            //lstAlumnosInactivos.DataContext = usuarioContexto;
+            //lstAlumnosNoActivos.DataContext = usuarioContexto;
+
+            //Asignación de listas
+            lstMaterias.ItemsSource = listAsignatures;
+            //lstGrupos.ItemsSource = listGroups;
+            //lstActividades.ItemsSource = listActivities;
+            //lstAlumnosActivos.ItemsSource = listStudentsActives;
+            //lstAlumnosInactivos.ItemsSource = listStudentsInactives;
+            // lstAlumnosNoActivos.ItemsSource = listStudentsNoActives;
+        }
+        private void busquedaDatosListas()
+        {
+            //busqueda de datos inicial   
+            //inicio simulación
+            materia otra = new materia();
+            otra.NombreMateria = "Progra Web";
+            otra.Nick = "PW";
+            otra.Color = "#2979ff";
+            listAsignatures.Add(otra);
+            //fin simulacion            
+        }
         public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("Elemento seleccionado:" + lstMaterias.SelectedIndex);
+            materia var=listAsignatures[lstMaterias.SelectedIndex];
+            MessageBox.Show("Elemento seleccionado:" + var.NombreMateria);            
         }
       
         public void lstGrupo_SelectionChanged(Object sender, SelectionChangedEventArgs e)
@@ -101,7 +161,12 @@ namespace IDE_AR
             AgregarMateria nuevaMateria = new AgregarMateria();
             nuevaMateria.Owner = this;
             //mostar la ventana
-            nuevaMateria.ShowDialog();
+            nuevaMateria.ShowDialog();         
+            //listAsignatures.Add(otra);
+            //lstMaterias.ItemsSource = null;
+            //lstMaterias.Items.Clear();
+            //lstMaterias.ItemsSource = listAsignatures;
+            
         }
         public void btAdd2_Click(Object sender, RoutedEventArgs e)
         {

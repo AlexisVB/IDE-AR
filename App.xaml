@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="Estilos/Colores.xaml"/>
                 <ResourceDictionary Source="Estilos/plantillas.xaml"/>
                 <ResourceDictionary Source="Estilos/plantillasBotones.xaml"/>
+                <ResourceDictionary Source="Estilos/EstiloRichTextBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
         </ResourceDictionary>

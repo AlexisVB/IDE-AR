@@ -202,17 +202,16 @@
         <StackPanel Grid.Row="1" Grid.Column="0"
                   Grid.RowSpan="2" Orientation="Horizontal"
                     Background="{StaticResource BarraLateralIzquierdaBrush}">
-            <StackPanel Grid.Column="0" DataContext="{Binding Source={StaticResource xmlMaterias}}">
+            <StackPanel Grid.Column="0" DataContext="lo">
                 <TextBlock Text="Materias" Foreground="White"/>
-                 <ListView Name="lstMaterias" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding XPath=materia}"
+                <ListView Name="lstMaterias" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                  
                   SelectionChanged="list1_SelectionChanged"                  
                     Background="{StaticResource BarraLateralIzquierdaBrush}"
-                ItemTemplate="{StaticResource plantilla1Listas}">                                       
-                    </ListView>
+                ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}"
+                />
                 <Button Name="btnAdd1" 
                         Style="{StaticResource botonAdd}"
-                        Click="btAdd3_Click"/>
+                        Click="btAdd1_Click"/>
             </StackPanel>
             <StackPanel Grid.Column="1" DataContext="{Binding Source={StaticResource xmlGrupos}}">
                 <TextBlock Text="Grupos" Foreground="White"/>
@@ -240,7 +239,7 @@
                     </ListView>
                 <Button Name="btnAdd3" 
                         Style="{StaticResource botonAdd}"
-                        Click="btAdd1_Click"></Button>
+                        Click="btAdd3_Click"></Button>
             </StackPanel>
         </StackPanel>
         <!--Barra lateral de configuracion-->
@@ -250,11 +249,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" 
+            <TextBlock Name="tbUserName"
+                       Grid.Column="0" 
                        FontSize="16" 
                        Foreground="White" 
-                       FontFamily="Verdana" 
-                       Text="User Name" 
+                       FontFamily="Verdana"                        
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
             <Ellipse Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Right">
@@ -308,23 +307,25 @@
         </StackPanel>
         <!--centro principal-->
         <Grid Grid.Row="2" Grid.Column="1" >
-            <RichTextBox 
+            <Grid>
+                <RichTextBox 
                 Name="ctEditor" 
                 AcceptsReturn="True"  
-                AcceptsTab="True"
-                VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"                
-                Background="{StaticResource EditorTextoBrush}" 
-                Foreground="White"
+                AcceptsTab="True"                
+                VerticalScrollBarVisibility="Auto" 
+                HorizontalScrollBarVisibility="Auto"                
                 >
-                <RichTextBox.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Name="mcEditarCortar" Command="Cut"/>
-                        <MenuItem Name="mcEditarCopiar" Command="Copy"/>
-                        <MenuItem Name="mcEditarPegar" Command="Paste"/>
-                    </ContextMenu>
-                </RichTextBox.ContextMenu>
-            </RichTextBox>
-            
+                    <RichTextBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Name="mcEditarCortar" Command="Cut"/>
+                            <MenuItem Name="mcEditarCopiar" Command="Copy"/>
+                            <MenuItem Name="mcEditarPegar" Command="Paste"/>
+                        </ContextMenu>
+                    </RichTextBox.ContextMenu>
+                </RichTextBox>
+
+            </Grid>
+           
         </Grid>
     </Grid>
     

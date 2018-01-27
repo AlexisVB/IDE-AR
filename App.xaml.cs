@@ -13,8 +13,7 @@ namespace IDE_AR
     /// </summary>
     public partial class App : Application
     {
-        private System.Threading.Mutex exmut;
-        
+        private System.Threading.Mutex exmut;        
 
         private void Application_Startup(Object sender,StartupEventArgs e)
         {

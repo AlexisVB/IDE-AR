@@ -73,6 +73,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Estilos\EstiloRichTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Estilos\plantillas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,6 +105,10 @@
     <Compile Include="configuracion.xaml.cs">
       <DependentUpon>configuracion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatosGlobales\VariablesGlobales.cs" />
+    <Compile Include="Datos\actividad.cs" />
+    <Compile Include="Datos\grupo.cs" />
+    <Compile Include="Datos\materia.cs" />
     <Compile Include="Datos\usuario.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -141,9 +149,6 @@
   <ItemGroup>
     <Resource Include="Datos\actividades.xml" />
     <Resource Include="Datos\grupos.xml" />
-    <Resource Include="Datos\materias.xml">
-      <SubType>Designer</SubType>
-    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\usuario.png" />

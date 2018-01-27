@@ -28,4 +28,7 @@
     
     <Color x:Key="BarraConfiguracion">#2a2c31</Color>
     <SolidColorBrush x:Key="BarraConfiguracionBrush" Color="{StaticResource BarraConfiguracion}"/>
+
+    <Color x:Key="SelectionColor">#7b1fa2</Color>
+    <SolidColorBrush x:Key="SelectionColorBrush" Color="{StaticResource SelectionColor}"/>
 </ResourceDictionary>
