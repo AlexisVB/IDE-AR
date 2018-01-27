@@ -160,6 +160,7 @@ namespace IDE_AR
         {
             AgregarMateria nuevaMateria = new AgregarMateria();
             nuevaMateria.Owner = this;
+            
             //mostar la ventana
             nuevaMateria.ShowDialog();         
             //listAsignatures.Add(otra);

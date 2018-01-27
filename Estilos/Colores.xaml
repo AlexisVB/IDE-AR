@@ -31,4 +31,9 @@
 
     <Color x:Key="SelectionColor">#7b1fa2</Color>
     <SolidColorBrush x:Key="SelectionColorBrush" Color="{StaticResource SelectionColor}"/>
+
+    <Color x:Key="AzulIndigo1">#303f9f</Color>
+    <SolidColorBrush x:Key="AzulIndigoBrush1" Color="{StaticResource AzulIndigo1}"/>
+
+    
 </ResourceDictionary>

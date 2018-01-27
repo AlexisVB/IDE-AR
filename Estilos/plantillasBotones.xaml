@@ -137,4 +137,33 @@
         </Setter>
     </Style>
 
+    <Style x:Key="botonCerrarRedondeado" TargetType="Button">
+        <Setter Property="Margin" Value="10"/>        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="5"                                
+                                Width="20"
+                                Height="20"
+                                Background="{StaticResource PrimaryRedBrush}"
+                                BorderThickness="0">
+                        <ContentPresenter
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
+                            <ContentPresenter.Content>
+                                <TextBlock Text="X" Foreground="White" FontWeight="ExtraBold" FontSize="12"
+                                           ></TextBlock>
+                            </ContentPresenter.Content>
+                        </ContentPresenter>
+                    </Border>                   
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
 </ResourceDictionary>
