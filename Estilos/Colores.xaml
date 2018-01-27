@@ -11,8 +11,7 @@
     <SolidColorBrush x:Key="DarkPrimaryColorBrush" Color="{StaticResource DarkPrimaryColor}"/>
     
     <Color x:Key="PrimaryColor">#37474f</Color>
-    <SolidColorBrush x:Key="PrimaryColorBrush" Color="{StaticResource PrimaryColor}"/>
-    
+    <SolidColorBrush x:Key="PrimaryColorBrush" Color="{StaticResource PrimaryColor}"/>    
 
     <Color x:Key="PrimaryRed">#f44336</Color>
     <SolidColorBrush x:Key="PrimaryRedBrush" Color="{StaticResource PrimaryRed}"/>
@@ -32,8 +31,57 @@
     <Color x:Key="SelectionColor">#7b1fa2</Color>
     <SolidColorBrush x:Key="SelectionColorBrush" Color="{StaticResource SelectionColor}"/>
 
+    <Color x:Key="Rojo1">#d50000</Color>    
+    <SolidColorBrush x:Key="RojoBrush1" Color="{StaticResource Rojo1}"/>
+
+    <Color x:Key="Rosa1">#f50057</Color>
+    <SolidColorBrush x:Key="RosaBrush1" Color="{StaticResource Rosa1}"/>
+
+    <Color x:Key="Morado1">#6a1b9a</Color>
+    <SolidColorBrush x:Key="MoradoBrush1" Color="{StaticResource Morado1}"/>
+
+    <Color x:Key="MoradoProfundo1">#651fff</Color>
+    <SolidColorBrush x:Key="MoradoProfundoBrush1" Color="{StaticResource Morado1}"/>   
+
     <Color x:Key="AzulIndigo1">#303f9f</Color>
     <SolidColorBrush x:Key="AzulIndigoBrush1" Color="{StaticResource AzulIndigo1}"/>
 
+    <Color x:Key="Azul1">#2196f3</Color>
+    <SolidColorBrush x:Key="AzulBrush1" Color="{StaticResource AzulIndigo1}"/>
+
+    <Color x:Key="AzulClaro1">#03a9f4</Color>
+    <SolidColorBrush x:Key="AzulClaroBrush1" Color="{StaticResource AzulClaro1}"/>
+
+    <Color x:Key="Cyan1">#00bcd4</Color>
+    <SolidColorBrush x:Key="CyanBrush1" Color="{StaticResource Cyan1}"/>
+
+    <Color x:Key="Teal1">#009688</Color>
+    <SolidColorBrush x:Key="TealBrush1" Color="{StaticResource Teal1}"/>
+
+    <Color x:Key="Verde1">#4caf50</Color>
+    <SolidColorBrush x:Key="VerdeBrush1" Color="{StaticResource Verde1}"/>
+
+    <Color x:Key="VerdeClaro1">#8bc34a</Color>
+    <SolidColorBrush x:Key="VerdeClaroBrush1" Color="{StaticResource VerdeClaro1}"/>
+
+    <Color x:Key="VerdeLima1">#cddc39</Color>
+    <SolidColorBrush x:Key="VerdeLimaBrush1" Color="{StaticResource VerdeLima1}"/>
+
+    <Color x:Key="Amarillo1">#ffeb3b</Color>
+    <SolidColorBrush x:Key="AmarilloBrush1" Color="{StaticResource Amarillo1}"/>
+
+    <Color x:Key="Ambar1">#ffc107</Color>
+    <SolidColorBrush x:Key="AmbarBrush1" Color="{StaticResource Ambar1}"/>
+
+    <Color x:Key="Naranja1">#ff9800</Color>
+    <SolidColorBrush x:Key="NaranjaBrush1" Color="{StaticResource Naranja1}"/>
+
+    <Color x:Key="NaranjaOscuro1">#ff5722</Color>
+    <SolidColorBrush x:Key="NaranjaOscuroBrush1" Color="{StaticResource NaranjaOscuro1}"/>
     
+    <Color x:Key="Cafe1">#ff5722</Color>
+    <SolidColorBrush x:Key="CafeBrush1" Color="{StaticResource Cafe1}"/>
+
+    <Color x:Key="Gris1">#ff5722</Color>
+    <SolidColorBrush x:Key="GrisBrush1" Color="{StaticResource Gris1}"/>
 </ResourceDictionary>
