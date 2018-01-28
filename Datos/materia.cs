@@ -27,8 +27,8 @@ namespace IDE_AR.Datos
         }
         public string Matricula
         {
-            get { return nombreMateria; }
-            set { nombreMateria = value; }
+            get { return matriculaMateria; }
+            set { matriculaMateria = value; }
         }
         public int IdUsuario
         {
