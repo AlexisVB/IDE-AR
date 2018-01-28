@@ -102,7 +102,10 @@
                                 RecognizesAccessKey="True">
                         </ContentPresenter>
                     </Border>
-                    <ControlTemplate.Triggers>                        
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter  Property="Opacity" Value="0.5"/>                            
+                        </Trigger>
                         <Trigger Property="IsPressed" Value="true">
                             <Setter TargetName="Border" Property="Background">
                                 <Setter.Value>
@@ -157,13 +160,78 @@
                                 <TextBlock Text="X" Foreground="White" FontWeight="ExtraBold" FontSize="12"
                                            ></TextBlock>
                             </ContentPresenter.Content>
-                        </ContentPresenter>
-                    </Border>                   
+                           
+                        </ContentPresenter>                        
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ResourceKey=RojoBrush2}"/>                            
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
+    <Style x:Key="botonColorRedondeadoPaleta" TargetType="Button">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="10"
+                                BorderThickness="1.5"
+                                Width="60"
+                                Height="45"
+                                Background="{Binding Path=ColorHex}"
+                                BorderBrush="{StaticResource BarraLateralDerechaBrush}">
+                        <ContentPresenter
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
+                        </ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter  Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+                
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="botonRedondeadoAgregar" TargetType="Button">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="10"
+                                BorderThickness="0"
+                                Width="90"
+                                Height="50"
+                                Background="{StaticResource AzulBrush1}"
+                                BorderBrush="White">                       
+                        <DockPanel>
+                            <TextBlock 
+                                Name="texto"
+                                Margin="13,10,0,10"                                
+                                Style="{StaticResource labelVentanasAgregar}"
+                                Foreground="White"
+                                Background="{StaticResource AzulBrush1}"
+                                Text="Agregar"/>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter  Property="Opacity" Value="0.8"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
 </ResourceDictionary>

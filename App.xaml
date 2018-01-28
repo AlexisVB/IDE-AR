@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="Estilos/plantillasBotones.xaml"/>
                 <ResourceDictionary Source="Estilos/EstiloRichTextBox.xaml"/>
                 <ResourceDictionary Source="Estilos/WindowsStyles.xaml"/>
+                <ResourceDictionary Source="Estilos/PlantillasItemsListas.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
         </ResourceDictionary>

@@ -2,26 +2,27 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:IDE_AR">
     <DataTemplate x:Key="plantilla1ListasDatosDesdeObjetos">
-        <StackPanel Width="50" Height="50">
-            <Canvas Name="canv" Width="50" Height="50" Style="{DynamicResource CrecerItem}" >
-                <Canvas.ToolTip>
-                    <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
-                        <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=NombreMateria}"/>
-                    </ToolTip>
-                </Canvas.ToolTip>
+        <DockPanel Width="50" Height="50">
+            <DockPanel.ToolTip>
+                <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
+                    <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=NombreMateria}"/>
+                </ToolTip>
+            </DockPanel.ToolTip>
+            <Canvas Name="canv" Width="50" Height="50" Style="{DynamicResource CrecerItem}" >               
                 <Ellipse Fill="{Binding Path=Color}" Width="50" Height="{Binding Path=Height,ElementName=canv}" VerticalAlignment="Center"  Canvas.Left="0" >
-                    <Ellipse.ToolTip>
-                        <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
-                            <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=NombreMateria}"/>
-                        </ToolTip>
-                    </Ellipse.ToolTip>
+                   
                 </Ellipse>
-
                 <TextBlock FontSize="16" Foreground="White" FontFamily="Verdana" Text="{Binding Path=Nick}" 
                        Canvas.Top="17" Canvas.Left="15"/>
             </Canvas>
-        </StackPanel>
-    </DataTemplate>
+        </DockPanel>
+        <DataTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>     
+    
     <DataTemplate x:Key="plantilla1Listas">
         <StackPanel Width="50" Height="50">
             <Canvas Name="canv" Width="50" Height="50" Style="{DynamicResource CrecerItem}" >
@@ -129,6 +130,8 @@
         <Setter Property="Height" Value="20"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="BorderThickness"  Value="0"/>
+            
+      
     </Style>
     <DataTemplate x:Key="previewIcon" >
         <StackPanel Width="50" Height="50" >

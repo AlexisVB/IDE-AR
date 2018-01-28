@@ -44,3 +44,4 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Es
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml

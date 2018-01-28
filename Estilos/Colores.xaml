@@ -34,6 +34,9 @@
     <Color x:Key="Rojo1">#d50000</Color>    
     <SolidColorBrush x:Key="RojoBrush1" Color="{StaticResource Rojo1}"/>
 
+    <Color x:Key="Rojo2">#ef9a9a</Color>
+    <SolidColorBrush x:Key="RojoBrush2" Color="{StaticResource Rojo2}"/>
+
     <Color x:Key="Rosa1">#f50057</Color>
     <SolidColorBrush x:Key="RosaBrush1" Color="{StaticResource Rosa1}"/>
 
@@ -41,13 +44,13 @@
     <SolidColorBrush x:Key="MoradoBrush1" Color="{StaticResource Morado1}"/>
 
     <Color x:Key="MoradoProfundo1">#651fff</Color>
-    <SolidColorBrush x:Key="MoradoProfundoBrush1" Color="{StaticResource Morado1}"/>   
+    <SolidColorBrush x:Key="MoradoProfundoBrush1" Color="{StaticResource MoradoProfundo1}"/>   
 
     <Color x:Key="AzulIndigo1">#303f9f</Color>
     <SolidColorBrush x:Key="AzulIndigoBrush1" Color="{StaticResource AzulIndigo1}"/>
 
     <Color x:Key="Azul1">#2196f3</Color>
-    <SolidColorBrush x:Key="AzulBrush1" Color="{StaticResource AzulIndigo1}"/>
+    <SolidColorBrush x:Key="AzulBrush1" Color="{StaticResource Azul1}"/>
 
     <Color x:Key="AzulClaro1">#03a9f4</Color>
     <SolidColorBrush x:Key="AzulClaroBrush1" Color="{StaticResource AzulClaro1}"/>
@@ -78,10 +81,10 @@
 
     <Color x:Key="NaranjaOscuro1">#ff5722</Color>
     <SolidColorBrush x:Key="NaranjaOscuroBrush1" Color="{StaticResource NaranjaOscuro1}"/>
-    
-    <Color x:Key="Cafe1">#ff5722</Color>
+
+    <Color x:Key="Cafe1">#4e342e</Color>
     <SolidColorBrush x:Key="CafeBrush1" Color="{StaticResource Cafe1}"/>
 
-    <Color x:Key="Gris1">#ff5722</Color>
+    <Color x:Key="Gris1">#616161</Color>
     <SolidColorBrush x:Key="GrisBrush1" Color="{StaticResource Gris1}"/>
 </ResourceDictionary>
