@@ -27,13 +27,13 @@
         <StackPanel Width="50" Height="50">
             <Canvas Name="canv" Width="50" Height="50" Style="{DynamicResource CrecerItem}" >
                 <Canvas.ToolTip>
-                    <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
+                    <ToolTip >
                         <TextBlock Foreground="White" Background="Black"  Text="{Binding XPath=nombre}"/>
                     </ToolTip>
                 </Canvas.ToolTip>
                 <Ellipse Fill="{Binding XPath=color}" Width="50" Height="{Binding Path=Height,ElementName=canv}" VerticalAlignment="Center"  Canvas.Left="0" >
                     <Ellipse.ToolTip>
-                        <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
+                        <ToolTip>
                             <TextBlock Foreground="White" Background="Black"  Text="{Binding XPath=nombre}"/>
                         </ToolTip>
                     </Ellipse.ToolTip>
@@ -153,5 +153,13 @@
             </Canvas>
         </StackPanel>
     </DataTemplate>
+    
+    <Style TargetType="ToolTip">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Background" Value="Black"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>       
+    </Style>
     
 </ResourceDictionary>

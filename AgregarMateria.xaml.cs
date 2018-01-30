@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IDE_AR.Datos;
+using IDE_AR.DatosGlobales;
 namespace IDE_AR
 {
     /// <summary>
@@ -21,13 +22,16 @@ namespace IDE_AR
     {
         private List<materia> listAsignatures = new List<materia>();
         public materia nuevaMateria = new materia();
+        
         public AgregarMateria()
         {
             InitializeComponent();
             btnColor.DataContext = nuevaMateria;
             lstMaterias.DataContext = nuevaMateria;
-            nuevaMateria.Color = "#444";
-            
+            nuevaMateria.NombreMateria = "";
+            nuevaMateria.Matricula = "";
+            nuevaMateria.Nick = "";
+            nuevaMateria.Color = "#444";            
         }
         private void lstMaterias_SelectionChanged(Object sender,RoutedEventArgs e)
         {
@@ -84,7 +88,62 @@ namespace IDE_AR
         {
             this.Close();
         }
+        public void btnAgregarClick(Object sender,RoutedEventArgs e)
+        {
+            string Error = "";
+           if(nuevaMateria.NombreMateria.Length>30)
+           {
+               Error = Error + "\n-El nombre no debe\n exceder 30 caracteres.";
+           }
+           if (nuevaMateria.NombreMateria.Length <5)
+           {
+               Error = Error + "\n-El nombre no debe\n ser menor de 5 caracteres.";
+           }
+           if (nuevaMateria.Matricula.Length > 20)
+           {
+               Error = Error + "\n-La matrícula no debe\n exceder 20 caracteres.";
+           }
+           if (nuevaMateria.Matricula.Length < 5)
+           {
+               Error = Error + "\n-La matrícula no debe\n ser menor de 10 caracteres.";
+           }
+           if (nuevaMateria.Nick.Length != 2)
+           {
+               Error = Error + "\n-El nickname debe \n contener 2 caracteres";
+           }
+           if(Error.Length>0)
+           {
+               Mensaje(Error);
+           }
+           else
+           {
+               agregar();
+           }
 
+        }
+        private void agregar()
+        {
+            nuevaMateria.IdUsuario = VariablesGlobales.miusuario.IdUsuario;
+            //codigo de agregar            
+            if(nuevaMateria.Insertar())
+            {
+                Mensaje("Agregado Correctamente");
+                DialogResult = true;                
+            }
+            else
+            {
+                Mensaje("Error al agregar");
+            }
+        }
+
+        public void Mensaje(string Text)
+        {
+            this.Opacity = 0.5;
+            MessageBoxPersonalizado mostrar = new MessageBoxPersonalizado();
+            mostrar.Texto = Text;           
+            mostrar.ShowDialog();
+            this.Opacity = 1;
+        }
        
     }
 }

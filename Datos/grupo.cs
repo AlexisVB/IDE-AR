@@ -11,6 +11,8 @@ namespace IDE_AR.Datos
         private int idGrupo;
         private string nombreGrupo;
         private int idMateria;
+        private string color;
+        private string nick;
 
         public int IdGrupo
         {
@@ -26,6 +28,36 @@ namespace IDE_AR.Datos
         {
             get { return idMateria; }
             set { idMateria = value; }
+        }
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+        public string Nick
+        {
+            get { return nick; }
+            set { nick = value; }
+        }
+        public bool Insertar()
+        {
+            //codigo para insertar
+            return true;
+        }
+        public bool Modificar()
+        {
+            //codigo para modificar
+            return true;
+        }
+        public bool Cosultar()
+        {
+            //codigo para consultar
+            return true;
+        }
+        public bool Eliminar()
+        {
+            //codigo para eliminar
+            return false;
         }
 
     }

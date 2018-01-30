@@ -232,6 +232,37 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="botonRedondeadoAceptar" TargetType="Button">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="10"
+                                BorderThickness="0"
+                                Width="90"
+                                Height="50"
+                                Background="{StaticResource AzulBrush1}"
+                                BorderBrush="White">
+                        <DockPanel>
+                            <TextBlock 
+                                Name="texto"
+                                Margin="13,10,0,10"                                
+                                Style="{StaticResource labelVentanasAgregar}"
+                                Foreground="White"
+                                Background="{StaticResource AzulBrush1}"
+                                Text="Aceptar"/>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter  Property="Opacity" Value="0.8"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 
 
 </ResourceDictionary>

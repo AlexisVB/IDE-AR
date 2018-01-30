@@ -45,6 +45,26 @@ namespace IDE_AR.Datos
             get { return nick; }
             set { nick = value; }
         }
+        public bool Insertar()
+        {
+            //codigo para insertar
+            return true;
+        }
+        public bool Modificar()
+        {
+            //codigo para modificar
+            return true;
+        }
+        public bool Cosultar()
+        {
+            //codigo para consultar
+            return true;
+        }
+        public bool Eliminar()
+        {
+            //codigo para eliminar
+            return false;
+        }
         
     }
 }

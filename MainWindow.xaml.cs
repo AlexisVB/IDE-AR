@@ -31,6 +31,10 @@ namespace IDE_AR
         private List<usuario> listStudentsInactives = new List<usuario>();
         private List<usuario> listStudentsNoActives = new List<usuario>();
 
+        private materia currentMateria;
+        private grupo currentGrupo;
+        private actividad currentActividad;
+
         public materia materiaContexto;//Variable usada solo para darle contexto a la lista materias
         public grupo grupoContexto;//Variable usada solo para darle contexto a la lista grupos
         public actividad actividadContexto;//Variable usada solo para darle contexto a la lista actividades
@@ -118,6 +122,7 @@ namespace IDE_AR
 
             //Asignación de listas
             lstMaterias.ItemsSource = listAsignatures;
+            
             //lstGrupos.ItemsSource = listGroups;
             //lstActividades.ItemsSource = listActivities;
             //lstAlumnosActivos.ItemsSource = listStudentsActives;
@@ -137,18 +142,20 @@ namespace IDE_AR
         }
         public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            materia var=listAsignatures[lstMaterias.SelectedIndex];
-            MessageBox.Show("Elemento seleccionado:" + var.NombreMateria);            
+            currentMateria=listAsignatures[lstMaterias.SelectedIndex];
+            //actualizar lista de grupos
+            //actualizar lista de actividades
         }
       
         public void lstGrupo_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("Elemento seleccionado:" + lstGrupos.SelectedIndex);
+            currentGrupo = listGroups[lstGrupos.SelectedIndex];
+            //actualizar lista de actividades
         }
 
         public void lstActividades_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("Elemento seleccionado:" + lstActividades.SelectedIndex);
+            currentActividad = listActivities[lstActividades.SelectedIndex];
         }
         public void btConfiguracion_Click(Object sender,RoutedEventArgs e)
         {
@@ -158,23 +165,37 @@ namespace IDE_AR
         }
         public void btAdd1_Click(Object sender,RoutedEventArgs e)
         {
+            this.Opacity = 0.5;
             AgregarMateria nuevaMateria = new AgregarMateria();
-            nuevaMateria.Owner = this;
-            
+            nuevaMateria.Owner = this;            
             //mostar la ventana
-            nuevaMateria.ShowDialog();         
-            //listAsignatures.Add(otra);
-            //lstMaterias.ItemsSource = null;
-            //lstMaterias.Items.Clear();
-            //lstMaterias.ItemsSource = listAsignatures;
+           if( nuevaMateria.ShowDialog()==true)
+           {
+               //actualizar lista materias
+               listAsignatures.Add(nuevaMateria.nuevaMateria);
+               lstMaterias.ItemsSource = null;
+               lstMaterias.Items.Clear();
+               lstMaterias.ItemsSource = listAsignatures;
+           }           
+            this.Opacity = 1;            
             
         }
         public void btAdd2_Click(Object sender, RoutedEventArgs e)
         {
+            this.Opacity = 0.5;
             Agregar_Grupo nuevoGrupo = new Agregar_Grupo();
             nuevoGrupo.Owner = this;
+            nuevoGrupo.materiaRaiz = currentMateria;
             //mostar la ventana
-            nuevoGrupo.ShowDialog();
+            if(nuevoGrupo.ShowDialog()==true)
+            {
+                //actualizar lista de grupos
+                listGroups.Add(nuevoGrupo.nuevoGrupo);
+                lstGrupos.ItemsSource = null;
+                lstGrupos.Items.Clear();
+                lstMaterias.ItemsSource = listGroups;
+            }
+            this.Opacity = 1;
         }
         public void btAdd3_Click(Object sender, RoutedEventArgs e)
         {
