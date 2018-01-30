@@ -195,23 +195,21 @@ namespace IDE_AR
                 btnAdd2.Visibility = System.Windows.Visibility.Visible;                
                 if(currentMateria.listaGrupos.Count>=0)
                 {
-                    actualizarListaGrupos(currentMateria.listaGrupos);                  
-                        if(listGroups.Count>0)
-                        {
-                            currentGrupo=listGroups[0];
-                            lstGrupos.SelectedIndex=0;
-                            actualizarListaActividades(currentGrupo.listaActividades);                            
-                            btnAdd3.Visibility = System.Windows.Visibility.Visible;
-                        }
-                        else
-                        {                            
-                            btnAdd3.Visibility = System.Windows.Visibility.Hidden;
-                            listGroups.Clear();
-                            listActivities.Clear();
-                            actualizarListaActividades(listActivities);
-                        }
-                        
-                    
+                    actualizarListaGrupos(currentMateria.listaGrupos);
+                    if (listGroups.Count > 0)
+                    {
+                        currentGrupo = listGroups[0];
+                        lstGrupos.SelectedIndex = 0;
+                        actualizarListaActividades(currentGrupo.listaActividades);
+                        btnAdd3.Visibility = System.Windows.Visibility.Visible;
+                    }
+                    else
+                    {
+                        btnAdd3.Visibility = System.Windows.Visibility.Hidden;
+                        listGroups.Clear();
+                        listActivities.Clear();
+                        actualizarListaActividades(listActivities);
+                    }                     
                 }
             }
                 
