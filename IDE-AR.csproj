@@ -56,8 +56,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Datos\miColor.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageBoxPersonalizado.xaml.cs">
       <DependentUpon>MessageBoxPersonalizado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaAdvertencia.xaml.cs">
+      <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaEliminar.xaml.cs">
+      <DependentUpon>VentanaEliminar.xaml</DependentUpon>
     </Compile>
     <Compile Include="WindowPaleta.xaml.cs">
       <DependentUpon>WindowPaleta.xaml</DependentUpon>
@@ -102,6 +111,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,6 +145,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MessageBoxPersonalizado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaAdvertencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaEliminar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

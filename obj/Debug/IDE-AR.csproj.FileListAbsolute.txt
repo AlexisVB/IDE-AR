@@ -39,7 +39,6 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Ag
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.g.cs
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.g.cs
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.g.cs
-C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\EstiloRichTextBox.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.baml
@@ -47,3 +46,10 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Wi
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Login.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Login.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.g.cs

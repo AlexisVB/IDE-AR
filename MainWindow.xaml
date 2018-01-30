@@ -270,7 +270,14 @@
                   SelectionChanged="list1_SelectionChanged"                  
                     Background="{StaticResource BarraLateralIzquierdaBrush}"
                 ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}"
-                />
+                    >
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="ModificarMateria" Header="Modificar materia" Click="btnModificarMateria_Click"/>
+                                <MenuItem Name="EliminarMateria"  Header="Eliminar materia" Click="btnEliminarMateria_Click"/>                                
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
                     <Button Name="btnAdd1" 
                         Style="{StaticResource botonAdd}"
                         Click="btAdd1_Click"/>
@@ -281,6 +288,12 @@
                     SelectionChanged="lstGrupo_SelectionChanged"                  
                     Background="{StaticResource BarraLateralIzquierdaBrush}"
                     ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="ModificarGrupo" Header="Modificar grupo" Click="btnModificarGrupo_Click"/>
+                                <MenuItem Name="EliminarGrupo"  Header="Eliminar grupo" Click="btnEliminarGrupo_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
                     </ListView>
                     <Button Name="btnAdd2" 
                         Style="{StaticResource botonAdd}"
@@ -295,6 +308,12 @@
                   Background="{StaticResource BarraLateralIzquierdaBrush}"
                           Margin="0"
                           ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="ModificarActividad" Header="Modificar actividad" Click="btnModificarActividad_Click"/>
+                                <MenuItem Name="EliminarActividad"  Header="Eliminar actividad" Click="btnEliminarActividad_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
                     </ListView>
                     <Button Name="btnAdd3" 
                         Style="{StaticResource botonAdd}"

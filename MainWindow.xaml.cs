@@ -291,6 +291,52 @@ namespace IDE_AR
             }
             this.Opacity = 1;
         }
+
+        private void btnModificarMateria_Click(Object sender,RoutedEventArgs e)
+        {
+            materia modificacion = currentMateria;
+            MessageBox.Show("Modificar:" +modificacion.Nombre);
+        }
+        private void btnModificarGrupo_Click(Object sender, RoutedEventArgs e)
+        {
+            grupo modificacion = currentGrupo;
+            MessageBox.Show("Modificar:" + modificacion.Nombre);
+        }
+        private void btnModificarActividad_Click(Object sender, RoutedEventArgs e)
+        {
+            actividad modificacion = currentActividad;
+            MessageBox.Show("Modificar:" + modificacion.Nombre);
+        }
+        private void btnEliminarMateria_Click(Object sender,RoutedEventArgs e)
+        {            
+            this.Opacity = 0.5;
+            VentanaEliminar deleteWindow = new VentanaEliminar(delete.Materia,currentMateria);
+            if(deleteWindow.ShowDialog()==true)
+            {
+                //actualizar lista de materias
+            }
+            this.Opacity = 1;          
+        }
+        private void btnEliminarGrupo_Click(Object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0.5;
+            VentanaEliminar deleteWindow = new VentanaEliminar(delete.Grupo, currentGrupo);
+            if (deleteWindow.ShowDialog() == true)
+            {
+                //actualizar lista de grupos
+            }
+            this.Opacity = 1;
+        }
+        private void btnEliminarActividad_Click(Object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0.5;
+            VentanaEliminar deleteWindow = new VentanaEliminar(delete.Actividad, currentActividad);
+            if (deleteWindow.ShowDialog() == true)
+            {
+                //actualizar lista de actividades
+            }
+            this.Opacity = 1;
+        }
         //**************************************************************************************************
         //Eventos para la asignación de fuentes
         private void OpcionesFuentePredeterminada_Click(Object sender, RoutedEventArgs e)

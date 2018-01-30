@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\
 IDE_AR
 none
 false
 DEBUG;TRACE
-C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\App.xaml
-132063417633
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\App.xaml
+161715866082
 
-17-1752630159
+20-1087888849
 141012385901
-Agregar Grupo.xaml;AgregarActividad.xaml;AgregarMateria.xaml;configuracion.xaml;Estilos\Colores.xaml;Estilos\EstiloRichTextBox.xaml;Estilos\plantillas.xaml;Estilos\plantillasBotones.xaml;Estilos\plantillasItemsListas.xaml;Estilos\WindowsStyles.xaml;MainWindow.xaml;MessageBoxPersonalizado.xaml;WindowPaleta.xaml;
+Agregar Grupo.xaml;AgregarActividad.xaml;AgregarMateria.xaml;configuracion.xaml;Estilos\Colores.xaml;Estilos\EstiloRichTextBox.xaml;Estilos\plantillas.xaml;Estilos\plantillasBotones.xaml;Estilos\plantillasItemsListas.xaml;Estilos\WindowsStyles.xaml;Login.xaml;MainWindow.xaml;MessageBoxPersonalizado.xaml;VentanaAdvertencia.xaml;VentanaEliminar.xaml;WindowPaleta.xaml;
 
 False
 
