@@ -46,6 +46,18 @@ namespace IDE_AR
             listActivities.Add(nuevaActividad);
             lstActividades.ItemsSource = listActivities;
         }
+        private void dtFechaInicio_SelectedDateChanged(Object sender, RoutedEventArgs e)
+        {
+            DateTime fecha = new DateTime();
+            fecha = DateTime.Parse(dtFechaInicio.SelectedDate.ToString());
+            nuevaActividad.FechaInicial = fecha.ToShortDateString();            
+        }
+        private void dtFechaEntrega_SelectedDateChanged(Object sender, RoutedEventArgs e)
+        {
+            DateTime fecha = new DateTime();
+            fecha = DateTime.Parse(dtFechaEntrega.SelectedDate.ToString());
+            nuevaActividad.FechaLimite = fecha.ToShortDateString();            
+        }
         private void txtNickMateria_TextChanged(Object sender, RoutedEventArgs e)
         {
             if (txtNickMateria.Text.Length == 2)

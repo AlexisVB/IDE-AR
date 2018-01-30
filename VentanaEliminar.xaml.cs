@@ -81,12 +81,14 @@ namespace IDE_AR
                 if(eliminado==true)
                 {
                     Mensaje("Eliminado Correctamente");
+                    DialogResult = true;
                 }
                 else
                 {
                     Mensaje("Error al eliminar");
+                    DialogResult = false;
                 }
-                DialogResult = true;
+                
             }
             this.Opacity = 1;           
         }

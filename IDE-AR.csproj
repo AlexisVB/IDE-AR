@@ -62,6 +62,15 @@
     <Compile Include="MessageBoxPersonalizado.xaml.cs">
       <DependentUpon>MessageBoxPersonalizado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModificarActividad.xaml.cs">
+      <DependentUpon>ModificarActividad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarGrupo.xaml.cs">
+      <DependentUpon>ModificarGrupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarMateria.xaml.cs">
+      <DependentUpon>ModificarMateria.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaAdvertencia.xaml.cs">
       <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
     </Compile>
@@ -145,6 +154,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MessageBoxPersonalizado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarActividad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarMateria.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

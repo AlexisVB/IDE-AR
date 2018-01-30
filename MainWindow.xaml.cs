@@ -170,6 +170,8 @@ namespace IDE_AR
             acti.Nombre = "Examen práctico";
             acti.Nick = "EX";
             acti.Color = "#2979ff";
+            acti.FechaInicial = "01/01/2018";
+            acti.FechaLimite = "02/01/2018";
             otro.listaActividades.Add(acti);
             otra.listaGrupos.Add(otro);            
             listAsignatures.Add(otra);
@@ -293,19 +295,44 @@ namespace IDE_AR
         }
 
         private void btnModificarMateria_Click(Object sender,RoutedEventArgs e)
-        {
-            materia modificacion = currentMateria;
-            MessageBox.Show("Modificar:" +modificacion.Nombre);
+        {            
+            this.Opacity = 0.5;
+            ModificarMateria modificarMateria = new ModificarMateria(currentMateria);
+            modificarMateria.Owner = this;
+            //mostar la ventana
+            if (modificarMateria.ShowDialog() == true)
+            {
+                //refrescar lista materias   
+                lstMaterias.Items.Refresh();
+            }
+            this.Opacity = 1;           
+            
         }
         private void btnModificarGrupo_Click(Object sender, RoutedEventArgs e)
         {
-            grupo modificacion = currentGrupo;
-            MessageBox.Show("Modificar:" + modificacion.Nombre);
+            this.Opacity = 0.5;
+            ModificarGrupo modificarGrupo = new ModificarGrupo(currentMateria,currentGrupo);
+            modificarGrupo.Owner = this;
+            //mostar la ventana
+            if (modificarGrupo.ShowDialog() == true)
+            {
+                //refrescar lista de grupos 
+                lstGrupos.Items.Refresh();
+            }
+            this.Opacity = 1;
         }
         private void btnModificarActividad_Click(Object sender, RoutedEventArgs e)
         {
-            actividad modificacion = currentActividad;
-            MessageBox.Show("Modificar:" + modificacion.Nombre);
+            this.Opacity = 0.5;
+            ModificarActividad modificarActividad = new ModificarActividad(currentMateria, currentGrupo,currentActividad);
+            modificarActividad.Owner = this;
+            //mostar la ventana
+            if (modificarActividad.ShowDialog() == true)
+            {
+                //refescar lista actividades     
+                lstActividades.Items.Refresh();
+            }
+            this.Opacity = 1;
         }
         private void btnEliminarMateria_Click(Object sender,RoutedEventArgs e)
         {            

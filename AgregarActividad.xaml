@@ -63,13 +63,15 @@
                  ToolTip="La matrícula debe contener de 10-20 caracteres"
                  Width="160"
                  HorizontalAlignment="center"
-                        VerticalAlignment="Center"/>
+                        VerticalAlignment="Center"
+                        SelectedDateChanged="dtFechaInicio_SelectedDateChanged"/>
             <DatePicker Grid.Column="1" Grid.Row="4" 
                  Name="dtFechaEntrega" 
                  ToolTip="La matrícula debe contener de 10-20 caracteres"
                  Width="160"
                  HorizontalAlignment="Center"
-                 VerticalAlignment="Center"/>
+                 VerticalAlignment="Center"
+                 SelectedDateChanged="dtFechaEntrega_SelectedDateChanged"/>
 
             <Button Grid.Column="1" Grid.Row="5" Name="btnColor"                  
                  HorizontalAlignment="Left"
