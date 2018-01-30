@@ -28,7 +28,7 @@ namespace IDE_AR
             InitializeComponent();
             btnColor.DataContext = nuevaMateria;
             lstMaterias.DataContext = nuevaMateria;
-            nuevaMateria.NombreMateria = "";
+            nuevaMateria.Nombre = "";
             nuevaMateria.Matricula = "";
             nuevaMateria.Nick = "";
             nuevaMateria.Color = "#444";            
@@ -40,7 +40,7 @@ namespace IDE_AR
         private void txtNombreMateria_TextChanged(Object sender,RoutedEventArgs e)
         {
             lstMaterias.ItemsSource = null;
-            nuevaMateria.NombreMateria = txtNombreMateria.Text;
+            nuevaMateria.Nombre = txtNombreMateria.Text;
             listAsignatures.Clear();
             listAsignatures.Add(nuevaMateria);
             lstMaterias.ItemsSource = listAsignatures;
@@ -91,11 +91,11 @@ namespace IDE_AR
         public void btnAgregarClick(Object sender,RoutedEventArgs e)
         {
             string Error = "";
-           if(nuevaMateria.NombreMateria.Length>30)
+           if(nuevaMateria.Nombre.Length>30)
            {
                Error = Error + "\n-El nombre no debe\n exceder 30 caracteres.";
            }
-           if (nuevaMateria.NombreMateria.Length <5)
+           if (nuevaMateria.Nombre.Length <5)
            {
                Error = Error + "\n-El nombre no debe\n ser menor de 5 caracteres.";
            }

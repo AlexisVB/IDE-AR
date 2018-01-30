@@ -22,9 +22,15 @@ namespace IDE_AR
         private List<grupo> listGroups = new List<grupo>();
         public grupo nuevoGrupo = new grupo();
         public materia materiaRaiz;
-        public Agregar_Grupo()
+        public Agregar_Grupo(materia materiaraiz)
         {
             InitializeComponent();
+            materiaRaiz = materiaraiz;
+            nuevoGrupo.Color = "#444";
+            btnColor.DataContext = nuevoGrupo;
+            tbNombremateria.Text = materiaRaiz.Nombre;
+            nuevoGrupo.Nombre = "";
+            nuevoGrupo.Nick = "";            
         }
         private void lstGrupos_SelectionChanged(Object sender, RoutedEventArgs e)
         {
@@ -33,7 +39,7 @@ namespace IDE_AR
         private void txtNombre_TextChanged(Object sender, RoutedEventArgs e)
         {
             lstGrupos.ItemsSource = null;
-            nuevoGrupo.NombreGrupo = txtNombre.Text;
+            nuevoGrupo.Nombre = txtNombre.Text;
             listGroups.Clear();
             listGroups.Add(nuevoGrupo);
             lstGrupos.ItemsSource = listGroups;
@@ -73,11 +79,11 @@ namespace IDE_AR
         public void btnAgregarClick(Object sender, RoutedEventArgs e)
         {
             string Error = "";
-            if (nuevoGrupo.NombreGrupo.Length > 20)
+            if (nuevoGrupo.Nombre.Length > 20)
             {
                 Error = Error + "\n-El nombre no debe\n exceder 20 caracteres.";
             }
-            if (nuevoGrupo.NombreGrupo.Length < 2)
+            if (nuevoGrupo.Nombre.Length < 2)
             {
                 Error = Error + "\n-El nombre no debe\n ser menor de 2 caracteres.";
             }          

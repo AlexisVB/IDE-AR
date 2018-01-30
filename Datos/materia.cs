@@ -9,21 +9,21 @@ namespace IDE_AR.Datos
     public class materia
     {
         private int idMateria;
-        private string nombreMateria;
+        private string nombre;
         private string matriculaMateria;
         private int idUsuario;//id de profesor
         private string color;
         private string nick;
-
+        public List<grupo> listaGrupos=new List<grupo>();
         public int IdMateria
         {
             get { return idMateria; }
             set { idMateria = value; }
         }
-        public string NombreMateria
+        public string Nombre
         {
-            get { return nombreMateria; }
-            set { nombreMateria = value; }
+            get { return nombre; }
+            set { nombre = value; }
         }
         public string Matricula
         {

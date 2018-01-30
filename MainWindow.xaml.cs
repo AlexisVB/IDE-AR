@@ -62,7 +62,7 @@ namespace IDE_AR
             }
             catch{}
            VariablesGlobales.miusuario.IdUsuario = 1;
-           VariablesGlobales.miusuario.NombreUsuario = "Estudiante Vergas";
+           VariablesGlobales.miusuario.NombreUsuario = "Profesor X";
            VariablesGlobales.miusuario.Grupo = "0";
            VariablesGlobales.miusuario.Nombre = "Enchilada Verde";
             busquedaDatosListas();
@@ -109,22 +109,35 @@ namespace IDE_AR
                              "-Alexis Daniel Villicaña Barrera";
             MessageBox.Show(creditos, "IDE-AR");
         }
+        public void btConfiguracion_Click(Object sender, RoutedEventArgs e)
+        {
+            ventanaConfiguracion = new configuracion();
+            //mostar la ventana
+            ventanaConfiguracion.ShowDialog();
+        }
+        private void btnMin_Click(Object sender, RoutedEventArgs e)
+        {
+            //minimizar
+        }
+        private void btnCerrar_Click(Object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
         //************************Funciones y eventos de las listas***********************************************
         private void InicializarListas()
         {
             //Asignación de contextos
             lstMaterias.DataContext = materiaContexto;
-            //lstGrupos.DataContext = grupoContexto;
-            //lstActividades.DataContext = actividadContexto;
+            lstGrupos.DataContext = grupoContexto;
+            lstActividades.DataContext = actividadContexto;
             //lstAlumnosActivos.DataContext = usuarioContexto;
             //lstAlumnosInactivos.DataContext = usuarioContexto;
             //lstAlumnosNoActivos.DataContext = usuarioContexto;
 
             //Asignación de listas
-            lstMaterias.ItemsSource = listAsignatures;
-            
-            //lstGrupos.ItemsSource = listGroups;
-            //lstActividades.ItemsSource = listActivities;
+            lstMaterias.ItemsSource = listAsignatures;            
+            lstGrupos.ItemsSource = listGroups;
+            lstActividades.ItemsSource = listActivities;
             //lstAlumnosActivos.ItemsSource = listStudentsActives;
             //lstAlumnosInactivos.ItemsSource = listStudentsInactives;
             // lstAlumnosNoActivos.ItemsSource = listStudentsNoActives;
@@ -134,35 +147,86 @@ namespace IDE_AR
             //busqueda de datos inicial   
             //inicio simulación
             materia otra = new materia();
-            otra.NombreMateria = "Progra Web";
+            otra.Nombre = "Progra Web";
             otra.Nick = "PW";
-            otra.Color = "#2979ff";
+            otra.Color = "#2979ff";            
+
+            grupo otro = new grupo();
+            otro.Nombre = "8C-1";
+            otro.Nick = "8C";
+            otro.Color = "#2979ff";            
+
+            actividad acti = new actividad();
+            acti.Nombre = "Examen práctico";
+            acti.Nick = "EX";
+            acti.Color = "#2979ff";
+            otro.listaActividades.Add(acti);
+            otra.listaGrupos.Add(otro);            
             listAsignatures.Add(otra);
             //fin simulacion            
         }
+        private void actualizarListaGrupos(List<grupo> lista)
+        {
+            lstGrupos.ItemsSource = null;
+            listGroups = lista;
+            lstGrupos.ItemsSource = listGroups;
+        }
+        private void actualizarListaActividades(List<actividad> lista)
+        {
+            lstActividades.ItemsSource = null;
+            listActivities = lista;
+            lstActividades.ItemsSource = listActivities;
+        }
         public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            currentMateria=listAsignatures[lstMaterias.SelectedIndex];
+            if(listAsignatures.Count>0&&lstMaterias.SelectedIndex>=0)
+            {
+                currentMateria = listAsignatures[lstMaterias.SelectedIndex];
+                if(currentMateria.listaGrupos.Count>=0)
+                {
+                    actualizarListaGrupos(currentMateria.listaGrupos);
+                    if(listGroups.Count>=0)
+                    {
+                        if(listGroups.Count>0)
+                        {
+                            currentGrupo=listGroups[0];
+                            lstGrupos.SelectedIndex=0;
+                            actualizarListaActividades(currentGrupo.listaActividades);
+                        }
+                        else
+                        {
+                            listGroups.Clear();
+                            listActivities.Clear();
+                        }
+                        
+                    }
+                }
+            }
+                
             //actualizar lista de grupos
             //actualizar lista de actividades
         }
       
         public void lstGrupo_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            currentGrupo = listGroups[lstGrupos.SelectedIndex];
-            //actualizar lista de actividades
+
+            if (listGroups.Count > 0 && lstGrupos.SelectedIndex >= 0)
+            {
+                currentGrupo = listGroups[lstGrupos.SelectedIndex];
+                //actualizar lista de actividades
+                actualizarListaActividades(currentGrupo.listaActividades);
+            }         
+            
         }
 
         public void lstActividades_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
-            currentActividad = listActivities[lstActividades.SelectedIndex];
+            if (listActivities.Count > 0 && lstActividades.SelectedIndex >= 0)
+            {
+                currentActividad = listActivities[lstActividades.SelectedIndex];
+            }          
         }
-        public void btConfiguracion_Click(Object sender,RoutedEventArgs e)
-        {
-            ventanaConfiguracion = new configuracion();
-            //mostar la ventana
-            ventanaConfiguracion.ShowDialog();
-        }
+      
         public void btAdd1_Click(Object sender,RoutedEventArgs e)
         {
             this.Opacity = 0.5;
@@ -183,9 +247,8 @@ namespace IDE_AR
         public void btAdd2_Click(Object sender, RoutedEventArgs e)
         {
             this.Opacity = 0.5;
-            Agregar_Grupo nuevoGrupo = new Agregar_Grupo();
-            nuevoGrupo.Owner = this;
-            nuevoGrupo.materiaRaiz = currentMateria;
+            Agregar_Grupo nuevoGrupo = new Agregar_Grupo(currentMateria);
+            nuevoGrupo.Owner = this;                  
             //mostar la ventana
             if(nuevoGrupo.ShowDialog()==true)
             {
@@ -193,7 +256,7 @@ namespace IDE_AR
                 listGroups.Add(nuevoGrupo.nuevoGrupo);
                 lstGrupos.ItemsSource = null;
                 lstGrupos.Items.Clear();
-                lstMaterias.ItemsSource = listGroups;
+                lstGrupos.ItemsSource = listGroups;
             }
             this.Opacity = 1;
         }

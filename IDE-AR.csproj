@@ -172,10 +172,6 @@
     <Resource Include="Images\eliminar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Datos\actividades.xml" />
-    <Resource Include="Datos\grupos.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\usuario.png" />
   </ItemGroup>
   <ItemGroup>
@@ -216,6 +212,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Datos\alumnos3.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reduce.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

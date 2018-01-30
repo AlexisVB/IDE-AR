@@ -9,20 +9,21 @@ namespace IDE_AR.Datos
     public class grupo
     {
         private int idGrupo;
-        private string nombreGrupo;
+        private string nombre;
         private int idMateria;
         private string color;
         private string nick;
+        public List<actividad> listaActividades = new List<actividad>();
 
         public int IdGrupo
         {
             get { return idGrupo; }
             set { idGrupo = value; }
         }
-        public string NombreGrupo
+        public string Nombre
         {
-            get { return nombreGrupo; }
-            set { nombreGrupo = value; }
+            get { return nombre; }
+            set { nombre = value; }
         }
         public int IdMateria
         {

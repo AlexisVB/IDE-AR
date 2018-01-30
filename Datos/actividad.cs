@@ -9,19 +9,21 @@ namespace IDE_AR.Datos
     public class actividad
     {
         private int idActividad;
-        private string nombreActividad;
+        private string nombre;
         private grupo gpo;
         private string fechaInicial;
         private string fechaLimite;
+        private string color;
+        private string nick;
         public int IdActividad
         {
             get { return idActividad; }
             set { idActividad = value; }
         }
-        public string NombreActividad
+        public string Nombre
         {
-            get { return nombreActividad; }
-            set { nombreActividad = value; }
+            get { return nombre; }
+            set { nombre = value; }
         }
         public grupo Gpo
         {
@@ -37,6 +39,36 @@ namespace IDE_AR.Datos
         {
             get { return fechaLimite; }
             set { fechaLimite = value; }
+        }
+        public string Color
+        {
+            get { return color; }
+            set { color = value; }
+        }
+        public string Nick
+        {
+            get { return nick; }
+            set { nick = value; }
+        }
+        public bool Insertar()
+        {
+            //codigo para insertar
+            return true;
+        }
+        public bool Modificar()
+        {
+            //codigo para modificar
+            return true;
+        }
+        public bool Cosultar()
+        {
+            //codigo para consultar
+            return true;
+        }
+        public bool Eliminar()
+        {
+            //codigo para eliminar
+            return false;
         }
     }
 }

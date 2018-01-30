@@ -172,6 +172,39 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="botonMinRedondeado" TargetType="Button">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="5"                                
+                                Width="20"
+                                Height="20"
+                                Background="{StaticResource AzulIndigoBrush1}"
+                                BorderThickness="0">
+                        <ContentPresenter
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
+                            <ContentPresenter.Content>
+                                <TextBlock Text="-" Foreground="White" FontWeight="ExtraBold" FontSize="12"
+                                           ></TextBlock>
+                            </ContentPresenter.Content>
+
+                        </ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ResourceKey=AzulClaroBrush1}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>   
+    
     <Style x:Key="botonColorRedondeadoPaleta" TargetType="Button">
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
@@ -198,6 +231,38 @@
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
                 
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="botonReduceRedondeado" TargetType="Button">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="5"                                
+                                Width="20"
+                                Height="20"
+                                Background="{StaticResource VerdeBrush1}"
+                                BorderThickness="0">
+                        <ContentPresenter
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
+                            <ContentPresenter.Content>
+                                <TextBlock Text="-" Foreground="White" FontWeight="ExtraBold" FontSize="12"
+                                           ></TextBlock>
+                            </ContentPresenter.Content>
+
+                        </ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ResourceKey=AzulClaroBrush1}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>

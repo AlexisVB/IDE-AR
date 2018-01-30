@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("datos/alumnos3.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/reduce.png")]
 
 
