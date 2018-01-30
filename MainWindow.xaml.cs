@@ -65,6 +65,8 @@ namespace IDE_AR
            VariablesGlobales.miusuario.NombreUsuario = "Profesor X";
            VariablesGlobales.miusuario.Grupo = "0";
            VariablesGlobales.miusuario.Nombre = "Enchilada Verde";
+           btnAdd2.Visibility = System.Windows.Visibility.Hidden;
+           btnAdd3.Visibility = System.Windows.Visibility.Hidden;
             busquedaDatosListas();
             InicializarListas();
             InicializacionDatos();
@@ -122,6 +124,14 @@ namespace IDE_AR
         private void btnCerrar_Click(Object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void btnReduce_Click(Object sender,RoutedEventArgs e)
+        {
+
+        }
+        private void btnExpand_Click(Object sender,RoutedEventArgs e)
+        {
+
         }
         //************************Funciones y eventos de las listas***********************************************
         private void InicializarListas()
@@ -182,6 +192,7 @@ namespace IDE_AR
             if(listAsignatures.Count>0&&lstMaterias.SelectedIndex>=0)
             {
                 currentMateria = listAsignatures[lstMaterias.SelectedIndex];
+                btnAdd2.Visibility = System.Windows.Visibility.Visible;                
                 if(currentMateria.listaGrupos.Count>=0)
                 {
                     actualizarListaGrupos(currentMateria.listaGrupos);
@@ -191,7 +202,8 @@ namespace IDE_AR
                         {
                             currentGrupo=listGroups[0];
                             lstGrupos.SelectedIndex=0;
-                            actualizarListaActividades(currentGrupo.listaActividades);
+                            actualizarListaActividades(currentGrupo.listaActividades);                            
+                            btnAdd3.Visibility = System.Windows.Visibility.Visible;
                         }
                         else
                         {
@@ -262,10 +274,15 @@ namespace IDE_AR
         }
         public void btAdd3_Click(Object sender, RoutedEventArgs e)
         {
-            AgregarActividad nuevaActividad = new AgregarActividad();
+            this.Opacity = 0.5;
+            AgregarActividad nuevaActividad = new AgregarActividad(currentMateria,currentGrupo);
             nuevaActividad.Owner = this;
             //mostar la ventana
-            nuevaActividad.ShowDialog();
+            if(nuevaActividad.ShowDialog()==true)
+            {
+                //actualizar lista de actividades
+            }
+            this.Opacity = 1;
         }
         //**************************************************************************************************
         //Eventos para la asignación de fuentes

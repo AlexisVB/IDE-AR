@@ -28,7 +28,7 @@ namespace IDE_AR
             materiaRaiz = materiaraiz;
             nuevoGrupo.Color = "#444";
             btnColor.DataContext = nuevoGrupo;
-            tbNombremateria.Text = materiaRaiz.Nombre;
+            tbNombremateria.Text = materiaRaiz.Nombre+">";
             nuevoGrupo.Nombre = "";
             nuevoGrupo.Nick = "";            
         }

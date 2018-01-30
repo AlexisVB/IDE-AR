@@ -1,9 +1,101 @@
 ﻿<Window x:Class="IDE_AR.AgregarActividad"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Agregar Actividad" Height="400" Width="400"
+        Title="Agregar Actividad" Height="700" Width="500"
+        Style="{StaticResource ventanaPopUp}"
         WindowStartupLocation="CenterOwner">
-    <Grid>
-        
-    </Grid>
+    <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
+            BorderThickness="4"
+            BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Name="tbRaiz"
+                Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Text="Materia>Grupo" Style="{StaticResource labelVentanasAgregar}" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Nombre de la actividad:" Style="{StaticResource labelVentanasAgregar}"/>
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Fecha de inicio:" Style="{StaticResource labelVentanasAgregar}"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="Fecha de entrega:" Style="{StaticResource labelVentanasAgregar}"/>
+            <TextBlock Grid.Column="0" Grid.Row="5" Text="Color:" Style="{StaticResource labelVentanasAgregar}"/>
+            <TextBlock Grid.Column="0" Grid.Row="6" Text="Nick:" Style="{StaticResource labelVentanasAgregar}"/>            
+            <TextBlock Grid.Column="0" Grid.Row="7" Text="Preview:" Style="{StaticResource labelVentanasAgregar}"/>
+            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+                    Background="{StaticResource AzulIndigoBrush1}"
+                    CornerRadius="30,30,0,0"
+                    >
+                <DockPanel>
+                    <TextBlock 
+                        Text="Agregar Actividad"
+                        Foreground="White"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Margin="140,0,0,0"
+                        Style="{StaticResource labelVentanasAgregar}"/>
+                    <Button Name="btnCerrar" 
+                            Style="{StaticResource botonCerrarRedondeado}"
+                            HorizontalAlignment="Right"
+                            Click="btnCerrar_Click"
+                            />
+                </DockPanel>
+            </Border>
+            <TextBox Grid.Column="1" Grid.Row="2" 
+                 Name="txtNombreActividad" 
+                 ToolTip="El nombre debe contener de 5-20 caracteres"
+                 Width="270"
+                 HorizontalAlignment="Left"
+                 Style="{StaticResource textBoxVentanasAgregar}"
+                 TextChanged="txtNombreActividad_TextChanged"
+                 />
+            <DatePicker Grid.Column="1" Grid.Row="3" 
+                 Name="dtFechaInicio" 
+                 ToolTip="La matrícula debe contener de 10-20 caracteres"
+                 Width="160"
+                 HorizontalAlignment="center"
+                        VerticalAlignment="Center"/>
+            <DatePicker Grid.Column="1" Grid.Row="4" 
+                 Name="dtFechaEntrega" 
+                 ToolTip="La matrícula debe contener de 10-20 caracteres"
+                 Width="160"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"/>
+
+            <Button Grid.Column="1" Grid.Row="5" Name="btnColor"                  
+                 HorizontalAlignment="Left"
+                Style="{StaticResource botonColorRedondeado}"
+                Click="btnColor_Click"/>
+            <TextBox Grid.Column="1" Grid.Row="6" 
+                 Name="txtNickMateria" 
+                 ToolTip="El nick debe ser de 2 caracteres"                     
+                 Width="30"
+                 HorizontalAlignment="Left"
+                 TextChanged="txtNickMateria_TextChanged"
+                 Style="{StaticResource textBoxVentanasAgregar}"></TextBox>
+            <ListView 
+                Name="lstActividades"                 
+                Grid.Column="1" Grid.Row="7" Grid.ColumnSpan="2"                                
+                Background="{StaticResource BarraLateralDerechaBrush}"
+                ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}"
+                SelectionChanged="lstActividades_SelectionChanged"
+                />
+            <DockPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8">
+                <Button
+                    Name="btnAgregar"
+                    Click="btnAgregarClick"
+                    Style="{StaticResource botonRedondeadoAgregar}">
+                </Button>
+            </DockPanel>
+        </Grid>
+    </Border>
 </Window>
