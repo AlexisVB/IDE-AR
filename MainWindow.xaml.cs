@@ -195,9 +195,7 @@ namespace IDE_AR
                 btnAdd2.Visibility = System.Windows.Visibility.Visible;                
                 if(currentMateria.listaGrupos.Count>=0)
                 {
-                    actualizarListaGrupos(currentMateria.listaGrupos);
-                    if(listGroups.Count>=0)
-                    {
+                    actualizarListaGrupos(currentMateria.listaGrupos);                  
                         if(listGroups.Count>0)
                         {
                             currentGrupo=listGroups[0];
@@ -206,12 +204,14 @@ namespace IDE_AR
                             btnAdd3.Visibility = System.Windows.Visibility.Visible;
                         }
                         else
-                        {
+                        {                            
+                            btnAdd3.Visibility = System.Windows.Visibility.Hidden;
                             listGroups.Clear();
                             listActivities.Clear();
+                            actualizarListaActividades(listActivities);
                         }
                         
-                    }
+                    
                 }
             }
                 
@@ -226,8 +226,13 @@ namespace IDE_AR
             {
                 currentGrupo = listGroups[lstGrupos.SelectedIndex];
                 //actualizar lista de actividades
-                actualizarListaActividades(currentGrupo.listaActividades);
-            }         
+                actualizarListaActividades(currentGrupo.listaActividades);                
+                btnAdd3.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {                
+                btnAdd3.Visibility = System.Windows.Visibility.Hidden;
+            }
             
         }
 
@@ -281,6 +286,10 @@ namespace IDE_AR
             if(nuevaActividad.ShowDialog()==true)
             {
                 //actualizar lista de actividades
+                listActivities.Add(nuevaActividad.nuevaActividad);
+                lstActividades.ItemsSource = null;
+                lstActividades.Items.Clear();
+                lstActividades.ItemsSource = listActivities;
             }
             this.Opacity = 1;
         }
