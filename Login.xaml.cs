@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using IDE_AR;
+using IDE_AR.Datos;
+using IDE_AR.DatosGlobales;
 namespace IDE_AR
 {
     /// <summary>
@@ -19,9 +21,11 @@ namespace IDE_AR
     /// </summary>
     public partial class Login : Window
     {
+        
         public Login()
         {
             InitializeComponent();
+            
         }
         private void btnCrearCuenta_Click(object sender, RoutedEventArgs e)
         {
@@ -30,16 +34,79 @@ namespace IDE_AR
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
-
+            if(validarDatos())
+            {
+                if (solicitarDatos())
+                {
+                    Mensaje("Credenciales Correctas");
+                    if(ChbMantenerSesion.IsChecked==true)
+                    {
+                        guardarDatos();
+                    }
+                    switch(VariablesGlobales.miusuario.Tipo)
+                    {
+                        case 0:
+                            this.Hide();
+                                administradorCuentas admin = new administradorCuentas();
+                                admin.Show();
+                            this.Close();    
+                            break;
+                        case 1:
+                            this.Hide();
+                                MainWindow nueva = new MainWindow();
+                                nueva.Show();
+                            this.Close();                            
+                            break;
+                        case 2:
+                            break;
+                    }
+                }                    
+                else
+                    Mensaje("Las credenciales no\nson correctas");
+            }
+            else
+               Mensaje("Las campos no pueden estar vacíos");       
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-                
+            this.Close();        
         }
-        public void cerrar()
+       
+        public bool validarDatos()
         {
-            
+            if (txtUsuario.Text.Length != 0 && txtPassword.Password.Length != 0)
+                return true;
+            else
+                return false;
         }
+        public bool solicitarDatos()
+        {
+            usuario solicitante = InterfaceHttp.GetUsuario(txtUsuario.Text,txtPassword.Password);
+            if(solicitante.Nombre!=null)
+            {
+                VariablesGlobales.miusuario = solicitante;
+                return true;
+            }
+            return false;
+        }
+        public void guardarDatos()
+        {
+
+        }
+        public void Mensaje(string Text)
+        {
+            this.Opacity = 0.9;
+            MessageBoxPersonalizado mostrar = new MessageBoxPersonalizado();
+            mostrar.Texto = Text;
+            mostrar.ShowDialog();
+            this.Opacity = 9;
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+          
     }
 }

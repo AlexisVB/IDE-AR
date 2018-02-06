@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -55,7 +56,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="administradorCuentas.xaml.cs">
+      <DependentUpon>administradorCuentas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgergarUsuario.xaml.cs">
+      <DependentUpon>AgergarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\Actividades.cs" />
+    <Compile Include="Datos\Grupos.cs" />
+    <Compile Include="Datos\InterfaceHttp.cs" />
+    <Compile Include="Datos\Materias.cs" />
     <Compile Include="Datos\miColor.cs" />
+    <Compile Include="Datos\Usuarios.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -71,6 +83,9 @@
     <Compile Include="ModificarMateria.xaml.cs">
       <DependentUpon>ModificarMateria.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModificarUsuario.xaml.cs">
+      <DependentUpon>ModificarUsuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VentanaAdvertencia.xaml.cs">
       <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
     </Compile>
@@ -80,6 +95,14 @@
     <Compile Include="WindowPaleta.xaml.cs">
       <DependentUpon>WindowPaleta.xaml</DependentUpon>
     </Compile>
+    <Page Include="administradorCuentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgergarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Agregar Grupo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModificarMateria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarUsuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +289,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\reduce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icono\icono.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

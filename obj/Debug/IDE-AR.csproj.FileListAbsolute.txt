@@ -48,7 +48,6 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Me
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Login.g.cs
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Login.baml
-C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.baml
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.g.cs
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.baml
@@ -59,3 +58,11 @@ C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Mo
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.g.cs
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.g.cs
 C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.g.cs

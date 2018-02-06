@@ -55,18 +55,17 @@ namespace IDE_AR
                 Rect restoreBounds = Properties.Settings.Default.MainRestoreBounds;
                 Left = restoreBounds.Left;
                 Top = restoreBounds.Top;
+                if(restoreBounds.Width>0)
                 Width = restoreBounds.Width;
+                if (restoreBounds.Height > 0)
                 Height = restoreBounds.Height;
                 WindowState = Properties.Settings.Default.MainWindowState;
                 
             }
-            catch{}
-           VariablesGlobales.miusuario.IdUsuario = 1;
-           VariablesGlobales.miusuario.NombreUsuario = "Profesor X";
-           VariablesGlobales.miusuario.Grupo = "0";
-           VariablesGlobales.miusuario.Nombre = "Enchilada Verde";
+            catch{}     
            btnAdd2.Visibility = System.Windows.Visibility.Hidden;
            btnAdd3.Visibility = System.Windows.Visibility.Hidden;
+            
             busquedaDatosListas();
             InicializarListas();
             InicializacionDatos();
@@ -120,6 +119,7 @@ namespace IDE_AR
         private void btnMin_Click(Object sender, RoutedEventArgs e)
         {
             //minimizar
+            WindowState = System.Windows.WindowState.Minimized;
         }
         private void btnCerrar_Click(Object sender, RoutedEventArgs e)
         {
@@ -127,11 +127,16 @@ namespace IDE_AR
         }
         private void btnReduce_Click(Object sender,RoutedEventArgs e)
         {
-
+            WindowState = System.Windows.WindowState.Normal;
+            btnReduce.Visibility = System.Windows.Visibility.Hidden;
+            btnExpand.Visibility = System.Windows.Visibility.Visible;
         }
         private void btnExpand_Click(Object sender,RoutedEventArgs e)
         {
+            WindowState = System.Windows.WindowState.Maximized;
 
+            btnReduce.Visibility = System.Windows.Visibility.Visible;
+            btnExpand.Visibility = System.Windows.Visibility.Hidden;
         }
         //************************Funciones y eventos de las listas***********************************************
         private void InicializarListas()
@@ -155,27 +160,38 @@ namespace IDE_AR
         private void busquedaDatosListas()
         {
             //busqueda de datos inicial   
-            //inicio simulación
-            materia otra = new materia();
-            otra.Nombre = "Progra Web";
-            otra.Nick = "PW";
-            otra.Color = "#2979ff";            
-
-            grupo otro = new grupo();
-            otro.Nombre = "8C-1";
-            otro.Nick = "8C";
-            otro.Color = "#2979ff";            
-
-            actividad acti = new actividad();
-            acti.Nombre = "Examen práctico";
-            acti.Nick = "EX";
-            acti.Color = "#2979ff";
-            acti.FechaInicial = "01/01/2018";
-            acti.FechaLimite = "02/01/2018";
-            otro.listaActividades.Add(acti);
-            otra.listaGrupos.Add(otro);            
-            listAsignatures.Add(otra);
-            //fin simulacion            
+            //obtener todas las materias
+            Materias mats= InterfaceHttp.GetMaterias(VariablesGlobales.miusuario.IdUsuario);
+            if (mats.materias != null)
+                for (int cont = 0; cont < mats.materias.Count; cont++)
+                {
+                    materia mat = mats.materias[cont];
+                    Grupos grupos = InterfaceHttp.GetGrupos(mat.IdMateria);
+                    if (grupos.grupos != null)
+                    {
+                        for (int cont2 = 0; cont2 < grupos.grupos.Count; cont2++)
+                        {
+                            grupo gpo = grupos.grupos[cont2];
+                            Actividades acts = InterfaceHttp.GetActividades(gpo.IdGrupo);
+                            if (acts.actividades != null)
+                                gpo.listaActividades = acts.actividades;
+                            else
+                                gpo.listaActividades = new List<actividad>();
+                        }
+                        mat.listaGrupos = grupos.grupos;
+                    }
+                    else
+                    {
+                        mat.listaGrupos = new List<grupo>();
+                    }
+                }
+            else
+                mats.materias = new List<materia>();                
+            listAsignatures = mats.materias;
+            lstMaterias.ItemsSource = null;
+            lstMaterias.Items.Clear();
+            lstMaterias.ItemsSource = listAsignatures;
+                    
         }
         private void actualizarListaGrupos(List<grupo> lista)
         {
@@ -341,6 +357,13 @@ namespace IDE_AR
             if(deleteWindow.ShowDialog()==true)
             {
                 //actualizar lista de materias
+                busquedaDatosListas();
+                //limpiar lista grupos
+                lstGrupos.ItemsSource = null;
+                lstGrupos.Items.Clear();
+                //limpiar lista actividades
+                lstActividades.ItemsSource = null;
+                lstActividades.Items.Clear();   
             }
             this.Opacity = 1;          
         }
@@ -351,6 +374,31 @@ namespace IDE_AR
             if (deleteWindow.ShowDialog() == true)
             {
                 //actualizar lista de grupos
+                Grupos grupos = InterfaceHttp.GetGrupos(currentMateria.IdMateria);
+                if (grupos.grupos != null)
+                {
+                    for (int cont2 = 0; cont2 < grupos.grupos.Count; cont2++)
+                    {
+                        grupo gpo = grupos.grupos[cont2];
+                        Actividades acts = InterfaceHttp.GetActividades(gpo.IdGrupo);
+                        if (acts.actividades != null)
+                            gpo.listaActividades = acts.actividades;
+                        else
+                            gpo.listaActividades = new List<actividad>();
+                    }
+                    currentMateria.listaGrupos = grupos.grupos;
+                }
+                else
+                {
+                    currentMateria.listaGrupos = new List<grupo>();
+                }
+                listGroups = currentMateria.listaGrupos;
+                lstGrupos.ItemsSource = null;
+                lstGrupos.Items.Clear();
+                lstGrupos.ItemsSource = listGroups;
+
+                lstActividades.ItemsSource = null;
+                lstActividades.Items.Clear();                
             }
             this.Opacity = 1;
         }
@@ -360,7 +408,15 @@ namespace IDE_AR
             VentanaEliminar deleteWindow = new VentanaEliminar(delete.Actividad, currentActividad);
             if (deleteWindow.ShowDialog() == true)
             {
-                //actualizar lista de actividades
+                Actividades acts = InterfaceHttp.GetActividades(currentGrupo.IdGrupo);
+                if (acts.actividades != null)
+                    currentGrupo.listaActividades = acts.actividades;
+                else
+                    currentGrupo.listaActividades = new List<actividad>();
+                listActivities = currentGrupo.listaActividades;
+                lstActividades.ItemsSource = null;
+                lstActividades.Items.Clear();
+                lstActividades.ItemsSource = listActivities;
             }
             this.Opacity = 1;
         }

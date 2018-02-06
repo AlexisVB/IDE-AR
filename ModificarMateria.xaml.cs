@@ -137,10 +137,8 @@ namespace IDE_AR
 
         }
         private void Modificar()
-        {
-            Materia.IdUsuario = VariablesGlobales.miusuario.IdUsuario;
-            //codigo de agregar            
-            if (Materia.Modificar())
+        {            
+            if (InterfaceHttp.modificarMateria(Materia))
             {
                 Mensaje("Modificado Correctamente");
                 DialogResult = true;

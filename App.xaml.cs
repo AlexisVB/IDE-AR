@@ -12,7 +12,7 @@ namespace IDE_AR
     /// Interaction logic for App.xaml
     /// </summary>
     /// 
-    public enum delete { Materia, Grupo, Actividad };
+    public enum delete { Materia, Grupo, Actividad, Usuario };
     public partial class App : Application
     {
         private System.Threading.Mutex exmut;        

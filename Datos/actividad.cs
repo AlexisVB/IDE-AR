@@ -10,7 +10,7 @@ namespace IDE_AR.Datos
     {
         private int idActividad;
         private string nombre;
-        private grupo gpo;
+        private int gpo;
         private string fechaInicial;
         private string fechaLimite;
         private string color;
@@ -25,7 +25,7 @@ namespace IDE_AR.Datos
             get { return nombre; }
             set { nombre = value; }
         }
-        public grupo Gpo
+        public int IdGrupo
         {
             get { return gpo; }
             set{   gpo = value;}

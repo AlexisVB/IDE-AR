@@ -11,11 +11,13 @@ namespace IDE_AR.Datos
         private int idUsuario;
         private string nombreUsuario;
         private string password;
+        private int tipo;
         private string nombre;
         private string registro;
         private string grupo;
         private string correo;
         private int estado;
+        
 
         public int IdUsuario
         {
@@ -31,6 +33,11 @@ namespace IDE_AR.Datos
         {
             get { return password; }
             set { password = value; }
+        }
+        public int Tipo
+        {
+            get { return tipo; }
+            set { tipo = value; }
         }
         public string Nombre
         {

@@ -23,6 +23,8 @@ namespace IDE_AR
         private materia Materia;
         private grupo Grupo;
         private actividad Actividad;
+        private usuario Usuario;
+        List<actividad> listaActividades;
         public VentanaEliminar(delete d,Object objeto)
         {
             InitializeComponent();
@@ -40,6 +42,10 @@ namespace IDE_AR
                case delete.Actividad:
                    Actividad = (actividad)objeto;
                    tbDatosAEliminar.Text = "Eliminar actividad: " + Actividad.Nombre;
+                   break;
+               case delete.Usuario:
+                   Usuario = (usuario)objeto;
+                   tbDatosAEliminar.Text = "Usuario: " + Usuario.Nombre;
                    break;
            }            
         }
@@ -59,6 +65,9 @@ namespace IDE_AR
                 case delete.Actividad:
                     Text = Text + Actividad.Nombre;                    
                     break;
+                case delete.Usuario:
+                    Text = Text + Usuario.Nombre;
+                    break;
             }
             Text = Text + "?\n Se eliminara todo su contenido y\n los datos ligados al objeto.";
             mostrar.Texto = Text;
@@ -69,13 +78,52 @@ namespace IDE_AR
                 switch (del)
                 {
                     case delete.Materia:
-                        eliminado=Materia.Eliminar();
+                        //eliminado=Materia.Eliminar();
+                        eliminado=InterfaceHttp.eliminarMateria(Materia);
+                        //eliminar grupos
+                        List<grupo> listaGrupos = Materia.listaGrupos;
+                        if(listaGrupos!=null)
+                        {
+                            for(int i=0;i<listaGrupos.Count;i++)
+                            {
+                                grupo gpo = listaGrupos[i];
+                                listaActividades = gpo.listaActividades;
+                                if (listaActividades != null)
+                                {
+                                    for (int cont = 0; cont < listaActividades.Count; cont++)
+                                    {
+                                        actividad act = listaActividades[cont];
+                                        InterfaceHttp.eliminarActividad(act);
+                                    }
+                                }       
+                                InterfaceHttp.eliminarGrupo(gpo);
+                            }
+                          
+                        }
+                        //y  actividades
                         break;
                     case delete.Grupo:
-                        eliminado=Grupo.Eliminar();
+                       // eliminado=Grupo.Eliminar();
+                        eliminado = InterfaceHttp.eliminarGrupo(Grupo);
+                        //eliminar ACtividades
+                        //actualizar lista de grupos                        
+                        listaActividades=Grupo.listaActividades;
+                        if(listaActividades!=null)
+                        {
+                            for(int cont=0;cont<listaActividades.Count;cont++)
+                            {
+                                actividad act = listaActividades[cont];
+                                InterfaceHttp.eliminarActividad(act);
+                            }
+                        }                      
                         break;
                     case delete.Actividad:
-                        eliminado=Actividad.Eliminar();                        
+                        //eliminado=Actividad.Eliminar();
+                        eliminado = InterfaceHttp.eliminarActividad(Actividad);
+                        break;
+                    case delete.Usuario:
+                        //eliminado=Actividad.Eliminar();
+                        eliminado = InterfaceHttp.eliminarUsuario(Usuario);
                         break;
                 }
                 if(eliminado==true)

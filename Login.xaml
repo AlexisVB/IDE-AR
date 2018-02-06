@@ -7,8 +7,11 @@
       mc:Ignorable="d" 
       Height="650" Width="500" 
       Title="Login"
+        ShowInTaskbar="True"
       Style="{StaticResource ventanaPopUp}"
       WindowStartupLocation="CenterScreen"
+      MouseLeftButtonDown="Window_MouseLeftButtonDown"
+      Icon="C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\Icono\icono.png"
       >
 
     <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
@@ -16,8 +19,7 @@
             BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
         <Grid>
             <!--Dos columnas de la ventana -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"></ColumnDefinition>
+            <Grid.ColumnDefinitions>                
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <!--7 filas de la ventana-->
@@ -30,9 +32,10 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <!--Textblock, border y boton de cerrar-->
-            <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0"
+            <Border Grid.Column="0"  Grid.Row="0"
                     Background="{StaticResource AzulIndigoBrush1}"
                     CornerRadius="30,30,0,0"
                     >
@@ -52,7 +55,7 @@
                 </DockPanel>
             </Border>
             <!--Textblock de iniciar sesion-->
-            <TextBlock Grid.ColumnSpan="2"
+            <TextBlock 
                        Grid.Row="1"
                        Style="{StaticResource labelVentanasAgregar}"
                        Foreground="{StaticResource BackgroundLightBrush}" 
@@ -61,7 +64,7 @@
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"></TextBlock>
             <!--Textblock "Usuario"-->
-            <TextBlock Grid.ColumnSpan="2"
+            <TextBlock 
                        Grid.Row="2"
                        Style="{StaticResource labelVentanasAgregar}" 
                        Text="Usuario"
@@ -71,15 +74,16 @@
 
             </TextBlock>
             <!--Textbox txtUsuario-->
-            <TextBox Grid.Column="2"
+            <TextBox 
                      Grid.Row="3"
                      Name="txtUsuario"
                      Width="400"
-                     Height="60"
+                     Height="40"
+                     FontSize="20"
                      Style="{StaticResource textBoxVentanasAgregar}">
             </TextBox>
             <!--Textblock "Contraseña"-->
-            <TextBlock Grid.ColumnSpan="2"
+            <TextBlock 
                        Grid.Row="4"
                        Style="{StaticResource labelVentanasAgregar}" 
                        Text="Contraseña"
@@ -89,24 +93,37 @@
 
             </TextBlock>
             <!--Textbox txtContraseña-->
-            <TextBox Grid.Column="2"
+            <PasswordBox 
                      Grid.Row="5"
                      Name="txtPassword"
                      Width="400"
-                     Height="60"
-                     Style="{StaticResource textBoxVentanasAgregar}">
-            </TextBox>
-            <!--Button btnIngresar-->
-            <Button Grid.ColumnSpan="2"
+                     Height="40"
+                     FontSize="20"                        
+                     Style="{StaticResource txtPasswordLogin}">
+            </PasswordBox>
+            <Grid Grid.Row="6">
+                <!--CheckBox Mantener sesión iniciada-->
+                <CheckBox 
                     Grid.Row="6"
+                    HorizontalAlignment="Center"
+                    Name="ChbMantenerSesion" >                    
+                    <TextBlock 
+                        Foreground="{StaticResource AzulIndigoBrush1}"
+                        Style="{StaticResource labelVentanasAgregar}" 
+                        Text="Mantener sesión iniciada"/>
+                </CheckBox>
+            </Grid>           
+            <!--Button btnIngresar-->
+            <Button 
+                    Grid.Row="7"
                     Name="btnIngresar"
                     Click="btnIngresar_Click"
                     Style="{StaticResource botonRedondeadoIngresar}">
 
             </Button>
             <!--Button btnCrearCuenta-->
-            <Button Grid.ColumnSpan="2"
-                    Grid.Row="7"
+            <Button 
+                    Grid.Row="8"
                     Name="btnCrearCuenta"
                     Click="btnCrearCuenta_Click"
                     Style="{StaticResource botonRedondeadoCrearCuenta}">

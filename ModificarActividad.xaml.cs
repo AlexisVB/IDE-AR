@@ -149,9 +149,9 @@ namespace IDE_AR
         }
         private void modificar()
         {
-            Actividad.Gpo = grupoRaiz;
+            Actividad.IdGrupo = grupoRaiz.IdGrupo;
             //codigo de agregar            
-            if (Actividad.Modificar())
+            if (InterfaceHttp.modificarActividad(Actividad))
             {
                 Mensaje("Modificado Correctamente");
                 DialogResult = true;

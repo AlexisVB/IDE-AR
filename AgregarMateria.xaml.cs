@@ -123,9 +123,10 @@ namespace IDE_AR
         }
         private void agregar()
         {
-            nuevaMateria.IdUsuario = VariablesGlobales.miusuario.IdUsuario;
+            nuevaMateria.IdProfesor = VariablesGlobales.miusuario.IdUsuario;
+            nuevaMateria = InterfaceHttp.InsertarMateria(nuevaMateria);
             //codigo de agregar            
-            if(nuevaMateria.Insertar())
+            if(nuevaMateria.IdMateria>0)
             {
                 Mensaje("Agregado Correctamente");
                 DialogResult = true;                
@@ -142,7 +143,7 @@ namespace IDE_AR
             MessageBoxPersonalizado mostrar = new MessageBoxPersonalizado();
             mostrar.Texto = Text;           
             mostrar.ShowDialog();
-            this.Opacity = 1;
+            this.Opacity = 5;
         }
        
     }

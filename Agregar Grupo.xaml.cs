@@ -105,7 +105,8 @@ namespace IDE_AR
         {
             //codigo de agregar
             nuevoGrupo.IdMateria = materiaRaiz.IdMateria;
-            if (nuevoGrupo.Insertar())
+            nuevoGrupo=InterfaceHttp.insertarGrupo(nuevoGrupo);
+            if (nuevoGrupo.IdGrupo>0)
             {
                 Mensaje("Agregado Correctamente");
                 DialogResult = true;

@@ -49,14 +49,16 @@ namespace IDE_AR
         private void dtFechaInicio_SelectedDateChanged(Object sender, RoutedEventArgs e)
         {
             DateTime fecha = new DateTime();
-            fecha = DateTime.Parse(dtFechaInicio.SelectedDate.ToString());
-            nuevaActividad.FechaInicial = fecha.ToShortDateString();            
+            fecha = DateTime.Parse(dtFechaInicio.SelectedDate.ToString());            
+            nuevaActividad.FechaInicial = fecha.ToShortDateString();
+            Mensaje(nuevaActividad.FechaInicial);
         }
         private void dtFechaEntrega_SelectedDateChanged(Object sender, RoutedEventArgs e)
         {
             DateTime fecha = new DateTime();
             fecha = DateTime.Parse(dtFechaEntrega.SelectedDate.ToString());
-            nuevaActividad.FechaLimite = fecha.ToShortDateString();            
+            nuevaActividad.FechaLimite = fecha.ToShortDateString();
+            Mensaje(nuevaActividad.FechaLimite);
         }
         private void txtNickMateria_TextChanged(Object sender, RoutedEventArgs e)
         {
@@ -123,9 +125,10 @@ namespace IDE_AR
         }
         private void agregar()
         {
-            nuevaActividad.Gpo=grupoRaiz;
-            //codigo de agregar            
-            if (nuevaActividad.Insertar())
+            nuevaActividad.IdGrupo=grupoRaiz.IdGrupo;
+            //codigo de agregar
+            nuevaActividad = InterfaceHttp.insertarActividad(nuevaActividad);
+            if (nuevaActividad.IdActividad>0)
             {
                 Mensaje("Agregado Correctamente");
                 DialogResult = true;

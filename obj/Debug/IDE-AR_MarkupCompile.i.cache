@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\
 IDE_AR
 none
 false
 DEBUG;TRACE
-C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\App.xaml
-19-624125978
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\App.xaml
+22-1427171643
 
-271395436762
-141012385901
-Agregar Grupo.xaml;AgregarActividad.xaml;AgregarMateria.xaml;configuracion.xaml;Estilos\Colores.xaml;Estilos\EstiloRichTextBox.xaml;Estilos\plantillas.xaml;Estilos\plantillasBotones.xaml;Estilos\plantillasItemsListas.xaml;Estilos\WindowsStyles.xaml;Login.xaml;MainWindow.xaml;MessageBoxPersonalizado.xaml;ModificarActividad.xaml;ModificarGrupo.xaml;ModificarMateria.xaml;VentanaAdvertencia.xaml;VentanaEliminar.xaml;WindowPaleta.xaml;
+35499043067
+15-415155382
+administradorCuentas.xaml;AgergarUsuario.xaml;Agregar Grupo.xaml;AgregarActividad.xaml;AgregarMateria.xaml;configuracion.xaml;Estilos\Colores.xaml;Estilos\EstiloRichTextBox.xaml;Estilos\plantillas.xaml;Estilos\plantillasBotones.xaml;Estilos\plantillasItemsListas.xaml;Estilos\WindowsStyles.xaml;Login.xaml;MainWindow.xaml;MessageBoxPersonalizado.xaml;ModificarActividad.xaml;ModificarGrupo.xaml;ModificarMateria.xaml;ModificarUsuario.xaml;VentanaAdvertencia.xaml;VentanaEliminar.xaml;WindowPaleta.xaml;
 
 False
 

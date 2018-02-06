@@ -117,8 +117,8 @@ namespace IDE_AR
         private void modificar()
         {
             //codigo de agregar
-            Grupo.IdMateria = materiaRaiz.IdMateria;
-            if (Grupo.Modificar())
+            
+            if (InterfaceHttp.modificarGrupo(Grupo))
             {
                 Mensaje("Modificado Correctamente");
                 DialogResult = true;
