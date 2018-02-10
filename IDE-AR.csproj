@@ -68,6 +68,7 @@
     <Compile Include="Datos\Materias.cs" />
     <Compile Include="Datos\miColor.cs" />
     <Compile Include="Datos\Usuarios.cs" />
+    <Compile Include="Email\email.cs" />
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -85,6 +86,9 @@
     </Compile>
     <Compile Include="ModificarUsuario.xaml.cs">
       <DependentUpon>ModificarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosForms\RegistroDeUsuario.xaml.cs">
+      <DependentUpon>RegistroDeUsuario.xaml</DependentUpon>
     </Compile>
     <Compile Include="VentanaAdvertencia.xaml.cs">
       <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
@@ -196,6 +200,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UsuariosForms\RegistroDeUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="VentanaAdvertencia.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -293,6 +301,7 @@
   <ItemGroup>
     <Resource Include="Icono\icono.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

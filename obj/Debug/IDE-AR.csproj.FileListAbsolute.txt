@@ -66,3 +66,5 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Ag
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.g.cs
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs

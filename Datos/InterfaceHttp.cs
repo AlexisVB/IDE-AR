@@ -485,6 +485,22 @@ namespace IDE_AR.Datos
                 return false;
             return true;
         }
-        
+        //****************************Funciones par email****************************
+        public static string VerficarCorreo(usuario user)
+        {
+            string scriptname = "validacionEmail.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "usuario" + user.NombreUsuario;
+            query += "password" + user.Password;
+            query += "correo" + user.Correo;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object
+            string x = "";
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, x); }
+            catch { }
+            return x;  
+        }
     }
 }

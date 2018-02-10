@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using IDE_AR;
 using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
+using IDE_AR.UsuariosForms;
 namespace IDE_AR
 {
     /// <summary>
@@ -29,7 +30,10 @@ namespace IDE_AR
         }
         private void btnCrearCuenta_Click(object sender, RoutedEventArgs e)
         {
-
+            RegistroDeUsuario nuevoRegistro = new RegistroDeUsuario();
+            this.Hide();
+            nuevoRegistro.Show();
+            this.Close();
         }
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)

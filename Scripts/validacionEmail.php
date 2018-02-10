@@ -1,5 +1,5 @@
 <?php
-	//Script para generar un codigo para la validación del email  05/02/2018
+	//Script para generar un codigo para la validación del email  10/02/2018
 	//Alexis daniel Villicaña Barrera-IDE_AR
 	//Conexion a la base de datos
 	require("conectabd.php");
@@ -19,7 +19,7 @@
 		$nr=mysqli_num_rows($resultado);
 		if($nr>=1)
 		{												
-			echo "El correo ya esta ligado con una cuenta existente\n";
+			echo "ocupado";
 		}
 		else
 		{
@@ -31,28 +31,7 @@
 				{
 					$key=$key.$codigo[$cont];
 				}
-			$to=$correo;			
-			$subject="Mail validation IDEAR";
-			$message="<html>
-			<head><title>Verificar correo</title></head>
-			<body>
-			<h1>Este es el código de Verificación</h1>
-			<p>----------- ${key} --------------</p>
-			</body></html>";
-
-			$headers='From: IDE_AR@gmail.com'."\n".					
-					'MIME-Version: 1.0'."\n".
-					'Content-type: text/html; charset=utf-8'."\n";				
-			if(!mail($to,$subject,$message,$headers))
-			{
-				echo "Error al enviar el correon\n";
-			}
-			else
-			{
-				setcookie($correo,$key,time()+27000);//la cookie expira en 15 minutos
-				echo "Enviado exitosamente\n";		
-			}
-			
+			echo $key;			
 		}		
 	}
 	?>
