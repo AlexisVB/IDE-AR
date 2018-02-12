@@ -30,6 +30,59 @@
             
         </DataTemplate.Triggers>
     </DataTemplate>
+    <!--Plantilla de las listas de alumnosGrupo-->
+    <DataTemplate x:Key="plantillaListaAlumnosGrupo">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                Source="../Images/account.png"></Image>
+            <TextBlock 
+                Grid.Column="1"
+                Text="{Binding Path=Nombre}" Foreground="White" FontSize="14" FontFamily="Verdana"/>            
+        </Grid>        
+    </DataTemplate>
+    <!--Plantilla de las listas de alumnosGrupo-->
+    <DataTemplate x:Key="plantillaItemsChat">
+        <Grid>
+            <Grid.ColumnDefinitions>                
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0"
+                Name="txtNombreRemitente"
+                Text="{Binding Path=NombreRemitente}"
+                Foreground="White"
+                FontFamily="Verdana"
+                FontSize="12"></TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="0"
+                 Margin="10,0,0,0"
+                Text="{Binding Path=FechaEnvio}"
+                 Foreground="LightGray"
+                FontFamily="Verdana"
+                FontSize="12"/>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                Text="{Binding Path=Mensaje}"
+                Foreground="Gray"
+                FontFamily="Verdana"
+                FontSize="12"></TextBlock>            
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=IsHost}" Value="true">
+                <Setter TargetName="txtNombreRemitente" Property="Foreground" Value="Blue"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsHost}" Value="false">
+                <Setter TargetName="txtNombreRemitente" Property="Foreground" Value="white"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
     <!--Plantilla de las listas de alumnos-->
     <DataTemplate x:Key="plantilla2Listas">
         <StackPanel Orientation="Horizontal">
@@ -123,6 +176,66 @@
                 />                
             </Grid>
         </Border>        
+    </DataTemplate>
+    <!--Plantilla de alumnosAgregarGrupo-->
+    <DataTemplate x:Key="plantilla1ListaAlumnosAgregarItems">
+        <Border BorderThickness="5" BorderBrush="{StaticResource BarraLateralIzquierdaBrush}" CornerRadius="5" Background="WhiteSmoke" >
+            <Grid  Background="Transparent">
+                <Grid.ColumnDefinitions>                    
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>                
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="0"
+                    Text="Nombre Usuario:"
+                />              
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="1"
+                    Text="Nombre:"
+                />
+                <TextBlock 
+                    Grid.Column="0"  Grid.Row="2"
+                    Text="Registro:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="3"
+                    Text="Grupo:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="4"
+                    Text="Correo:"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="0"
+                    Text="{Binding Path=NombreUsuario}"
+                />              
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="1"
+                    Text="{Binding Path=Nombre}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="2"
+                    Text="{Binding Path=Registro}"
+                />
+                <TextBlock 
+                    Grid.Column="1"  Grid.Row="3"
+                    Text="{Binding Path=Grupo}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="4"
+                    Text="{Binding Path=Correo}"
+                />
+            </Grid>
+        </Border>
     </DataTemplate>
 
     <Style x:Key="TitulosConfiguracion" TargetType="TextBlock">

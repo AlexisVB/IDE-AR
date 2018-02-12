@@ -1,18 +1,19 @@
 <?php
 	require("conectabd.php");
-	$idusuario1=$_GET['idusuario1'];	
-	$idusuario2=$_GET['idusuario2'];
-	$sql="SELECT * FROM Chat_IDE WHERE (IdRemitente=$idusuario1 OR IdRemitente=$idusuario2)AND(IdDestinatario=$idusuario1 OR IdDestinatario=$idusuario2) ORDER by FechaEnvio";	
-	$resultado=mysqli_query($conexion,$sql);	
+	
+	$grupo=$_GET['grupo'];	
+
+	$sql="SELECT * FROM  Usuarios_IDE WHERE Grupo LIKE '%$grupo%'";	
+	$resultado=mysqli_query($conexion,$sql);
 	if(!$resultado)
 	{
-		echo "null";
+		echo "Error";
 	}
 	else
 	{		
 		$nr=mysqli_num_rows($resultado);
 		if($nr>=1)
-		{	$json='{"mensajes":[';
+		{	$json='{"usuarios":[';
 			for($cont=1;$cont<=$nr;$cont++)
 			{
 				$row=mysqli_fetch_object($resultado);
@@ -31,9 +32,9 @@
 		}
 		else
 		{
-			$error="null";
-			echo $error;		
-		}		
+			$error="No hay alumnos";		
+		}
+		
 	}
 	mysqli_close($conexion);
 ?>

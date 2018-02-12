@@ -291,6 +291,7 @@
                     ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
                         <ListView.ContextMenu>
                             <ContextMenu>
+                                <MenuItem Name="AgregarAlumnos" Header="Agregar Alumnos" Click="AgregarAlumnos_Click"/>
                                 <MenuItem Name="ModificarGrupo" Header="Modificar grupo" Click="btnModificarGrupo_Click"/>
                                 <MenuItem Name="EliminarGrupo"  Header="Eliminar grupo" Click="btnEliminarGrupo_Click"/>
                             </ContextMenu>
@@ -353,37 +354,98 @@
 
             </Grid>
             <!--Barra lateral derecha-->
-            <StackPanel Grid.Row="3" Grid.Column="2" 
-                    Background="{StaticResource BarraLateralDerechaBrush}" 
-                    >
-                <TextBlock Text="-Alumnos activos-" FontSize="16" Foreground="Gray" />
-                <ListView Name="lstAlumnosActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--Listas de alumnos-->
+                <StackPanel Grid.Row="0" 
+                    Background="{StaticResource BarraLateralDerechaBrush}" >
+                    <TextBlock Text="-Alumnos activos-" FontSize="16" Foreground="Gray" />
+                    <ListView Name="lstAlumnosActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                   ItemsSource="{Binding XPath=alumno}"
                   SelectionChanged="lstActividades_SelectionChanged"                  
                   Background="{StaticResource BarraLateralDerechaBrush}"
                           Margin="0"
                           ItemTemplate="{StaticResource plantilla2Listas}"
-                      DataContext="{Binding Source={StaticResource xmlAlumnosActivos}}">
-                </ListView>
-                <TextBlock Text="-Alumnos inactivos-" FontSize="16" Foreground="Gray"/>
-                <ListView Name="lstAlumnosInactivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                      DataContext="{Binding Source={StaticResource xmlAlumnosActivos}}"
+                              Visibility="Collapsed">
+                    </ListView>
+                    <TextBlock Text="-Alumnos inactivos-" FontSize="16" Foreground="Gray"/>
+                    <ListView Name="lstAlumnosInactivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                   ItemsSource="{Binding XPath=alumno}"
                   SelectionChanged="lstActividades_SelectionChanged"                  
                   Background="{StaticResource BarraLateralDerechaBrush}"
                           Margin="0"
                           ItemTemplate="{StaticResource plantilla2Listas}"
-                      DataContext="{Binding Source={StaticResource xmlAlumnosInactivos}}">
-                </ListView>
-                <TextBlock Text="-Alumnos no activos-" FontSize="16" Foreground="Gray"/>
-                <ListView Name="lstAlumnosNoActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                      DataContext="{Binding Source={StaticResource xmlAlumnosInactivos}}"
+                              Visibility="Collapsed">
+                    </ListView>
+                    <TextBlock Text="-Alumnos no activos-" FontSize="16" Foreground="Gray"/>
+                    <ListView Name="lstAlumnosNoActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
                   ItemsSource="{Binding XPath=alumno}"
                   SelectionChanged="lstActividades_SelectionChanged"                  
                   Background="{StaticResource BarraLateralDerechaBrush}"
                           Margin="0"
                           ItemTemplate="{StaticResource plantilla2Listas}"
-                      DataContext="{Binding Source={StaticResource xmlAlumnosNoActivos}}">
-                </ListView>
-            </StackPanel>
+                      DataContext="{Binding Source={StaticResource xmlAlumnosNoActivos}}"
+                              Visibility="Collapsed">
+                       
+                    </ListView>
+                    <ListView Name="lstAlumnosGrupo" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                                                  
+                        Background="{StaticResource BarraLateralDerechaBrush}"
+                          Margin="0"
+                          ItemTemplate="{StaticResource plantillaListaAlumnosGrupo}"
+                          SelectionChanged="lstAlumnosGrupo_SelectionChanged">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="EnviarMensaje" Header="Enviar mensaje" Click="EnviarMensaje_Click"/>
+                                <MenuItem Name="VerPerfil" Header="Ver perfil" Click="VerPerfil_Click"/>                                
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                </StackPanel>
+                <!--Barra de chat-->
+                <Grid Name="gridChat" Grid.Row="1" 
+                      Visibility="Collapsed"
+                    Background="{StaticResource BarraLateralIzquierdaBrush}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="300"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock 
+                        Name="lbChat"
+                        Background="{StaticResource BarraLateralIzquierdaBrush}"
+                        Style="{StaticResource labelVentanasAgregar}" Text="Chat"></TextBlock>
+                    <ListView Grid.Row="1"
+                              Background="{StaticResource EditorTextoBrush}"
+                              Name="lstChat"
+                              ItemTemplate="{StaticResource plantillaItemsChat}"
+                        ></ListView>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0"
+                                 Name="txtMensaje"
+                                 Foreground="White"
+                                 PreviewKeyDown="txtMensaje_PreviewKeyDown"
+                                 Background="{StaticResource BarraConfiguracionBrush}"
+                            ></TextBox>
+                        <Button 
+                            Grid.Column="1"
+                            Name="btnEnviar"
+                            Click="btnEnviar_Click"
+                            Style="{StaticResource botonEnviarRedondeado}"
+                            ></Button>
+                    </Grid>                    
+                    
+                </Grid>
+            </Grid>            
+            
             <!--centro principal-->
             <Grid Grid.Row="3" Grid.Column="1" >
                 <Grid>

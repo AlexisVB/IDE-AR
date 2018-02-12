@@ -520,4 +520,35 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="botonEnviarRedondeado" TargetType="Button">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="5"                                
+                                Width="30"
+                                Height="30"
+                                Background="{StaticResource AzulBrush1}"
+                                BorderThickness="0">
+                        <ContentPresenter
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                RecognizesAccessKey="True">
+                            <ContentPresenter.Content>
+                                <Image Source="../Images/send.png"/>
+                            </ContentPresenter.Content>
+
+                        </ContentPresenter>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="{StaticResource ResourceKey=MoradoBrush1}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

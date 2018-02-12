@@ -68,3 +68,5 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Mo
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.g.cs
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs

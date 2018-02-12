@@ -38,40 +38,44 @@ namespace IDE_AR
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
-            if(validarDatos())
+            Ingresar();
+        }
+        private void Ingresar()
+        {
+
+            if (validarDatos())
             {
                 if (solicitarDatos())
                 {
                     Mensaje("Credenciales Correctas");
-                    if(ChbMantenerSesion.IsChecked==true)
+                    if (ChbMantenerSesion.IsChecked == true)
                     {
                         guardarDatos();
                     }
-                    switch(VariablesGlobales.miusuario.Tipo)
+                    switch (VariablesGlobales.miusuario.Tipo)
                     {
                         case 0:
                             this.Hide();
-                                administradorCuentas admin = new administradorCuentas();
-                                admin.Show();
-                            this.Close();    
+                            administradorCuentas admin = new administradorCuentas();
+                            admin.Show();
+                            this.Close();
                             break;
                         case 1:
                             this.Hide();
-                                MainWindow nueva = new MainWindow();
-                                nueva.Show();
-                            this.Close();                            
+                            MainWindow nueva = new MainWindow();
+                            nueva.Show();
+                            this.Close();
                             break;
                         case 2:
                             break;
                     }
-                }                    
+                }
                 else
                     Mensaje("Las credenciales no\nson correctas");
             }
             else
-               Mensaje("Las campos no pueden estar vacíos");       
+                Mensaje("Las campos no pueden estar vacíos");     
         }
-
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();        
@@ -110,6 +114,12 @@ namespace IDE_AR
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void txtPassword_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+                Ingresar();
         }
           
     }

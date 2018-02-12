@@ -98,7 +98,8 @@
                      Name="txtPassword"
                      Width="400"
                      Height="40"
-                     FontSize="20"                        
+                     FontSize="20"              
+                    PreviewKeyDown="txtPassword_PreviewKeyDown"
                      Style="{StaticResource txtPasswordLogin}">
             </PasswordBox>
             <Grid Grid.Row="6">

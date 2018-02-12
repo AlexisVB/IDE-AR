@@ -485,15 +485,63 @@ namespace IDE_AR.Datos
                 return false;
             return true;
         }
+        public static Usuarios BuscarAlumnosGrupo(string gpo)
+        {
+            string scriptname = "buscarAlumnosGrupo.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "grupo=" + gpo;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object
+            Usuarios x = new Usuarios();
+            try
+            {
+                Newtonsoft.Json.JsonConvert.PopulateObject(json, x);
+            }
+            catch { }            
+            return x;
+        }
+        public static Usuarios ObtenerAlumnosGrupo(grupo gpo)
+        {
+            string scriptname = "ObtenerAlumnosGrupo.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "idGrupo=" + gpo.IdGrupo;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object
+            Usuarios x = new Usuarios();
+            try
+            {
+                Newtonsoft.Json.JsonConvert.PopulateObject(json, x);
+            }
+            catch { }
+            return x;
+        }
+        public static bool InsertarIntegranteGrupo(int idGrupo,int idUsuario)
+        {
+            string scriptname = "insertarIntegranteGrupo.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "idGrupo=" + idGrupo;
+            query += "&idUsuario=" + idUsuario;
+            //se hace el request
+            string json = HacerRequest(query);           
+            if (json.Equals("Insertado"))
+                return true;
+            else
+                return false;
+        }
         //****************************Funciones par email****************************
         public static string VerficarCorreo(usuario user)
         {
             string scriptname = "validacionEmail.php?";
             //Se crea la cadena para hacer el request
             string query = baseURL + scriptname;
-            query += "usuario" + user.NombreUsuario;
-            query += "password" + user.Password;
-            query += "correo" + user.Correo;
+            query += "usuario=" + user.NombreUsuario;
+            query += "&password=" + user.Password;
+            query += "&correo=" + user.Correo;
             //se hace el request
             string json = HacerRequest(query);
             //deserialización de json a c# object
@@ -501,6 +549,39 @@ namespace IDE_AR.Datos
             try { Newtonsoft.Json.JsonConvert.PopulateObject(json, x); }
             catch { }
             return x;  
+        }
+        //****************************Funciones de chat****************************
+        public static bool EnviarMensaje(mensaje mess)
+        {
+            string scriptname = "enviarMensaje.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "idRemitente=" + mess.IdRemitente;
+            query += "&idDestinatario=" + mess.IdDestinatario;
+            query += "&fechaEnvio=" + mess.FechaEnvio;
+            query += "&mensaje=" + mess.Mensaje;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object
+            mensaje x = new mensaje();
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, x); }
+            catch { }
+            if(x.Mensaje!=null)
+                return true;
+            return false;
+        }
+        public static void ObtenerChat(Chat nuevoChat)
+        {
+            string scriptname = "obtenerChat.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "idusuario1=" + nuevoChat.Host.IdUsuario;
+            query += "&idusuario2=" + nuevoChat.Guest.IdUsuario;            
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object            
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, nuevoChat); }
+            catch { }            
         }
     }
 }

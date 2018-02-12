@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
+using IDE_AR.UsuariosForms;
 namespace IDE_AR
 {
     /// <summary>
@@ -30,15 +31,19 @@ namespace IDE_AR
         private List<usuario> listStudentsActives = new List<usuario>();
         private List<usuario> listStudentsInactives = new List<usuario>();
         private List<usuario> listStudentsNoActives = new List<usuario>();
+        private List<usuario> listStudentsGroup = new List<usuario>();
+        private List<mensaje> listMenssages=new List<mensaje>();
 
         private materia currentMateria;
         private grupo currentGrupo;
         private actividad currentActividad;
+        private usuario currentAlumnoGrupo;
 
         public materia materiaContexto;//Variable usada solo para darle contexto a la lista materias
         public grupo grupoContexto;//Variable usada solo para darle contexto a la lista grupos
         public actividad actividadContexto;//Variable usada solo para darle contexto a la lista actividades
         public usuario usuarioContexto;//Variable usada solo para darle contexto a las listas de usuarios
+        public mensaje mensajeContexto;
         //**********************************************************
         //*************************Variables para el editor*********************************
         private FontFamily familiaPre;
@@ -145,6 +150,8 @@ namespace IDE_AR
             lstMaterias.DataContext = materiaContexto;
             lstGrupos.DataContext = grupoContexto;
             lstActividades.DataContext = actividadContexto;
+            lstAlumnosGrupo.DataContext = usuarioContexto;
+            lstChat.DataContext=mensajeContexto;
             //lstAlumnosActivos.DataContext = usuarioContexto;
             //lstAlumnosInactivos.DataContext = usuarioContexto;
             //lstAlumnosNoActivos.DataContext = usuarioContexto;
@@ -153,6 +160,8 @@ namespace IDE_AR
             lstMaterias.ItemsSource = listAsignatures;            
             lstGrupos.ItemsSource = listGroups;
             lstActividades.ItemsSource = listActivities;
+            lstAlumnosGrupo.ItemsSource = listStudentsGroup;
+            lstChat.ItemsSource=listMenssages;
             //lstAlumnosActivos.ItemsSource = listStudentsActives;
             //lstAlumnosInactivos.ItemsSource = listStudentsInactives;
             // lstAlumnosNoActivos.ItemsSource = listStudentsNoActives;
@@ -205,6 +214,17 @@ namespace IDE_AR
             listActivities = lista;
             lstActividades.ItemsSource = listActivities;
         }
+        private void actualizarListaAlumnosGrupo()
+        {
+            Usuarios estudiantes = InterfaceHttp.ObtenerAlumnosGrupo(currentGrupo);
+            if (estudiantes != null && estudiantes.usuarios != null)
+            {
+                listStudentsGroup = estudiantes.usuarios;
+                lstAlumnosGrupo.ItemsSource = null;
+                lstAlumnosGrupo.Items.Clear();
+                lstAlumnosGrupo.ItemsSource = listStudentsGroup;
+            }
+        }
         public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
         {
             if(listAsignatures.Count>0&&lstMaterias.SelectedIndex>=0)
@@ -244,6 +264,8 @@ namespace IDE_AR
                 //actualizar lista de actividades
                 actualizarListaActividades(currentGrupo.listaActividades);                
                 btnAdd3.Visibility = System.Windows.Visibility.Visible;
+                //actualizar lista de alumnosGrupo
+                actualizarListaAlumnosGrupo();
             }
             else
             {                
@@ -259,6 +281,14 @@ namespace IDE_AR
                 currentActividad = listActivities[lstActividades.SelectedIndex];
             }          
         }
+         private void lstAlumnosGrupo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listStudentsGroup.Count > 0 && lstAlumnosGrupo.SelectedIndex >= 0)
+            {
+                currentAlumnoGrupo = listStudentsGroup[lstAlumnosGrupo.SelectedIndex];
+            }     
+        }
+
       
         public void btAdd1_Click(Object sender,RoutedEventArgs e)
         {
@@ -420,6 +450,30 @@ namespace IDE_AR
             }
             this.Opacity = 1;
         }
+        private void AgregarAlumnos_Click(object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0.5;
+            AgregarAlumnosGrupo agregarNuevos = new AgregarAlumnosGrupo(currentGrupo);
+            agregarNuevos.Owner = this;
+            //mostar la ventana
+            if (agregarNuevos.ShowDialog() == true)
+            {
+                //actualizar lista alumnoGrupo
+               
+            }
+            this.Opacity = 1; 
+        }
+        private void EnviarMensaje_Click(object sender, RoutedEventArgs e)
+        {
+            gridChat.Visibility = System.Windows.Visibility.Visible;
+            lbChat.Text = currentAlumnoGrupo.Nombre;
+            ActualizarChat();
+        }
+          private void VerPerfil_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //**************************************************************************************************
         //Eventos para la asignación de fuentes
         private void OpcionesFuentePredeterminada_Click(Object sender, RoutedEventArgs e)
@@ -508,6 +562,81 @@ namespace IDE_AR
                 OpcionesTamano16.IsChecked = false;
                 OpcionesTamano18.IsChecked = true;
             }
+        }      
+        private void btnEnviar_Click(object sender, RoutedEventArgs e)
+        {
+            sendMensaje();
         }
+         private void sendMensaje()
+        {
+            if (txtMensaje.Text.Length > 0)
+            {
+                mensaje nuevoMensaje = new mensaje();
+                nuevoMensaje.IdRemitente = VariablesGlobales.miusuario.IdUsuario;
+                nuevoMensaje.NombreRemitente = VariablesGlobales.miusuario.Nombre;
+                nuevoMensaje.IdDestinatario = currentAlumnoGrupo.IdUsuario;
+                nuevoMensaje.FechaEnvio = DateTime.Now.ToShortDateString();
+                nuevoMensaje.Mensaje = txtMensaje.Text;
+                nuevoMensaje.IsHost = true;
+                if (InterfaceHttp.EnviarMensaje(nuevoMensaje))
+                {
+                    //enviado correctamente
+                    //actualizar chat
+                    txtMensaje.Text = "";
+                    listMenssages.Add(nuevoMensaje);
+                    lstChat.ItemsSource = null;
+                    lstChat.Items.Clear();
+                    lstChat.ItemsSource = listMenssages;
+                }
+                else
+                {
+                    //mensaje de error al enviar
+                    Mensaje("Error al enviar el mensaje");
+                }
+            }
+            else
+            {
+                //mensaje esta vacío
+                Mensaje("El mensaje esta vacío");
+
+            }
+        }
+        private void ActualizarChat()
+         {
+             Chat nuevoChat = new Chat();
+             nuevoChat.Host = VariablesGlobales.miusuario;
+             nuevoChat.Guest = currentAlumnoGrupo;
+             InterfaceHttp.ObtenerChat(nuevoChat);
+             nuevoChat.Host = VariablesGlobales.miusuario;
+             nuevoChat.Guest = currentAlumnoGrupo;
+            if(nuevoChat.mensajes!=null)
+            {
+                nuevoChat.AsignarHost();
+                listMenssages = nuevoChat.mensajes;
+                lstChat.ItemsSource = null;
+                lstChat.Items.Clear();
+                lstChat.ItemsSource = listMenssages;
+            }
+            else
+            {
+                Mensaje("Error al cargar el chat");
+            }
+         }
+        public void Mensaje(string Text)
+        {
+            this.Opacity = 0.9;
+            MessageBoxPersonalizado mostrar = new MessageBoxPersonalizado();
+            mostrar.Texto = Text;
+            mostrar.ShowDialog();
+            this.Opacity = 9;
+        }
+        private void txtMensaje_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key==Key.Enter)
+            {
+                sendMensaje();
+            }
+        }
+     
     }
 }
