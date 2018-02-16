@@ -1,0 +1,413 @@
+﻿<Window x:Class="IDE_AR.InterfazAlumnos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IDE_AR"
+        mc:Ignorable="d"
+        Icon="Icono/icono.png"
+        ShowInTaskbar="True"
+        Title="InterfazAlumnos" Height="800" Width="1300" Background="{StaticResource DarkPrimaryColorBrush}"
+        Loaded="InterfazAlumnos_Loaded"
+        Closing="InterfazAlumnos_Closing">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static local:InterfazAlumnos.RCGuardar}"
+                        Executed="ExecutedRCGuardar"
+                        CanExecute="CanExecuteRCGuardar"/>
+        <CommandBinding Command="ApplicationCommands.Close"
+                        Executed="ArchivoSalir_Click"/>
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+G"
+                    Command="{x:Static local:InterfazAlumnos.RCGuardar}"/>
+        <KeyBinding Gesture="Ctrl+S"
+                    Command="ApplicationCommands.Close"/>
+    </Window.InputBindings>
+    <Window.Resources>
+
+        <XmlDataProvider x:Key="xmlMaterias"
+                         Source="Datos/materias.xml" XPath="materias"/>
+        <XmlDataProvider x:Key="xmlGrupos"
+                         Source="Datos/grupos.xml" XPath="grupos"/>
+        <XmlDataProvider x:Key="xmlActividades"
+                         Source="Datos/actividades.xml" XPath="actividades"/>
+        <XmlDataProvider x:Key="xmlAlumnosActivos"
+                         Source="Datos/alumnos.xml" XPath="alumnos"/>
+        <XmlDataProvider x:Key="xmlAlumnosInactivos"
+                         Source="Datos/alumnos2.xml" XPath="alumnos"/>
+        <XmlDataProvider x:Key="xmlAlumnosNoActivos"
+                         Source="Datos/alumnos3.xml" XPath="alumnos"/>
+    </Window.Resources>
+    <Border Background="{StaticResource BarraLateralDerechaBrush}" 
+            BorderThickness="5"
+            BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
+        <Grid ShowGridLines="false">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Barra Superior-->
+            <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"
+                    Background="{StaticResource BarraLateralIzquierdaBrush}"
+                    CornerRadius="0,0,0,0"
+                    >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock
+                        Grid.Column="0"
+                        Name="tituloApp"
+                        Text="IDE-AR"
+                        Foreground="White"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Margin="0,0,0,0"
+                        Style="{StaticResource labelVentanasAgregar}"/>
+                    <Button Grid.Column="1"
+                            Name="btnMin" 
+                            Style="{StaticResource botonMinRedondeado}"
+                            DockPanel.Dock="Left"
+                            Click="btnMin_Click" RenderTransformOrigin="0.988,0.52"
+                            />
+                    <Button 
+                            Grid.Column="2"
+                            Name="btnReduce" 
+                            Style="{StaticResource botonReduceRedondeado}"
+                            DockPanel.Dock="Right"
+                            Margin="10,5,5,5"
+                            Click="btnReduce_Click"
+                            />
+                    <Button 
+                            Grid.Column="2"
+                            Name="btnExpand" 
+                            Visibility="Hidden"
+                            Style="{StaticResource botonExpandRedondeado}"
+                            DockPanel.Dock="Right"
+                            Margin="10,5,5,5"
+                            Click="btnExpand_Click"
+                            />
+                    <Button 
+                            Grid.Column="3"
+                            Name="btnCerrar" 
+                            Style="{StaticResource botonCerrarRedondeado}"
+                            DockPanel.Dock="Right"
+                            Margin="10,5,5,5"
+                            Click="btnCerrar_Click"
+                            />
+
+
+                </Grid>
+            </Border>
+            <!--Barra de Menus-->
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Vertical" >
+
+                <Menu Name="BarraDeMenus" Background="{StaticResource BarraLateralDerechaBrush}">
+                    <MenuItem Name="MenuArchivo" Header="_Archivo" >
+                        <MenuItem Name="ArchivoAbrir" Header="_Abrir"
+                              InputGestureText="Ctrl+A">
+                            <MenuItem.Icon >
+                                <Image Source="Images/abrir.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="ArchivoGuardar" 
+                              InputGestureText="Ctrl+G"                              
+                              Command="{x:Static local:MainWindow.RCGuardar}">
+                            <MenuItem.Header>
+                                <TextBlock Text="Guardar" Foreground="White"/>
+                            </MenuItem.Header>
+                            <MenuItem.Icon >
+                                <Image Source="Images/guardar.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="ArchivoSalir" Header="_Salir"
+                              InputGestureText="Ctrl+S"
+                              Command="Close">
+                            <MenuItem.Icon >
+                                <Image Source="Images/salir.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Name="MenuEditar" Header="_Editar">
+                        <MenuItem Name="EditarDeshacer" Header="Deshacer"
+                              Command="ApplicationCommands.Undo">
+                            <MenuItem.Icon >
+                                <Image Source="Images/deshacer.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="EditarRehacer" Header="Rehacer"
+                              Command="ApplicationCommands.Redo">
+                            <MenuItem.Icon >
+                                <Image Source="Images/rehacer.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="EditarCopiar" Header="Copiar"
+                              Command="Copy">
+                            <MenuItem.Icon >
+                                <Image Source="Images/copiar.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="EditarCortar" Header="Cortar"
+                              Command="Cut" >
+                            <MenuItem.Icon >
+                                <Image Source="Images/cortar.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="EditarPegar" Header="Pegar"
+                              Command="Paste">
+                            <MenuItem.Icon >
+                                <Image Source="Images/pegar.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Name="EditarEliminar" Header="Eliminar">
+                            <MenuItem.Icon >
+                                <Image Source="Images/eliminar.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+
+                    </MenuItem>
+                    <MenuItem Name="MenuOpciones" Header="_Opciones">
+                        <MenuItem Name="OpcionesFuente" Header="_Fuente">
+                            <MenuItem Name="OpcionesFuentePredeterminado" Header="Predeterminada" IsChecked="True" Click="OpcionesFuentePredeterminada_Click"/>
+                            <MenuItem Name="OpcionesFuenteCourier" Header="Courier new" Click="OpcionesFuenteCourier_Click"/>
+                            <MenuItem Name="OpcionesFuenteArial" Header="Arial" Click="OpcionesFuenteArial_Click"/>
+                        </MenuItem>
+                        <MenuItem Name="OpcionesTamano" Header="_Tamaño">
+                            <MenuItem Name="OpcionesPredeterminado" Header="Predeterminado" IsChecked="True" Click="OpcionesFuenteSize_Click"/>
+                            <MenuItem Name="OpcionesTamano10" Header="10" Click="OpcionesFuenteSize_Click"/>
+                            <MenuItem Name="OpcionesTamano12" Header="12" Click="OpcionesFuenteSize_Click"/>
+                            <MenuItem Name="OpcionesTamano14" Header="14" Click="OpcionesFuenteSize_Click"/>
+                            <MenuItem Name="OpcionesTamano16" Header="16" Click="OpcionesFuenteSize_Click"/>
+                            <MenuItem Name="OpcionesTamano18" Header="18" Click="OpcionesFuenteSize_Click"/>
+                        </MenuItem>
+                    </MenuItem>
+                    <MenuItem Name="MenuAyuda" Header="_Ayuda">
+                        <MenuItem Name="AyudaAcercaDe" Header="Acerca de" Click="acercaDe_Click">
+                            <MenuItem.Icon>
+                                <Image Source="Images/acercaDe.png"/>
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+
+                </Menu>
+
+
+            </StackPanel>
+            <!--Barra de Herramientas-->
+            <StackPanel Grid.Row="2" Grid.Column="1"  >
+                <ToolBar Name="BarraDeHerramientas" Background="{StaticResource EditorTextoBrush}" >
+                    <Button Name="btArAbrir" Width="30" Height="30" ToolTip="Abrir">
+                        <Image Source="Images/abrir.png"  />
+                    </Button>
+                    <Button Name="btArGuardar"
+                        Width="30" Height="30"
+                        Command="{x:Static local:MainWindow.RCGuardar}"
+                        ToolTip="Guardar">
+                        <Image Source="Images/guardar.png"/>
+                    </Button>
+                    <Separator></Separator>
+                    <Button Name="btArCortar"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"
+                        Command="Cut"
+                        ToolTip="Cortar">
+                        <Image Source="Images/cortar.png"/>
+                    </Button>
+                    <Button Name="btArCopiar"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"
+                        Command="Copy"
+                        ToolTip="Copiar">
+                        <Image Source="Images/copiar.png"/>
+                    </Button>
+                    <Button Name="btArPegar"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"
+                        Command="Paste"
+                        ToolTip="Pegar">
+                        <Image Source="Images/pegar.png" />
+                    </Button>
+                    <Button Name="btDeshacer"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"                        
+                        ToolTip="Deshacer"
+                        Command="ApplicationCommands.Undo">
+                        <Image Source="Images/deshacer.png" />
+                    </Button>
+                    <Button Name="btRehacer"
+                        Width="30" Height="30"
+                        FocusManager.IsFocusScope="True"                        
+                        ToolTip="Rehacer"
+                        Command="ApplicationCommands.Redo">
+                        <Image Source="Images/rehacer.png" />
+                    </Button>
+                </ToolBar>
+            </StackPanel>
+            <!--Barra de estado-->
+            <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+                <StatusBar Name="BarraDeEstado" Background="{StaticResource PrimaryColorBrush}">
+                    <TextBlock Name="txtEstado"></TextBlock >
+
+                </StatusBar>
+            </StackPanel>
+            <!--Barra lateral izquierda-->
+
+            <StackPanel Grid.Row="2" Grid.Column="0"
+                  Grid.RowSpan="2" Orientation="Horizontal"
+                    Background="{StaticResource BarraLateralIzquierdaBrush}">
+                <StackPanel Grid.Column="0" DataContext="lo">
+                    <TextBlock Text="Materias" Foreground="White"/>
+                    <ListView Name="lstMaterias" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                  
+                  SelectionChanged="list1_SelectionChanged"                  
+                    Background="{StaticResource BarraLateralIzquierdaBrush}"
+                ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}"
+                    >
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="ModificarMateria" Header="Modificar materia" Click="btnModificarMateria_Click"/>
+                                <MenuItem Name="EliminarMateria"  Header="Eliminar materia" Click="btnEliminarMateria_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                    <Button Name="btnAdd1" 
+                        Style="{StaticResource botonAdd}"
+                        Click="btAdd1_Click"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Actividades" Foreground="White"/>
+                    <ListView Name="lstActividades" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                  
+                  SelectionChanged="lstActividades_SelectionChanged"                  
+                  Background="{StaticResource BarraLateralIzquierdaBrush}"
+                          Margin="0"
+                          ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="ModificarActividad" Header="Modificar actividad" Click="btnModificarActividad_Click"/>
+                                <MenuItem Name="EliminarActividad"  Header="Eliminar actividad" Click="btnEliminarActividad_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
+                    <Button Name="btnAdd3" 
+                        Style="{StaticResource botonAdd}"
+                        Click="btAdd3_Click"></Button>
+                </StackPanel>
+            </StackPanel>
+            <!--Barra lateral de configuracion-->
+            <Grid Grid.Row="2" Grid.Column="2" Background="{StaticResource BarraConfiguracionBrush}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Name="tbUserName"
+                       Grid.Column="0" 
+                       FontSize="16" 
+                       Foreground="White" 
+                       FontFamily="Verdana"                        
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+                <Ellipse Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="Images/usuario.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button Grid.Column="2" 
+                    Name="btConfiguracion"
+                    Width="40" Height="40" 
+                    HorizontalAlignment="Right"
+                    Background="{StaticResource BackgroundDarkBrush}"
+                    Click="btConfiguracion_Click">
+                    <DockPanel>
+                        <Image Source="Images/settings.png"/>
+                    </DockPanel>
+                </Button>
+
+            </Grid>
+            <!--Barra lateral derecha-->
+            <Grid Grid.Row="3" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--Listas de alumnos-->
+                <StackPanel Grid.Row="0" 
+                    Background="{StaticResource BarraLateralDerechaBrush}" >
+                    <TextBlock Text="-Compañeros activos-" FontSize="16" Foreground="Gray" />
+                </StackPanel>
+                <!--Barra de chat-->
+                <Grid Name="gridChat" Grid.Row="1" 
+                      Visibility="Collapsed"
+                    Background="{StaticResource BarraLateralIzquierdaBrush}" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="300"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock 
+                        Name="lbChat"
+                        Background="{StaticResource BarraLateralIzquierdaBrush}"
+                        Style="{StaticResource labelVentanasAgregar}" Text="Chat"></TextBlock>
+                    <ListView Grid.Row="1"
+                              Background="{StaticResource EditorTextoBrush}"
+                              Name="lstChat"
+                              ItemTemplate="{StaticResource plantillaItemsChat}"
+                        ></ListView>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0"
+                                 Name="txtMensaje"
+                                 Foreground="White"
+                                 PreviewKeyDown="txtMensaje_PreviewKeyDown"
+                                 Background="{StaticResource BarraConfiguracionBrush}"
+                            ></TextBox>
+                        <Button 
+                            Grid.Column="1"
+                            Name="btnEnviar"
+                            Click="btnEnviar_Click"
+                            Style="{StaticResource botonEnviarRedondeado}"
+                            ></Button>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+
+            <!--centro principal-->
+            <Grid Grid.Row="3" Grid.Column="1" >
+                <Grid>
+                    <RichTextBox 
+                Name="ctEditor" 
+                AcceptsReturn="True"  
+                AcceptsTab="True"                
+                VerticalScrollBarVisibility="Auto" 
+                HorizontalScrollBarVisibility="Auto"                
+                >
+                        <RichTextBox.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="mcEditarCortar" Command="Cut"/>
+                                <MenuItem Name="mcEditarCopiar" Command="Copy"/>
+                                <MenuItem Name="mcEditarPegar" Command="Paste"/>
+                            </ContextMenu>
+                        </RichTextBox.ContextMenu>
+                    </RichTextBox>
+
+                </Grid>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
+    

@@ -70,3 +70,44 @@ C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Us
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
 C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\administradorCuentas.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgergarUsuario.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Agregar Grupo.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarActividad.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarMateria.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\configuracion.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\EstiloRichTextBox.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillasBotones.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MessageBoxPersonalizado.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarActividad.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarGrupo.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarMateria.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarUsuario.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaAdvertencia.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaEliminar.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\WindowPaleta.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\administradorCuentas.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgergarUsuario.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Agregar Grupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarActividad.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarMateria.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\configuracion.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\InterfazAlumnos.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Login.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarActividad.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarGrupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarMateria.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarUsuario.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaAdvertencia.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaEliminar.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\WindowPaleta.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillas.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\InterfazAlumnos.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Login.baml

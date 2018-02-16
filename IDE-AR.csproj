@@ -71,6 +71,9 @@
     <Compile Include="Datos\miColor.cs" />
     <Compile Include="Datos\Usuarios.cs" />
     <Compile Include="Email\email.cs" />
+    <Compile Include="InterfazAlumnos.xaml.cs">
+      <DependentUpon>InterfazAlumnos.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Estilos\WindowsStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InterfazAlumnos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

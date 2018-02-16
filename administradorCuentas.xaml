@@ -7,7 +7,7 @@
         ShowInTaskbar="True"
         Style="{StaticResource ventanaPopUp}"
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        Icon="C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\Icono\icono.png">
+        Icon="Icono/icono.png">
     <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
             BorderThickness="4"
             BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">

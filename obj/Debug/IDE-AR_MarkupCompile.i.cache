@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\
 IDE_AR
 none
 false
 DEBUG;TRACE
-C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\App.xaml
-24-1737789446
+C:\Users\anyk0\Documents\GitHub\IDE-AR\App.xaml
+25-74136744
 
-40-1582012982
-15-415155382
-administradorCuentas.xaml;AgergarUsuario.xaml;Agregar Grupo.xaml;AgregarActividad.xaml;AgregarMateria.xaml;configuracion.xaml;Estilos\Colores.xaml;Estilos\EstiloRichTextBox.xaml;Estilos\plantillas.xaml;Estilos\plantillasBotones.xaml;Estilos\plantillasItemsListas.xaml;Estilos\WindowsStyles.xaml;Login.xaml;MainWindow.xaml;MessageBoxPersonalizado.xaml;ModificarActividad.xaml;ModificarGrupo.xaml;ModificarMateria.xaml;ModificarUsuario.xaml;UsuariosForms\AgregarAlumnosGrupo.xaml;UsuariosForms\RegistroDeUsuario.xaml;VentanaAdvertencia.xaml;VentanaEliminar.xaml;WindowPaleta.xaml;
+411028646658
+15-2068900268
+administradorCuentas.xaml;AgergarUsuario.xaml;Agregar Grupo.xaml;AgregarActividad.xaml;AgregarMateria.xaml;configuracion.xaml;Estilos\Colores.xaml;Estilos\EstiloRichTextBox.xaml;Estilos\plantillas.xaml;Estilos\plantillasBotones.xaml;Estilos\plantillasItemsListas.xaml;Estilos\WindowsStyles.xaml;InterfazAlumnos.xaml;Login.xaml;MainWindow.xaml;MessageBoxPersonalizado.xaml;ModificarActividad.xaml;ModificarGrupo.xaml;ModificarMateria.xaml;ModificarUsuario.xaml;UsuariosForms\AgregarAlumnosGrupo.xaml;UsuariosForms\RegistroDeUsuario.xaml;VentanaAdvertencia.xaml;VentanaEliminar.xaml;WindowPaleta.xaml;
 
-False
+True
 

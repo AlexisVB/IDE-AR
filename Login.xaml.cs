@@ -67,6 +67,10 @@ namespace IDE_AR
                             this.Close();
                             break;
                         case 2:
+                            this.Hide();
+                            InterfazAlumnos alumnos = new InterfazAlumnos();
+                            alumnos.Show();
+                            this.Close();
                             break;
                     }
                 }
