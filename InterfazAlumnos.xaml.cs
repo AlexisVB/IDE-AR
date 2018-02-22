@@ -69,7 +69,6 @@ namespace IDE_AR
 
             }
             catch { }        
-            btnAdd3.Visibility = System.Windows.Visibility.Hidden;
 
             busquedaDatosListas();
             InicializarListas();
@@ -147,8 +146,9 @@ namespace IDE_AR
         private void InicializarListas()
         {
             //Asignación de contextos
-            lstMaterias.DataContext = materiaContexto;
+            lstMaterias.DataContext = materiaContexto;        
             lstActividades.DataContext = actividadContexto;
+            lstAlumnosGrupo.DataContext = usuarioContexto;
             lstChat.DataContext = mensajeContexto;
             //lstAlumnosActivos.DataContext = usuarioContexto;
             //lstAlumnosInactivos.DataContext = usuarioContexto;
@@ -157,6 +157,7 @@ namespace IDE_AR
             //Asignación de listas
             lstMaterias.ItemsSource = listAsignatures;
             lstActividades.ItemsSource = listActivities;
+            lstAlumnosGrupo.ItemsSource = listStudentsGroup;
             lstChat.ItemsSource = listMenssages;
             //lstAlumnosActivos.ItemsSource = listStudentsActives;
             //lstAlumnosInactivos.ItemsSource = listStudentsInactives;
@@ -164,39 +165,12 @@ namespace IDE_AR
         }
         private void busquedaDatosListas()
         {
+            ObtenerGrupos();
+            ObtenerMaterias();
+            ObtenerActividades();
             //busqueda de datos inicial   
             //obtener todas las materias
             Materias mats = InterfaceHttp.GetMaterias(VariablesGlobales.miusuario.IdUsuario);
-            if (mats.materias != null)
-                for (int cont = 0; cont < mats.materias.Count; cont++)
-                {
-                    materia mat = mats.materias[cont];
-                    Grupos grupos = InterfaceHttp.GetGrupos(mat.IdMateria);
-                    if (grupos.grupos != null)
-                    {
-                        for (int cont2 = 0; cont2 < grupos.grupos.Count; cont2++)
-                        {
-                            grupo gpo = grupos.grupos[cont2];
-                            Actividades acts = InterfaceHttp.GetActividades(gpo.IdGrupo);
-                            if (acts.actividades != null)
-                                gpo.listaActividades = acts.actividades;
-                            else
-                                gpo.listaActividades = new List<actividad>();
-                        }
-                        mat.listaGrupos = grupos.grupos;
-                    }
-                    else
-                    {
-                        mat.listaGrupos = new List<grupo>();
-                    }
-                }
-            else
-                mats.materias = new List<materia>();
-            listAsignatures = mats.materias;
-            lstMaterias.ItemsSource = null;
-            lstMaterias.Items.Clear();
-            lstMaterias.ItemsSource = listAsignatures;
-
         }
         private void actualizarListaGrupos(List<grupo> lista)
         {
@@ -214,6 +188,9 @@ namespace IDE_AR
             if (estudiantes != null && estudiantes.usuarios != null)
             {
                 listStudentsGroup = estudiantes.usuarios;
+                lstAlumnosGrupo.ItemsSource = null;
+                lstAlumnosGrupo.Items.Clear();
+                lstAlumnosGrupo.ItemsSource = listStudentsGroup;
             }
         }
         public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
@@ -221,23 +198,17 @@ namespace IDE_AR
             if (listAsignatures.Count > 0 && lstMaterias.SelectedIndex >= 0)
             {
                 currentMateria = listAsignatures[lstMaterias.SelectedIndex];
-                if (currentMateria.listaGrupos.Count >= 0)
+                currentGrupo = currentMateria.listaGrupos[0];
+                if (currentGrupo.listaActividades.Count > 0)
                 {
-                    actualizarListaGrupos(currentMateria.listaGrupos);
-                    if (listGroups.Count > 0)
-                    {
-                        currentGrupo = listGroups[0];
-                        actualizarListaActividades(currentGrupo.listaActividades);
-                        btnAdd3.Visibility = System.Windows.Visibility.Visible;
-                    }
-                    else
-                    {
-                        btnAdd3.Visibility = System.Windows.Visibility.Hidden;
-                        listGroups.Clear();
-                        listActivities.Clear();
-                        actualizarListaActividades(listActivities);
-                    }
+                    actualizarListaActividades(currentGrupo.listaActividades);
                 }
+                else
+                {
+                    listActivities.Clear();
+                    actualizarListaActividades(listActivities);
+                }
+                actualizarListaAlumnosGrupo();
             }
 
             //actualizar lista de grupos
@@ -573,6 +544,65 @@ namespace IDE_AR
                 sendMensaje();
             }
         }
+        private void ObtenerGrupos()
+        {
+            Grupos MisGrupos = new Grupos();
+            InterfaceHttp.ObtenerGruposAlumno(MisGrupos);
+            if (MisGrupos.grupos!=null)
+            {
+                listGroups = MisGrupos.grupos;
+            }
+        }
+        private void ObtenerMaterias()
+        {
+            listAsignatures = new List<materia>();
+            for (int cont = 0; cont < listGroups.Count; cont++)
+            {
+                currentGrupo = listGroups[cont];
+                materia NuevaMateria = InterfaceHttp.ObtenerMateriasAlumno(currentGrupo);
+                NuevaMateria.listaGrupos = new List<grupo>();
+                NuevaMateria.listaGrupos.Add(currentGrupo);
+                listAsignatures.Add(NuevaMateria);
+                
 
+            }   
+        }
+        private void ObtenerActividades()
+        {
+            listActivities = new List<actividad>(); 
+                       
+            for (int cont = 0; cont < listGroups.Count; cont++)
+            {
+                currentGrupo = listGroups[cont];
+                Actividades NuevaActividad = InterfaceHttp.ObtenerActividadesAlumno(currentGrupo);
+                if (NuevaActividad.actividades!=null)
+                {
+                    currentGrupo.listaActividades = NuevaActividad.actividades;
+                }
+                else
+                {
+                    currentGrupo.listaActividades = new List<actividad>();
+                }    
+            }
+
+        }
+        private void lstAlumnosGrupo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listStudentsGroup.Count > 0 && lstAlumnosGrupo.SelectedIndex >= 0)
+            {
+                currentAlumnoGrupo = listStudentsGroup[lstAlumnosGrupo.SelectedIndex];
+                
+            }
+        }
+
+        private void VerDetalles_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EntregarActividad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -362,37 +362,9 @@
                 <!--Listas de alumnos-->
                 <StackPanel Grid.Row="0" 
                     Background="{StaticResource BarraLateralDerechaBrush}" >
-                    <TextBlock Text="-Alumnos activos-" FontSize="16" Foreground="Gray" />
-                    <ListView Name="lstAlumnosActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding XPath=alumno}"
-                  SelectionChanged="lstActividades_SelectionChanged"                  
-                  Background="{StaticResource BarraLateralDerechaBrush}"
-                          Margin="0"
-                          ItemTemplate="{StaticResource plantilla2Listas}"
-                      DataContext="{Binding Source={StaticResource xmlAlumnosActivos}}"
-                              Visibility="Collapsed">
-                    </ListView>
-                    <TextBlock Text="-Alumnos inactivos-" FontSize="16" Foreground="Gray"/>
-                    <ListView Name="lstAlumnosInactivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding XPath=alumno}"
-                  SelectionChanged="lstActividades_SelectionChanged"                  
-                  Background="{StaticResource BarraLateralDerechaBrush}"
-                          Margin="0"
-                          ItemTemplate="{StaticResource plantilla2Listas}"
-                      DataContext="{Binding Source={StaticResource xmlAlumnosInactivos}}"
-                              Visibility="Collapsed">
-                    </ListView>
-                    <TextBlock Text="-Alumnos no activos-" FontSize="16" Foreground="Gray"/>
-                    <ListView Name="lstAlumnosNoActivos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                  ItemsSource="{Binding XPath=alumno}"
-                  SelectionChanged="lstActividades_SelectionChanged"                  
-                  Background="{StaticResource BarraLateralDerechaBrush}"
-                          Margin="0"
-                          ItemTemplate="{StaticResource plantilla2Listas}"
-                      DataContext="{Binding Source={StaticResource xmlAlumnosNoActivos}}"
-                              Visibility="Collapsed">
-                       
-                    </ListView>
+                    <TextBlock Text="-Alumnos-" FontSize="16" Foreground="Gray" />
+                  
+                    
                     <ListView Name="lstAlumnosGrupo" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                                                  
                         Background="{StaticResource BarraLateralDerechaBrush}"
                           Margin="0"

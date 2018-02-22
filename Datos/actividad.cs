@@ -15,6 +15,7 @@ namespace IDE_AR.Datos
         private string fechaLimite;
         private string color;
         private string nick;
+
         public int IdActividad
         {
             get { return idActividad; }

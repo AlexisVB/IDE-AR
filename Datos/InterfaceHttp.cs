@@ -583,5 +583,63 @@ namespace IDE_AR.Datos
             try { Newtonsoft.Json.JsonConvert.PopulateObject(json, nuevoChat); }
             catch { }            
         }
+        /*
+         * ********************************Funciones de las listas del alumno**************************************
+         */
+
+        public static void ObtenerGruposAlumno(Grupos gpo)
+        {
+            string scriptname = "ObtenerGruposAlumno.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "IdUsuario=" + DatosGlobales.VariablesGlobales.miusuario.IdUsuario;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object            
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, gpo); }
+            catch { }
+        }
+        public static materia ObtenerMateriasAlumno(grupo gpo)
+        {
+            string scriptname = "ObtenerMateriasAlumno.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "IdGrupo=" + gpo.IdGrupo;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                   
+            materia x = new materia();
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, x); }
+            catch { }
+            //reconvertir colores
+            if (x.Color != null)
+                x.Color = ConvertirColor(x.Color);
+            return x;
+        }
+        public static Actividades ObtenerActividadesAlumno(grupo gpo)
+        {
+            string scriptname = "ObtenerActividadesAlumno.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "IdGrupo=" + gpo.IdGrupo;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                   
+            Actividades x = new Actividades();
+            x.IdGrupo = 2;
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, x); }
+            catch { }
+
+
+            //reconvertir colores
+            if (x.actividades != null)
+                for (int cont = 0; cont < x.actividades.Count; cont++)
+                {
+                    actividad obj = x.actividades[cont];
+                    obj.Color = ConvertirColor(obj.Color);
+                }
+            return x;
+        }
+        
     }
 }

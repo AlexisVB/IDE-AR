@@ -1,19 +1,22 @@
 <?php
 	require("conectabd.php");
-	
-	$grupo=$_GET['grupo'];//Busca el parametro grupo en la url que viene del visual	
-
-	$sql="SELECT * FROM  Usuarios_IDE WHERE Grupo LIKE '%$grupo%'";	
-	$resultado=mysqli_query($conexion,$sql);//realiza una consulta a la base de datos
+	$IdUsuario=$_GET['IdUsuario'];//Es un alumno
+	$sql="SELECT Grupos_IDE.IdGrupo AS IdGrupo,
+				 Grupos_IDE.Nombre AS Nombre,
+				 Grupos_IDE.IdMateria AS IdMateria
+				 FROM Grupos_IDE INNER JOIN IntegrantesGrupo_IDE 
+				 ON Grupos_IDE.IdGrupo=IntegrantesGrupo_IDE.IdGrupo
+				 WHERE IntegrantesGrupo_IDE.IdUsuario=$IdUsuario";
+	$resultado=mysqli_query($conexion,$sql);
 	if(!$resultado)
 	{
 		echo "Error";
 	}
 	else
-	{		
+	{
 		$nr=mysqli_num_rows($resultado);
 		if($nr>=1)
-		{	$json='{"usuarios":[';
+		{	$json='{"grupos":[';
 			for($cont=1;$cont<=$nr;$cont++)
 			{
 				$row=mysqli_fetch_object($resultado);
@@ -32,9 +35,12 @@
 		}
 		else
 		{
-			$error="No hay alumnos";		
+			echo "{}";
 		}
-		
 	}
 	mysqli_close($conexion);
+
 ?>
+
+
+

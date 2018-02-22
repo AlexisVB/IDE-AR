@@ -5,7 +5,7 @@
     <DataTemplate x:Key="plantilla1ListasDatosDesdeObjetos">
         <Border BorderThickness="0" BorderBrush="Transparent" CornerRadius="2">
             <Grid Width="50" Height="50" >
-            <Grid.ToolTip>
+                <Grid.ToolTip>
                     <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
                         <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=Nombre}"/>
                     </ToolTip>
@@ -245,12 +245,12 @@
         <Setter Property="TextAlignment" Value="Center"/>        
     </Style>
     <Style x:Key="TabsItems" TargetType="TabItem">
-        <Setter Property="Background" Value="#455a64"/>
+        <Setter Property="Background" Value="{StaticResource BarraLateralIzquierdaBrush}"/>
         <Setter Property="FontSize" Value="16"/>
         <Setter Property="Foreground" Value="White"/>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="#283593"/>
+                <Setter Property="Background" Value="{StaticResource EditorTextoBrush}"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Foreground" Value="White"/>
             </Trigger>

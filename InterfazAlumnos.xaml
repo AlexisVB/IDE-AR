@@ -275,14 +275,11 @@
                     >
                         <ListView.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Name="ModificarMateria" Header="Modificar materia" Click="btnModificarMateria_Click"/>
-                                <MenuItem Name="EliminarMateria"  Header="Eliminar materia" Click="btnEliminarMateria_Click"/>
+                                <MenuItem Name="VerDetalles" Header="Ver Detalles" Click="VerDetalles_Click"/>
                             </ContextMenu>
                         </ListView.ContextMenu>
                     </ListView>
-                    <Button Name="btnAdd1" 
-                        Style="{StaticResource botonAdd}"
-                        Click="btAdd1_Click"/>
+
                 </StackPanel>
                 <StackPanel Grid.Column="2">
                     <TextBlock Text="Actividades" Foreground="White"/>
@@ -293,14 +290,12 @@
                           ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
                         <ListView.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Name="ModificarActividad" Header="Modificar actividad" Click="btnModificarActividad_Click"/>
+                                <MenuItem Name="EntregarActividad" Header="Entregar actividad" Click="EntregarActividad_Click"/>
                                 <MenuItem Name="EliminarActividad"  Header="Eliminar actividad" Click="btnEliminarActividad_Click"/>
                             </ContextMenu>
                         </ListView.ContextMenu>
                     </ListView>
-                    <Button Name="btnAdd3" 
-                        Style="{StaticResource botonAdd}"
-                        Click="btAdd3_Click"></Button>
+
                 </StackPanel>
             </StackPanel>
             <!--Barra lateral de configuracion-->
@@ -338,51 +333,80 @@
             <Grid Grid.Row="3" Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
+
                 <!--Listas de alumnos-->
                 <StackPanel Grid.Row="0" 
                     Background="{StaticResource BarraLateralDerechaBrush}" >
                     <TextBlock Text="-Compañeros activos-" FontSize="16" Foreground="Gray" />
+                    <ListView Name="lstAlumnosGrupo" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                                                  
+                        Background="{StaticResource BarraLateralDerechaBrush}"
+                          Margin="0"
+                          ItemTemplate="{StaticResource plantillaListaAlumnosGrupo}"
+                          SelectionChanged="lstAlumnosGrupo_SelectionChanged">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Name="EnviarMensaje" Header="Enviar mensaje" Click="EnviarMensaje_Click"/>
+                                <MenuItem Name="VerPerfil" Header="Ver perfil" Click="VerPerfil_Click"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                    </ListView>
                 </StackPanel>
-                <!--Barra de chat-->
-                <Grid Name="gridChat" Grid.Row="1" 
-                      Visibility="Collapsed"
-                    Background="{StaticResource BarraLateralIzquierdaBrush}" >
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*"></RowDefinition>
-                        <RowDefinition Height="300"></RowDefinition>
-                        <RowDefinition Height="2*"></RowDefinition>
-                    </Grid.RowDefinitions>
-                    <TextBlock 
-                        Name="lbChat"
-                        Background="{StaticResource BarraLateralIzquierdaBrush}"
-                        Style="{StaticResource labelVentanasAgregar}" Text="Chat"></TextBlock>
-                    <ListView Grid.Row="1"
-                              Background="{StaticResource EditorTextoBrush}"
+                <!--Archivos y Chat-->
+                <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,-0.4,-4.6">
+                    <TabItem Header="Archivos" Style="{StaticResource TabsItems}">
+                        <!--Listas de Archivos-->
+                        <StackPanel Grid.Row="1" Background="{StaticResource BarraLateralIzquierdaBrush}">
+                            <TextBlock Text="-Archivos-" FontSize="16" Foreground="Gray"/>
+
+                        </StackPanel>
+
+                    </TabItem>
+                    <TabItem Header="Chat" Style="{StaticResource TabsItems}">
+                        <Grid Name="gridChat"                 
+                        Background="{StaticResource BarraLateralIzquierdaBrush}" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="50*"/>
+                                <ColumnDefinition Width="179*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="8*"></RowDefinition>
+                                <RowDefinition Height="50"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <TextBlock 
+                        Name="lbChat" 
+                        Background="{StaticResource BarraLateralDerechaBrush}"
+                        Style="{StaticResource labelVentanasAgregar}" Text="Chat" Grid.ColumnSpan="2" Grid.Row="0" Margin="0,0,0,0"></TextBlock>
+                            <ListView Grid.Row="1"
+                              Background="{StaticResource BarraLateralIzquierdaBrush}"
                               Name="lstChat"
-                              ItemTemplate="{StaticResource plantillaItemsChat}"
+                              ItemTemplate="{StaticResource plantillaItemsChat}" Grid.ColumnSpan="2"
                         ></ListView>
-                    <Grid Grid.Row="2">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0"
+                            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <TextBox Grid.Column="0"
                                  Name="txtMensaje"
                                  Foreground="White"
                                  PreviewKeyDown="txtMensaje_PreviewKeyDown"
                                  Background="{StaticResource BarraConfiguracionBrush}"
                             ></TextBox>
-                        <Button 
+                                <Button 
                             Grid.Column="1"
                             Name="btnEnviar"
                             Click="btnEnviar_Click"
                             Style="{StaticResource botonEnviarRedondeado}"
                             ></Button>
-                    </Grid>
+                            </Grid>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
 
-                </Grid>
+
             </Grid>
 
             <!--centro principal-->
