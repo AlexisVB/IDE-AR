@@ -93,6 +93,20 @@
     <Compile Include="ModificarUsuario.xaml.cs">
       <DependentUpon>ModificarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Soluciones\adminFicheros.cs" />
+    <Compile Include="Soluciones\adminSolucion.cs" />
+    <Compile Include="Soluciones\AgregarFichero.xaml.cs">
+      <DependentUpon>AgregarFichero.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\AgregarSolucion.xaml.cs">
+      <DependentUpon>AgregarSolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\BuscarSolucion.xaml.cs">
+      <DependentUpon>BuscarSolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\Fichero.cs" />
+    <Compile Include="Soluciones\SolucionesProyecto.cs" />
+    <Compile Include="Soluciones\SolucionProyecto.cs" />
     <Compile Include="UsuariosForms\AgregarAlumnosGrupo.xaml.cs">
       <DependentUpon>AgregarAlumnosGrupo.xaml</DependentUpon>
     </Compile>
@@ -152,6 +166,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Estilos\TreeViewItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Estilos\WindowsStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -210,6 +228,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ModificarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Soluciones\AgregarFichero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Soluciones\AgregarSolucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Soluciones\BuscarSolucion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,6 +356,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Icono\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icFolder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconoC.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

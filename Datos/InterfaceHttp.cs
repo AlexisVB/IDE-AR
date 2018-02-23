@@ -640,6 +640,13 @@ namespace IDE_AR.Datos
                 }
             return x;
         }
-        
+
+        /*
+        * ********************************Funciones de las soluciones alumno**************************************
+        */
+
+        /*
+        * ********************************Funciones de las soluciones profesor**************************************
+        */
     }
 }

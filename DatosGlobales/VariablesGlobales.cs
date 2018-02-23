@@ -8,6 +8,7 @@ namespace IDE_AR.DatosGlobales
 {
     public class VariablesGlobales
     {
-        public static usuario miusuario=new usuario();//variable usada para almacenar los datos de la cuenta actual
+        public static usuario miusuario = new usuario();//variable usada para almacenar los datos de la cuenta actual
+        public static string RutaPredeterminada = "C://Users//Alexis//Documents//IDE-AR//";//variable que guarda los proyectos en una carpeta/se lee del archivo .conf
     }
 }

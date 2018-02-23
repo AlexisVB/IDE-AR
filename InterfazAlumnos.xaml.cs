@@ -16,6 +16,7 @@ using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
 using System.IO;
+using IDE_AR.Soluciones;
 namespace IDE_AR
 {
     /// <summary>
@@ -35,22 +36,26 @@ namespace IDE_AR
         private List<usuario> listStudentsNoActives = new List<usuario>();
         private List<usuario> listStudentsGroup = new List<usuario>();
         private List<mensaje> listMenssages = new List<mensaje>();
+        private List<Fichero> listFiles = new List<Fichero>();
 
         private materia currentMateria;
         private grupo currentGrupo;
         private actividad currentActividad;
         private usuario currentAlumnoGrupo;
+        private Fichero currentFichero;
 
         public materia materiaContexto;//Variable usada solo para darle contexto a la lista materias
         public grupo grupoContexto;//Variable usada solo para darle contexto a la lista grupos
         public actividad actividadContexto;//Variable usada solo para darle contexto a la lista actividades
         public usuario usuarioContexto;//Variable usada solo para darle contexto a las listas de usuarios
         public mensaje mensajeContexto;
+        public Fichero ficheroContexto;
         //**********************************************************
         //*************************Variables para el editor*********************************
         private FontFamily familiaPre;
         private double sizePre;
         public static RoutedUICommand RCGuardar = new RoutedUICommand();
+        SolucionProyecto misolucion;
         //**********************************************************************************        
         public InterfazAlumnos()
         {
@@ -151,6 +156,7 @@ namespace IDE_AR
             lstActividades.DataContext = actividadContexto;
             lstAlumnosGrupo.DataContext = usuarioContexto;
             lstChat.DataContext = mensajeContexto;
+            solucionP.DataContext = ficheroContexto;
             //lstAlumnosActivos.DataContext = usuarioContexto;
             //lstAlumnosInactivos.DataContext = usuarioContexto;
             //lstAlumnosNoActivos.DataContext = usuarioContexto;
@@ -160,6 +166,7 @@ namespace IDE_AR
             lstActividades.ItemsSource = listActivities;
             lstAlumnosGrupo.ItemsSource = listStudentsGroup;
             lstChat.ItemsSource = listMenssages;
+            solucionP.ItemsSource = listFiles;
             //lstAlumnosActivos.ItemsSource = listStudentsActives;
             //lstAlumnosInactivos.ItemsSource = listStudentsInactives;
             // lstAlumnosNoActivos.ItemsSource = listStudentsNoActives;
@@ -563,8 +570,7 @@ namespace IDE_AR
                 materia NuevaMateria = InterfaceHttp.ObtenerMateriasAlumno(currentGrupo);
                 NuevaMateria.listaGrupos = new List<grupo>();
                 NuevaMateria.listaGrupos.Add(currentGrupo);
-                listAsignatures.Add(NuevaMateria);
-                
+                listAsignatures.Add(NuevaMateria);                
 
             }   
         }
@@ -605,6 +611,7 @@ namespace IDE_AR
         {
 
         }
+     //************************************funciones de archivos y soluciones***********************************
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             string nombre = "log.rup";
@@ -614,5 +621,73 @@ namespace IDE_AR
             this.Close();
             
         }
+        private void crearSolucion_Click(object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0.9;
+            AgregarSolucion nueva = new AgregarSolucion();
+            if (nueva.ShowDialog() == true)
+            {
+                misolucion = nueva.nuevaSolucion;
+                solucionP.ItemsSource = misolucion.Ficheros;
+                NombreP.Text = "-- "+misolucion.Nombre+" --";
+                misolucion.IdActividad = currentActividad.IdActividad;
+                misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
+                misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
+                misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
+                //obtener la ruta en el servidor
+                //misolucion.Ruta
+            }
+            this.Opacity = 9;
+        }
+
+        private void buscarSolución_Click(object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0.9;
+            BuscarSolucion buscar = new BuscarSolucion();            
+            if (buscar.ShowDialog() == true)
+            {
+
+                misolucion = buscar.solucion;                
+                actualizarSolucion();
+            }
+            else
+            {
+                Mensaje("Problemas añadiendo al proyecto");
+            }
+            this.Opacity = 9;
+        }
+        private void agregarArchivo_Click(object sender, RoutedEventArgs e)
+        {
+            this.Opacity = 0.9;
+            AgregarFichero nuevo = new AgregarFichero();
+            Fichero fr=new Fichero();
+            fr.RutaLocal=misolucion.RutaLocal;
+            fr.IsFolder=false;
+            fr.Nombre = misolucion.Nombre;
+            nuevo.FicheroRaiz = fr;
+            if (nuevo.ShowDialog()==true)
+            {
+                listFiles.Add(nuevo.fichero);
+                misolucion.Ficheros = listFiles;
+                actualizarSolucion();
+            }
+            else
+            {
+                Mensaje("Problemas añadiendo al proyecto");
+            }
+            this.Opacity = 9;
+        }
+        public void actualizarSolucion()
+        {
+            NombreP.Text = misolucion.Nombre;
+            solucionP.ItemsSource = null;
+            solucionP.Items.Clear();
+            listFiles = misolucion.Ficheros;
+            solucionP.ItemsSource=listFiles;
+            adminSolucion admin = new adminSolucion(misolucion);
+            admin.ActualizarSolucion();
+        }
+
+     
     }
 }

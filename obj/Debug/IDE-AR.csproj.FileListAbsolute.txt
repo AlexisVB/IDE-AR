@@ -111,3 +111,12 @@ C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillas.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\InterfazAlumnos.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Login.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\TreeViewItems.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.g.cs

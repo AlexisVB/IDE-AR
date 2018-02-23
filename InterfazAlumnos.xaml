@@ -290,7 +290,10 @@
                           ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
                         <ListView.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Name="EntregarActividad" Header="Entregar actividad" Click="EntregarActividad_Click"/>
+                                <MenuItem Name="EntregarActividad" Header="Entregar actividad" >
+                                    <MenuItem Name="crearSolucion" Header="Crear solucion" Click="crearSolucion_Click"></MenuItem>
+                                    <MenuItem Name="buscarSolución" Header="Buscar solucion" Click="buscarSolución_Click"></MenuItem>
+                                </MenuItem>
                                 <MenuItem Name="EliminarActividad"  Header="Eliminar actividad" Click="btnEliminarActividad_Click"/>
                             </ContextMenu>
                         </ListView.ContextMenu>
@@ -358,15 +361,27 @@
                 </StackPanel>
                 <!--Archivos y Chat-->
                 <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,-0.4,-4.6">
-                    <TabItem Header="Archivos" Style="{StaticResource TabsItems}">
+                    <TabItem Header="Archivos" Style="{StaticResource TabsItems}" Foreground="Gray">
                         <!--Listas de Archivos-->
                         <StackPanel Grid.Row="1" Background="{StaticResource BarraLateralIzquierdaBrush}">
-                            <TextBlock Text="-Archivos-" FontSize="16" Foreground="Gray"/>
-
+                            <TextBlock Name="NombreP" FontFamily="Verdana" FontSize="16" 
+                                       Foreground="Gray" 
+                                       TextAlignment="Center">
+                                <TextBlock.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Name="agregarArchivo" Header="Agregar Fichero" Click="agregarArchivo_Click"/>                                        
+                                    </ContextMenu>
+                                </TextBlock.ContextMenu>
+                            </TextBlock>
+                            <TreeView Grid.Row="1"
+                                      Name="solucionP"
+                                      ItemTemplate="{StaticResource kFichero}" 
+                                      Style="{DynamicResource TreeViewStyle1}"
+                                      Background="{StaticResource BarraLateralIzquierdaBrush}"/>
                         </StackPanel>
 
                     </TabItem>
-                    <TabItem Header="Chat" Style="{StaticResource TabsItems}">
+                    <TabItem Header="Chat" Style="{StaticResource TabsItems}" Foreground="Gray">
                         <Grid Name="gridChat"                 
                         Background="{StaticResource BarraLateralIzquierdaBrush}" >
                             <Grid.ColumnDefinitions>
