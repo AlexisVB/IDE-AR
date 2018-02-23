@@ -110,3 +110,4 @@ C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\WindowPaleta.g.cs
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillas.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\InterfazAlumnos.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Login.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache

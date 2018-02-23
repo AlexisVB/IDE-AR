@@ -286,7 +286,8 @@
                 <StackPanel Grid.Column="1">
                     <TextBlock Text="Grupos" Foreground="White"/>
                     <ListView Name="lstGrupos" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                    SelectionChanged="lstGrupo_SelectionChanged"                  
+                    SelectionChanged="lstGrupo_SelectionChanged"
+                    MouseLeftButtonDown="lstGrupos_MouseLeftButtonDown"
                     Background="{StaticResource BarraLateralIzquierdaBrush}"
                     ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}">
                         <ListView.ContextMenu>
@@ -336,11 +337,15 @@
                        FontFamily="Verdana"                        
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
-                <Ellipse Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Right">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="Images/usuario.png"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                <Button Grid.Column="1"
+                        Width="40"
+                        Height="40"
+                        HorizontalAlignment="Right" 
+                        Background="Transparent"
+                        Click="btnLogout_Click">
+                    <Image Source="Icono/logout.png"/>
+                </Button>
+                
                 <Button Grid.Column="2" 
                     Name="btConfiguracion"
                     Width="40" Height="40" 

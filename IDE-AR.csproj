@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="Datos\Actividades.cs" />
     <Compile Include="Datos\Chat.cs" />
+    <Compile Include="Datos\Enigma.cs" />
     <Compile Include="Datos\Grupos.cs" />
     <Compile Include="Datos\InterfaceHttp.cs" />
     <Compile Include="Datos\Materias.cs" />
@@ -322,6 +323,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icono\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

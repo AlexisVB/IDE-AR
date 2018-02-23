@@ -312,11 +312,14 @@
                        FontFamily="Verdana"                        
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"/>
-                <Ellipse Grid.Column="1" Width="40" Height="40" HorizontalAlignment="Right">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="Images/usuario.png"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                <Button Grid.Column="1"
+                        Width="40"
+                        Height="40"
+                        HorizontalAlignment="Right" 
+                        Background="Transparent"
+                        Click="btnLogout_Click">
+                    <Image Source="Icono/logout.png"/>
+                </Button>
                 <Button Grid.Column="2" 
                     Name="btConfiguracion"
                     Width="40" Height="40" 
@@ -339,7 +342,7 @@
                 <!--Listas de alumnos-->
                 <StackPanel Grid.Row="0" 
                     Background="{StaticResource BarraLateralDerechaBrush}" >
-                    <TextBlock Text="-Compañeros activos-" FontSize="16" Foreground="Gray" />
+                    <TextBlock Text="-Compañeros-" FontSize="16" Foreground="Gray" />
                     <ListView Name="lstAlumnosGrupo" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                                                  
                         Background="{StaticResource BarraLateralDerechaBrush}"
                           Margin="0"

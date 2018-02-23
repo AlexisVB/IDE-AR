@@ -19,20 +19,21 @@
             BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
         <Grid>
             <!--Dos columnas de la ventana -->
-            <Grid.ColumnDefinitions>                
+            <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <!--7 filas de la ventana-->
             <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+                <RowDefinition Height="71*"></RowDefinition>
+                <RowDefinition Height="71*"></RowDefinition>
+                <RowDefinition Height="71*"></RowDefinition>
+                <RowDefinition Height="72*"></RowDefinition>
+                <RowDefinition Height="71*"></RowDefinition>
+                <RowDefinition Height="72*"></RowDefinition>
+                <RowDefinition Height="71*"></RowDefinition>
+                <RowDefinition Height="72*"></RowDefinition>
+                <RowDefinition Height="30*"></RowDefinition>
+                <RowDefinition Height="41*"/>
             </Grid.RowDefinitions>
             <!--Textblock, border y boton de cerrar-->
             <Border Grid.Column="0"  Grid.Row="0"
@@ -62,7 +63,7 @@
                        Text="Iniciar sesión"
                        FontSize="20"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Center"></TextBlock>
+                       VerticalAlignment="Center" Margin="177,23,162,23"></TextBlock>
             <!--Textblock "Usuario"-->
             <TextBlock 
                        Grid.Row="2"
@@ -70,7 +71,7 @@
                        Text="Usuario"
                        FontSize="20"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Bottom">
+                       VerticalAlignment="Bottom" Margin="210,0,195,71" Grid.RowSpan="2">
 
             </TextBlock>
             <!--Textbox txtUsuario-->
@@ -80,7 +81,7 @@
                      Width="400"
                      Height="40"
                      FontSize="20"
-                     Style="{StaticResource textBoxVentanasAgregar}">
+                     Style="{StaticResource textBoxVentanasAgregar}" Margin="46,16">
             </TextBox>
             <!--Textblock "Contraseña"-->
             <TextBlock 
@@ -89,7 +90,7 @@
                        Text="Contraseña"
                        FontSize="20"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Bottom">
+                       VerticalAlignment="Bottom" Margin="190,0,174,71" Grid.RowSpan="2">
 
             </TextBlock>
             <!--Textbox txtContraseña-->
@@ -100,20 +101,19 @@
                      Height="40"
                      FontSize="20"              
                     PreviewKeyDown="txtPassword_PreviewKeyDown"
-                     Style="{StaticResource txtPasswordLogin}">
+                     Style="{StaticResource txtPasswordLogin}" Margin="46,16">
             </PasswordBox>
             <Grid Grid.Row="6">
                 <!--CheckBox Mantener sesión iniciada-->
                 <CheckBox 
                     Grid.Row="6"
                     HorizontalAlignment="Center"
-                    Name="ChbMantenerSesion" >                    
-                    <TextBlock 
-                        Foreground="{StaticResource AzulIndigoBrush1}"
+                    Name="ChbMantenerSesion" >
+                    <TextBlock                     
                         Style="{StaticResource labelVentanasAgregar}" 
                         Text="Mantener sesión iniciada"/>
                 </CheckBox>
-            </Grid>           
+            </Grid>
             <!--Button btnIngresar-->
             <Button 
                     Grid.Row="7"
@@ -121,13 +121,14 @@
                     Click="btnIngresar_Click"
                     Style="{StaticResource botonRedondeadoIngresar}">
 
+
             </Button>
             <!--Button btnCrearCuenta-->
             <Button 
                     Grid.Row="8"
                     Name="btnCrearCuenta"
                     Click="btnCrearCuenta_Click"
-                    Style="{StaticResource botonRedondeadoCrearCuenta}">
+                    Style="{StaticResource botonRedondeadoCrearCuenta}" Grid.RowSpan="2">
 
             </Button>
         </Grid>

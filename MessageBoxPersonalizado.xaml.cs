@@ -51,6 +51,16 @@ namespace IDE_AR
                 set { texto = value; }
             }
         }
+
+        private void Button_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                this.Close();
+
+            }
+               
+        }
     }
    
 }

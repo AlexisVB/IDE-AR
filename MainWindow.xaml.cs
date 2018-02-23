@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
+using System.IO;
 namespace IDE_AR
 {
     /// <summary>
@@ -223,6 +224,11 @@ namespace IDE_AR
                 lstAlumnosGrupo.ItemsSource = null;
                 lstAlumnosGrupo.Items.Clear();
                 lstAlumnosGrupo.ItemsSource = listStudentsGroup;
+            }
+            else
+            {
+                lstAlumnosGrupo.ItemsSource = null;
+                lstAlumnosGrupo.Items.Clear();
             }
         }
         public void list1_SelectionChanged(Object sender, SelectionChangedEventArgs e)
@@ -637,6 +643,20 @@ namespace IDE_AR
                 sendMensaje();
             }
         }
-     
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            //Archivo de mantener sesión iniciada
+            string nombre = "log.rup";
+            File.Delete(nombre);
+            Login x = new Login();
+            x.Show();
+            this.Close(); 
+        }
+
+        private void lstGrupos_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            actualizarListaAlumnosGrupo();
+        }
     }
 }

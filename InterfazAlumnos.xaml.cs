@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
+using System.IO;
 namespace IDE_AR
 {
     /// <summary>
@@ -603,6 +604,15 @@ namespace IDE_AR
         private void EntregarActividad_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            string nombre = "log.rup";
+            File.Delete(nombre);
+            Login x = new Login();
+            x.Show();
+            this.Close();
+            
         }
     }
 }

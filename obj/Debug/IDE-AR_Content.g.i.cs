@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("images/account.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("icono/logout.png")]
 
 

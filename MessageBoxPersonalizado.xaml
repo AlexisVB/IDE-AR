@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
         WindowStartupLocation="CenterScreen"
         SizeToContent="WidthAndHeight"
+        PreviewKeyDown="Button_PreviewKeyDown"
         Style="{StaticResource ventanaPopUp}">
     <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
             BorderThickness="4"
@@ -10,7 +11,8 @@
         <StackPanel>
             <TextBlock Style="{StaticResource labelVentanasAgregar}" Text="{Binding Texto}"  Name="txtTexto" Margin="20"></TextBlock>
             <Button Style="{StaticResource botonRedondeadoAceptar}"
-                    Click="btnAceptar_Click"></Button>
+                    Click="btnAceptar_Click" ></Button>
+            
         </StackPanel>
     </Border>
 </Window>

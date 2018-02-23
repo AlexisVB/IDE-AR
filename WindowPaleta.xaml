@@ -25,7 +25,7 @@
                 <RowDefinition ></RowDefinition>
             </Grid.RowDefinitions>
             <Border Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0"
-                    Background="{StaticResource MoradoBrush1}"
+                    Background="{StaticResource AzulIndigoBrush1}"
                     CornerRadius="30,30,0,0"
                     >
                 <DockPanel>

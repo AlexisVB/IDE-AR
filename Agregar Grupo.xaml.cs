@@ -108,8 +108,10 @@ namespace IDE_AR
             nuevoGrupo=InterfaceHttp.insertarGrupo(nuevoGrupo);
             if (nuevoGrupo.IdGrupo>0)
             {
-                Mensaje("Agregado Correctamente");
                 DialogResult = true;
+                Mensaje("Agregado Correctamente");
+               
+
             }
             else
             {

@@ -62,7 +62,7 @@ namespace IDE_AR
         }
         private void txtNickMateria_TextChanged(Object sender, RoutedEventArgs e)
         {
-            if (txtNickMateria.Text.Length == 2)
+            if (txtNickMateria.Text.Length == 2 || txtNickMateria.Text.Length == 1)
             {
                 lstActividades.ItemsSource = null;
                 nuevaActividad.Nick = txtNickMateria.Text.ToUpper();

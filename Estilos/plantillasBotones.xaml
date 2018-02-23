@@ -475,9 +475,38 @@
                         <DockPanel>
                             <TextBlock 
                                 Name="texto"
-                                Margin="13,10,0,10"                                
+                                Margin="16,10,0,10"                                
                                 Style="{StaticResource labelVentanasAgregar}"
                                 Text="Crear Cuenta Nueva"/>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter  Property="Opacity" Value="0.8"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="botonRedondeadoLogout" TargetType="Button">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="Border" 
+                                CornerRadius="10"
+                                BorderThickness="0"
+                                Width="120"
+                                Height="50"
+                                Background="{StaticResource BarraLateralDerechaBrush}"
+                                BorderBrush="White">
+                        <DockPanel>
+                            <TextBlock 
+                                Name="texto"
+                                Margin="8,10,0,10"                                
+                                Style="{StaticResource labelVentanasAgregar}"
+                                Text="Cerrar Sesión"/>
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>
