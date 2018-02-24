@@ -28,29 +28,29 @@ namespace IDE_AR.Soluciones
         }
         private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-            cambioNombre();
-
+                cambioNombre();
         }
         public void cambioNombre()
         {
-            fichero.Nombre = txtNombre.Text;
+            fichero.Nombre = txtNombre.Text;            
             fichero.RutaLocal = FicheroRaiz.RutaLocal + "//" + FicheroRaiz.Nombre;
+            
             if (fichero.IsFolder)
             {
                 lbRuta.Text = FicheroRaiz.Nombre + "//" + fichero.Nombre;
             }
             else
             {
-                lbRuta.Text = FicheroRaiz.Nombre + "//" + fichero.Nombre + ".cpp";
+                if (fichero.Nombre.Length > 0)
+                    lbRuta.Text = FicheroRaiz.Nombre + "//" + fichero.Nombre + ".cpp";
+                else
+                    lbRuta.Text = "";
             }
         }
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
-        {
-            if(FicheroRaiz.IsFolder)
-                fichero.RutaLocal = FicheroRaiz.RutaLocal+"//"+FicheroRaiz.Nombre;
-            else
-                fichero.RutaLocal = FicheroRaiz.RutaLocal;
+        {     
+                      
+            
             adminFicheros admin = new adminFicheros(fichero);
 
             if (admin.CrearArchivo())

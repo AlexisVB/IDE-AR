@@ -45,7 +45,7 @@ namespace IDE_AR
         private actividad currentActividad;
         private usuario currentAlumnoGrupo;
         private Fichero currentFichero;
-
+        private Fichero currentPadre;
         public materia materiaContexto;//Variable usada solo para darle contexto a la lista materias
         public grupo grupoContexto;//Variable usada solo para darle contexto a la lista grupos
         public actividad actividadContexto;//Variable usada solo para darle contexto a la lista actividades
@@ -667,14 +667,39 @@ namespace IDE_AR
         }
         private void agregarArchivo_Click(object sender, RoutedEventArgs e)
         {
+            agregarArchivoSolucion();
+        }
+        private void agregarArchivoSolucion()
+        {
             this.Opacity = 0.9;
             AgregarFichero nuevo = new AgregarFichero();
-            Fichero fr=new Fichero();
-            fr.RutaLocal=misolucion.RutaLocal;
-            fr.IsFolder=false;
+            Fichero fr = new Fichero();
+            fr.RutaLocal = misolucion.RutaLocal;
+            fr.IsFolder = false;            
+            fr.Nombre = misolucion.Nombre;
+            nuevo.FicheroRaiz = fr;            
+            if (nuevo.ShowDialog() == true)
+            {
+                listFiles.Add(nuevo.fichero);
+                misolucion.Ficheros = listFiles;
+                actualizarSolucion();
+            }
+            else
+            {
+                Mensaje("Problemas añadiendo al proyecto");
+            }
+            this.Opacity = 9;
+        }
+        private void agregarArchivoCarpeta()
+        {
+            this.Opacity = 0.9;
+            AgregarFichero nuevo = new AgregarFichero();
+            Fichero fr = new Fichero();
+            fr.RutaLocal = misolucion.RutaLocal;
+            fr.IsFolder = false;
             fr.Nombre = misolucion.Nombre;
             nuevo.FicheroRaiz = fr;
-            if (nuevo.ShowDialog()==true)
+            if (nuevo.ShowDialog() == true)
             {
                 listFiles.Add(nuevo.fichero);
                 misolucion.Ficheros = listFiles;
@@ -695,6 +720,7 @@ namespace IDE_AR
             solucionP.ItemsSource=listFiles;
             adminSolucion admin = new adminSolucion(misolucion);
             admin.ActualizarSolucion();
+            admin.AsignarPadres();            
         }
 
         private void AgregarFicheroItem_Click(object sender, RoutedEventArgs e)
@@ -702,16 +728,22 @@ namespace IDE_AR
             ICollectionView vista = ObtenerVista();
             if (vista.IsEmpty) return;
             //cada fichero es un objeto de la clase fichero
-            Fichero currentFichero1 = (Fichero)solucionP.SelectedItem;
-            Mensaje(currentFichero1.Nombre);        
+            Fichero currentFichero = (Fichero)solucionP.SelectedItem;
+            if(currentFichero.IsFolder)
+            {
+
+            }
+            else
+            {
+                agregarArchivoSolucion();
+            }
             
         }
 
         private void solucionP_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {            
             //cada fichero es un objeto de la clase fichero
-            Fichero currentFichero1 = (Fichero)solucionP.SelectedItem;
-            Mensaje(currentFichero1.Nombre);            
+            Fichero currentFichero = (Fichero)solucionP.SelectedItem;          
             
         }
      

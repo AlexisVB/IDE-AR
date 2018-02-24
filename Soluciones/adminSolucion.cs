@@ -100,11 +100,12 @@ namespace IDE_AR.Soluciones
         }
         public bool ActualizarSolucion()
         {
-            miSolucion.RutaLocal = ruta + "//" + miSolucion.Nombre;
+            miSolucion.RutaLocal= ruta;
             solucion = encabezado + "/" + miSolucion.Nombre + "{";
             ObtenerArbol(miSolucion.Ficheros);
-            solucion += "}";
-            string ar = miSolucion.RutaLocal + "//" + miSolucion.Nombre + ".ar";
+            solucion += "}";              
+            string ar = miSolucion.RutaLocal + "//" + miSolucion.Nombre +"//"+miSolucion.Nombre+".ar";
+       
             //Elimina el archivo de texto
             File.Delete(ar);
             //crea el archivo de texto
@@ -183,7 +184,7 @@ namespace IDE_AR.Soluciones
         {
             Fichero padre = new Fichero();
             padre.IdFichero = miSolucion.IdProyecto;
-            padre.IdRaiz = 0;
+            padre.TipoRaiz = 0;
             padre.Nombre = miSolucion.Nombre;
             padre.RutaLocal = miSolucion.RutaLocal;
             Padrificar(padre,miSolucion.Ficheros);          
@@ -199,12 +200,15 @@ namespace IDE_AR.Soluciones
                     f = lista[cont];
                     if (f.IsFolder)
                     {
-                        f.Parent = padre;
-                        Padrificar(f, f.Ficheros);                       
+                         f.Parent = padre;
+                            f.RutaLocal = padre.RutaLocal + "//"+padre.Nombre;
+                            Padrificar(f, f.Ficheros);     
+                       
                     }
                     else
                     {
                         f.Parent = padre;
+                        f.RutaLocal = padre.RutaLocal + "//" + padre.Nombre;
                     }                    
 
                 }
