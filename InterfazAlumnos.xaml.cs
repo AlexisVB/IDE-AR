@@ -711,8 +711,7 @@ namespace IDE_AR
         {            
             //cada fichero es un objeto de la clase fichero
             Fichero currentFichero1 = (Fichero)solucionP.SelectedItem;
-            Mensaje(currentFichero1.Nombre);
-            Mensaje(solucionP.SelectedValuePath);
+            Mensaje(currentFichero1.Nombre);            
             
         }
      

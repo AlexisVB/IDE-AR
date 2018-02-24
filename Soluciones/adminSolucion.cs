@@ -17,7 +17,7 @@ namespace IDE_AR.Soluciones
         string encabezado = ".arIDE-AR";
         string solucion="";     
         int pos = 10;
-        SolucionProyecto miSolucion;
+        public SolucionProyecto miSolucion;
         string ruta = VariablesGlobales.RutaPredeterminada;
         public adminSolucion()
         {

@@ -44,6 +44,11 @@ namespace IDE_AR.Soluciones
                 {
                     btnAceptar.IsEnabled = true;
                     solucion = admin.ObtenerProyecto(filename);
+                    //crear el arbol de navegacion a la inversa
+                    //es decir de hijos a padres
+
+                    admin.miSolucion = solucion;
+                    admin.AsignarPadres();
                 }                    
                 else
                 {

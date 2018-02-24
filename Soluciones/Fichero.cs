@@ -16,10 +16,11 @@ namespace IDE_AR.Soluciones
         public string Nombre { get; set; }
         public string Ruta { get; set; }
         public string RutaLocal { get; set; }
-        public string TipoRaiz { get; set; }
-        public string IdRaiz { get; set; }
+        public int TipoRaiz { get; set; }
+        public int IdRaiz { get; set; }
         public string Fecha { get; set; }
         public bool IsFolder { get; set; }
+        public Fichero Parent { get; set; }
         public ObservableCollection<Fichero> Ficheros { get; set; }
     }
 }
