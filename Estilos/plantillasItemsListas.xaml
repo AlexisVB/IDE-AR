@@ -7,7 +7,7 @@
     <SolidColorBrush x:Key="Item.MouseOver.Border" Color="#a826A0Da"/>
     <SolidColorBrush x:Key="Item.SelectedInactive.Background" Color="#3DDADADA"/>
     <SolidColorBrush x:Key="Item.SelectedInactive.Border" Color="#FFDADADA"/>
-    <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#3D26A0DA"/>
+    <SolidColorBrush x:Key="Item.SelectedActive.Background" Color="#eceff1"/>
     <SolidColorBrush x:Key="Item.SelectedActive.Border" Color="#FF26A0DA"/>
 
     <Style TargetType="{x:Type ListViewItem}">
@@ -29,8 +29,8 @@
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=BarraLateralDerechaBrush}"/>
-                            <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=BarraLateralDerechaBrush}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource ResourceKey=BarraLateralIzquierdaBrush}"/>
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource ResourceKey=BarraLateralIzquierdaBrush}"/>
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -58,4 +58,6 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+   
 </ResourceDictionary>

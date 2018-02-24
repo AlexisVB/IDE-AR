@@ -9,6 +9,7 @@
         ShowInTaskbar="True"
         Title="InterfazAlumnos" Height="800" Width="1300" Background="{StaticResource DarkPrimaryColorBrush}"
         Loaded="InterfazAlumnos_Loaded"
+        WindowStyle="None"
         Closing="InterfazAlumnos_Closing">
     <Window.CommandBindings>
         <CommandBinding Command="{x:Static local:InterfazAlumnos.RCGuardar}"
@@ -263,9 +264,9 @@
             </StackPanel>
             <!--Barra lateral izquierda-->
 
-            <StackPanel Grid.Row="2" Grid.Column="0"
-                  Grid.RowSpan="2" Orientation="Horizontal"
-                    Background="{StaticResource BarraLateralIzquierdaBrush}">
+            <StackPanel Grid.Row="1" Grid.Column="0"
+                  Grid.RowSpan="3" Orientation="Horizontal"
+                    Background="{StaticResource BarraLateralIzquierdaBrush}" Margin="0,14,0.4,4.6">
                 <StackPanel Grid.Column="0" DataContext="lo">
                     <TextBlock Text="Materias" Foreground="White"/>
                     <ListView Name="lstMaterias" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                  
@@ -369,17 +370,26 @@
                                        TextAlignment="Center">
                                 <TextBlock.ContextMenu>
                                     <ContextMenu>
-                                        <MenuItem Name="agregarArchivo" Header="Agregar Fichero" Click="agregarArchivo_Click"/>                                        
+                                        <MenuItem Name="agregarArchivo" Header="Agregar Fichero" Click="agregarArchivo_Click"/>
+                                        <MenuItem Name="verCarpeta" Header="Ver en carpeta" />
                                     </ContextMenu>
                                 </TextBlock.ContextMenu>
                             </TextBlock>
                             <TreeView Grid.Row="1"
-                                      Name="solucionP"
+                                      Name="solucionP"                                      
                                       ItemTemplate="{StaticResource kFichero}" 
                                       Style="{DynamicResource TreeViewStyle1}"
-                                      Background="{StaticResource BarraLateralIzquierdaBrush}"/>
+                                      SelectedItemChanged="solucionP_SelectedItemChanged"
+                                      Background="{StaticResource BarraLateralIzquierdaBrush}">
+                                <TreeView.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Name="AgregarFicheroItem" Header="AgregarFichero" Click="AgregarFicheroItem_Click"></MenuItem>
+                                    </ContextMenu>
+                                </TreeView.ContextMenu>                               
+                            </TreeView>
+                            
                         </StackPanel>
-
+                     
                     </TabItem>
                     <TabItem Header="Chat" Style="{StaticResource TabsItems}" Foreground="Gray">
                         <Grid Name="gridChat"                 
@@ -433,7 +443,8 @@
                     <RichTextBox 
                 Name="ctEditor" 
                 AcceptsReturn="True"  
-                AcceptsTab="True"                
+                AcceptsTab="True" 
+               BorderThickness="0"
                 VerticalScrollBarVisibility="Auto" 
                 HorizontalScrollBarVisibility="Auto"                
                 >

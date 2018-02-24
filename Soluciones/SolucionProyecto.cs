@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 namespace IDE_AR.Soluciones
 {
     public class SolucionProyecto
@@ -20,7 +20,7 @@ namespace IDE_AR.Soluciones
         public int IdActividad { get; set; }
         public string Fecha { get; set; }
         public string NombrePropietario { get; set; }
-        public List<Fichero> Ficheros { get; set; }
+        public ObservableCollection<Fichero> Ficheros { get; set; }
         
     }
 }

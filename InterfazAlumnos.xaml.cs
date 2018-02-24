@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
@@ -36,7 +38,7 @@ namespace IDE_AR
         private List<usuario> listStudentsNoActives = new List<usuario>();
         private List<usuario> listStudentsGroup = new List<usuario>();
         private List<mensaje> listMenssages = new List<mensaje>();
-        private List<Fichero> listFiles = new List<Fichero>();
+        private ObservableCollection<Fichero> listFiles = new ObservableCollection<Fichero>();
 
         private materia currentMateria;
         private grupo currentGrupo;
@@ -614,8 +616,12 @@ namespace IDE_AR
      //************************************funciones de archivos y soluciones***********************************
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            string nombre = "log.rup";
-            File.Delete(nombre);
+            try
+            {
+                string nombre = "log.rup";
+                File.Delete(nombre);
+            }
+            catch{}
             Login x = new Login();
             x.Show();
             this.Close();
@@ -627,13 +633,12 @@ namespace IDE_AR
             AgregarSolucion nueva = new AgregarSolucion();
             if (nueva.ShowDialog() == true)
             {
-                misolucion = nueva.nuevaSolucion;
-                solucionP.ItemsSource = misolucion.Ficheros;
-                NombreP.Text = "-- "+misolucion.Nombre+" --";
+                misolucion = nueva.nuevaSolucion;           
                 misolucion.IdActividad = currentActividad.IdActividad;
                 misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
                 misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
                 misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
+                actualizarSolucion();
                 //obtener la ruta en el servidor
                 //misolucion.Ruta
             }
@@ -648,6 +653,10 @@ namespace IDE_AR
             {
 
                 misolucion = buscar.solucion;                
+                misolucion.IdActividad = currentActividad.IdActividad;
+                misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
+                misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
+                misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
                 actualizarSolucion();
             }
             else
@@ -679,7 +688,7 @@ namespace IDE_AR
         }
         public void actualizarSolucion()
         {
-            NombreP.Text = misolucion.Nombre;
+            NombreP.Text = "-- " + misolucion.Nombre + " --";            
             solucionP.ItemsSource = null;
             solucionP.Items.Clear();
             listFiles = misolucion.Ficheros;
@@ -688,6 +697,29 @@ namespace IDE_AR
             admin.ActualizarSolucion();
         }
 
+        private void AgregarFicheroItem_Click(object sender, RoutedEventArgs e)
+        {
+            ICollectionView vista = ObtenerVista();
+            if (vista.IsEmpty) return;
+            //cada fichero es un objeto de la clase fichero
+            Fichero currentFichero1 = (Fichero)solucionP.SelectedItem;
+            Mensaje(currentFichero1.Nombre);        
+            
+        }
+
+        private void solucionP_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {            
+            //cada fichero es un objeto de la clase fichero
+            Fichero currentFichero1 = (Fichero)solucionP.SelectedItem;
+            Mensaje(currentFichero1.Nombre);
+            Mensaje(solucionP.SelectedValuePath);
+            
+        }
      
+
+     private ICollectionView ObtenerVista()
+        {
+            return CollectionViewSource.GetDefaultView(solucionP.Items);
+        }
     }
 }

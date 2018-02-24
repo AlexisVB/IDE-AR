@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 namespace IDE_AR.Soluciones
 {
     public class Fichero
@@ -20,6 +20,6 @@ namespace IDE_AR.Soluciones
         public string IdRaiz { get; set; }
         public string Fecha { get; set; }
         public bool IsFolder { get; set; }
-        public List<Fichero> Ficheros { get; set; }
+        public ObservableCollection<Fichero> Ficheros { get; set; }
     }
 }

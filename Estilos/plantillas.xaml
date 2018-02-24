@@ -30,6 +30,36 @@
             
         </DataTemplate.Triggers>
     </DataTemplate>
+    <!--Plantilla de las listas principales-->
+    <DataTemplate x:Key="plantilla1ListasPreview">
+        <Border Name="Borde1" BorderThickness="0" BorderBrush="Transparent" CornerRadius="2">
+            <Grid Width="50" Height="50" >
+                <Grid.ToolTip>
+                    <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
+                        <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=Nombre}"/>
+                    </ToolTip>
+                </Grid.ToolTip>
+                <Border Width="50" Height="50"
+                Name="Borde" Background="{Binding Path=Color}" BorderThickness="2" CornerRadius="30" >
+                    <Grid Name="panel">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    FontSize="16" Foreground="White" FontFamily="Verdana" Text="{Binding Path=Nick}" 
+                       />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <DataTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Borde" Property="CornerRadius" Value="10"/>
+                <Setter TargetName="Borde1" Property="BorderBrush" Value="{StaticResource ResourceKey=BarraLateralDerechaBrush}"/>
+            </Trigger>
+
+        </DataTemplate.Triggers>
+    </DataTemplate>
     <!--Plantilla de las listas de alumnosGrupo-->
     <DataTemplate x:Key="plantillaListaAlumnosGrupo">
         <Grid>

@@ -4,6 +4,7 @@
         xmlns:local="clr-namespace:IDE_AR" 
         Icon="Icono/icono.png"
         ShowInTaskbar="True"
+        WindowStyle="None"
         Title="MainWindow" Height="800" Width="1300" Background="{StaticResource DarkPrimaryColorBrush}"
         MinHeight="400" MinWidth="550"
         

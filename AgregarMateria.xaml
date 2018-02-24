@@ -72,10 +72,12 @@
                  TextChanged="txtNickMateria_TextChanged"
                  Style="{StaticResource textBoxVentanasAgregar}"></TextBox>
             <ListView 
-                Name="lstMaterias"                 
-                Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"                                
                 Background="{StaticResource BarraLateralDerechaBrush}"
-                ItemTemplate="{StaticResource plantilla1ListasDatosDesdeObjetos}"
+                Name="lstMaterias"                
+                
+                Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"                                                
+                ItemTemplate="{StaticResource plantilla1ListasPreview}"
+                
                 SelectionChanged="lstMaterias_SelectionChanged"
                 />
             <DockPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6">

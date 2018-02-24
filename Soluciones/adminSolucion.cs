@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Collections.ObjectModel;
 using IDE_AR.DatosGlobales;
 namespace IDE_AR.Soluciones
 {
@@ -16,7 +17,7 @@ namespace IDE_AR.Soluciones
         string encabezado = ".arIDE-AR";
         string solucion="";     
         int pos = 10;
-        SolucionProyecto nueva;
+        SolucionProyecto miSolucion;
         string ruta = VariablesGlobales.RutaPredeterminada;
         public adminSolucion()
         {
@@ -24,13 +25,13 @@ namespace IDE_AR.Soluciones
         }
         public adminSolucion(SolucionProyecto nva)
         {
-            nueva = nva;
+            miSolucion = nva;
         }
     
         public bool ConstruirProyecto()
         {
-            solucion = encabezado + "/" + nueva.Nombre + ":{}";
-            string dir = nueva.RutaLocal;
+            solucion = encabezado + "/" + miSolucion.Nombre + ":{}";
+            string dir = miSolucion.RutaLocal;
             try
             {
                 if (Directory.Exists(dir))
@@ -57,9 +58,9 @@ namespace IDE_AR.Soluciones
             nuevo.Ficheros = LeerArbol();
             return nuevo;
         }
-        public List<Fichero> LeerArbol()
+        public ObservableCollection<Fichero> LeerArbol()
         {
-                List<Fichero> lista = new List<Fichero>();             
+                ObservableCollection<Fichero> lista = new ObservableCollection<Fichero>();             
                     if (solucion[pos] == '{')
                     {
                         pos++;
@@ -99,11 +100,11 @@ namespace IDE_AR.Soluciones
         }
         public bool ActualizarSolucion()
         {
-            nueva.RutaLocal = ruta + "//" + nueva.Nombre;
-            solucion = encabezado + "/" + nueva.Nombre + "{";
-            ObtenerArbol(nueva.Ficheros);
+            miSolucion.RutaLocal = ruta + "//" + miSolucion.Nombre;
+            solucion = encabezado + "/" + miSolucion.Nombre + "{";
+            ObtenerArbol(miSolucion.Ficheros);
             solucion += "}";
-            string ar = nueva.RutaLocal + "//" + nueva.Nombre + ".ar";
+            string ar = miSolucion.RutaLocal + "//" + miSolucion.Nombre + ".ar";
             //Elimina el archivo de texto
             File.Delete(ar);
             //crea el archivo de texto
@@ -116,7 +117,7 @@ namespace IDE_AR.Soluciones
             fs.Close();
             return true;
         }
-        public void ObtenerArbol(List<Fichero> lista)
+        public void ObtenerArbol(ObservableCollection<Fichero> lista)
         {
             if(lista!=null)
             {
@@ -163,7 +164,7 @@ namespace IDE_AR.Soluciones
                 
                 //log.bin
                 //string ruta = nueva.RutaLocal + nueva.Nombre;
-                string ar = nueva.RutaLocal + "//" + nueva.Nombre + ".ar";
+                string ar = miSolucion.RutaLocal + "//" + miSolucion.Nombre + ".ar";
                 //crea el archivo de texto
                 FileStream fs = new FileStream(ar, FileMode.CreateNew, FileAccess.ReadWrite);
                 StreamWriter sw = new StreamWriter(fs);
@@ -176,6 +177,38 @@ namespace IDE_AR.Soluciones
             }catch (IOException ex)
             {
                 return false;
+            }
+        }
+        public void AsignarPadres()
+        {
+            Fichero padre = new Fichero();
+            padre.IdFichero = miSolucion.IdProyecto;
+            padre.IdRaiz = 0;
+            padre.Nombre = miSolucion.Nombre;
+            padre.RutaLocal = miSolucion.RutaLocal;
+            Padrificar(padre,miSolucion.Ficheros);          
+        }
+        private void Padrificar(Fichero padre,ObservableCollection<Fichero> lista)
+        {
+            if (lista != null)
+            {
+                int cont;
+                Fichero f;
+                for (cont = 0; cont < lista.Count; cont++)
+                {
+                    f = lista[cont];
+                    if (f.IsFolder)
+                    {
+                        f.Parent = padre;
+                        Padrificar(f, f.Ficheros);                       
+                    }
+                    else
+                    {
+                        f.Parent = padre;
+                    }                    
+
+                }
+
             }
         }
     }

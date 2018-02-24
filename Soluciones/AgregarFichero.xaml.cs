@@ -28,18 +28,22 @@ namespace IDE_AR.Soluciones
         }
         private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
+
+            cambioNombre();
+
+        }
+        public void cambioNombre()
+        {
             fichero.Nombre = txtNombre.Text;
             fichero.RutaLocal = FicheroRaiz.RutaLocal + "//" + FicheroRaiz.Nombre;
-            if(fichero.IsFolder)
+            if (fichero.IsFolder)
             {
                 lbRuta.Text = FicheroRaiz.Nombre + "//" + fichero.Nombre;
             }
             else
             {
-                lbRuta.Text = FicheroRaiz.Nombre + "//" + fichero.Nombre+".cpp";
+                lbRuta.Text = FicheroRaiz.Nombre + "//" + fichero.Nombre + ".cpp";
             }
-            
-
         }
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
@@ -88,6 +92,7 @@ namespace IDE_AR.Soluciones
             {
                 fichero.IsFolder = true;
             }
+            cambioNombre();
         }
     }
 }

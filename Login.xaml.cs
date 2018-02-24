@@ -135,7 +135,7 @@ namespace IDE_AR
         }
         public bool solicitarDatos(string user, string pass)
         {
-            usuario solicitante = InterfaceHttp.GetUsuario(user, pass);
+            usuario solicitante = InterfaceHttp.GetUsuario(user, pass);           
             if (solicitante.Nombre != null)
             {
                 VariablesGlobales.miusuario = solicitante;
@@ -196,6 +196,8 @@ namespace IDE_AR
                 StreamReader sr = new StreamReader(fs);
                 sr.BaseStream.Seek(0, SeekOrigin.Begin); //Ponemos el cursor de lectura en el caracter 0
                 string lectura = sr.ReadToEnd();
+                sr.Close();
+                fs.Close();                
                 Enigma x = new Enigma();
                 lectura = x.desencriptar(lectura);
                 

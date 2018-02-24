@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using IDE_AR.DatosGlobales;
 namespace IDE_AR.Soluciones
 {
@@ -25,6 +26,7 @@ namespace IDE_AR.Soluciones
         public AgregarSolucion()
         {
             InitializeComponent();
+            nuevaSolucion.Ficheros = new ObservableCollection<Fichero>();
         }
 
         private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
@@ -37,7 +39,7 @@ namespace IDE_AR.Soluciones
         private void btnAceptar_Click(object sender, RoutedEventArgs e)
         {
             adminSolucion admin = new adminSolucion(nuevaSolucion);
-            nuevaSolucion.Ficheros = new List<Fichero>();
+            nuevaSolucion.Ficheros = new ObservableCollection<Fichero>();
             if (admin.ConstruirProyecto())
             {
                 DialogResult = true;
