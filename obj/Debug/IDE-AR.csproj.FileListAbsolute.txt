@@ -1,17 +1,251 @@
 c:\users\alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe.config
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.pdb
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\App.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.g.resources
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE_AR.Properties.Resources.resources
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.Cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.exe
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.pdb
 C:\Users\anyk0\Documents\GitHub\IDE-AR\bin\Debug\IDE-AR.exe.config
-C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
-C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MainWindow.baml
-C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Control\Lista.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.exe
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.pdb
+C:\Users\anyk0\Documents\GitHub\IDE-AR\bin\Debug\IDE-AR.exe
+C:\Users\anyk0\Documents\GitHub\IDE-AR\bin\Debug\IDE-AR.pdb
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MainWindow.g.cs
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\App.g.cs
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.cache
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.lref
-C:\Users\anyk0\Documents\GitHub\IDE-AR\bin\Debug\IDE-AR.exe
-C:\Users\anyk0\Documents\GitHub\IDE-AR\bin\Debug\IDE-AR.pdb
-C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Control\Lista.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MainWindow.baml
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.g.resources
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE_AR.Properties.Resources.resources
 C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.Cache
-C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.exe
-C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.pdb
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\App.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\Colores.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\App.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.lref
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\Colores.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillas.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\configuracion.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\configuracion.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasBotones.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\EstiloRichTextBox.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Login.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Login.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
+C:\Users\Alexis\documents\visual studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\administradorCuentas.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgergarUsuario.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Agregar Grupo.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarActividad.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarMateria.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\configuracion.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\EstiloRichTextBox.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillasBotones.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MessageBoxPersonalizado.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarActividad.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarGrupo.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarMateria.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarUsuario.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaAdvertencia.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaEliminar.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\WindowPaleta.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\administradorCuentas.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgergarUsuario.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Agregar Grupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarActividad.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\AgregarMateria.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\configuracion.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\InterfazAlumnos.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Login.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarActividad.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarGrupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarMateria.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\ModificarUsuario.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaAdvertencia.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\VentanaEliminar.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\WindowPaleta.g.cs
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Estilos\plantillas.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\InterfazAlumnos.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\Login.baml
+C:\Users\anyk0\Documents\GitHub\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.g.cs
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\TreeViewItems.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.baml
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe.config
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR.exe
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR.pdb
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\bin\Debug\IDE-AR.pdb
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\bin\Debug\Newtonsoft.Json.dll
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\configuracion.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\EstiloRichTextBox.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasBotones.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\TreeViewItems.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\App.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\configuracion.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Login.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\MainWindow.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\App.g.cs
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.cache
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.lref
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\Colores.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillas.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\Login.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\MainWindow.baml
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR.g.resources
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE_AR.Properties.Resources.resources
+D:\Proyecto IDE y recursos\proyectos\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.Cache
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe.config
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.exe
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.pdb
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.exe
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\bin\Debug\IDE-AR.pdb
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\configuracion.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\EstiloRichTextBox.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasBotones.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillasItemsListas.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\TreeViewItems.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\WindowsStyles.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\App.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\administradorCuentas.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\AgergarUsuario.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Agregar Grupo.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarActividad.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\AgregarMateria.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\configuracion.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Login.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\MessageBoxPersonalizado.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarActividad.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarGrupo.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarMateria.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\ModificarUsuario.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarFichero.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\AgregarSolucion.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Soluciones\BuscarSolucion.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\AgregarAlumnosGrupo.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\UsuariosForms\RegistroDeUsuario.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaAdvertencia.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\VentanaEliminar.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\WindowPaleta.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\App.g.cs
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.cache
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR_MarkupCompile.lref
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\Colores.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Estilos\plantillas.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\InterfazAlumnos.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\Login.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\MainWindow.baml
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.g.resources
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE_AR.Properties.Resources.resources
+C:\Users\Alumnos\Documents\Visual Studio 2012\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csproj.GenerateResource.Cache
+C:\Users\Alexis\Documents\Visual Studio 2013\Projects\IDE-AR\IDE-AR\obj\Debug\IDE-AR.csprojResolveAssemblyReference.cache

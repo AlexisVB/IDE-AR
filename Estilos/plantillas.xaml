@@ -1,0 +1,331 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:IDE_AR">
+    <!--Plantilla de las listas principales-->
+    <DataTemplate x:Key="plantilla1ListasDatosDesdeObjetos">
+        <Border BorderThickness="0" BorderBrush="Transparent" CornerRadius="2">
+            <Grid Width="50" Height="50" >
+                <Grid.ToolTip>
+                    <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
+                        <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=Nombre}"/>
+                    </ToolTip>
+            </Grid.ToolTip>
+                <Border Width="50" Height="50"
+                Name="Borde" Background="{Binding Path=Color}" BorderThickness="2" CornerRadius="30" >
+                <Grid Name="panel">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    FontSize="16" Foreground="White" FontFamily="Verdana" Text="{Binding Path=Nick}" 
+                       />                    
+                </Grid>
+            </Border>
+        </Grid>
+        </Border>
+        <DataTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true"> 
+                <Setter TargetName="Borde" Property="CornerRadius" Value="10"/>
+            </Trigger>
+            
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    <!--Plantilla de las listas principales-->
+    <DataTemplate x:Key="plantilla1ListasPreview">
+        <Border Name="Borde1" BorderThickness="0" BorderBrush="Transparent" CornerRadius="2">
+            <Grid Width="50" Height="50" >
+                <Grid.ToolTip>
+                    <ToolTip TextBlock.Foreground="White" TextBlock.FontSize="12" Background="Black" BorderThickness="0" FontFamily="Verdana">
+                        <TextBlock Foreground="White" Background="Black"  Text="{Binding Path=Nombre}"/>
+                    </ToolTip>
+                </Grid.ToolTip>
+                <Border Width="50" Height="50"
+                Name="Borde" Background="{Binding Path=Color}" BorderThickness="2" CornerRadius="30" >
+                    <Grid Name="panel">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    FontSize="16" Foreground="White" FontFamily="Verdana" Text="{Binding Path=Nick}" 
+                       />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+        <DataTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter TargetName="Borde" Property="CornerRadius" Value="10"/>
+                <Setter TargetName="Borde1" Property="BorderBrush" Value="{StaticResource ResourceKey=BarraLateralDerechaBrush}"/>
+            </Trigger>
+
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    <!--Plantilla de las listas de alumnosGrupo-->
+    <DataTemplate x:Key="plantillaListaAlumnosGrupo">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Column="0"
+                Source="../Images/account.png"></Image>
+            <TextBlock 
+                Grid.Column="1"
+                Text="{Binding Path=Nombre}" Foreground="White" FontSize="14" FontFamily="Verdana"/>            
+        </Grid>        
+    </DataTemplate>
+    <!--Plantilla de las listas de alumnosGrupo-->
+    <DataTemplate x:Key="plantillaItemsChat">
+        <Grid>
+            <Grid.ColumnDefinitions>                
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0"
+                Name="txtNombreRemitente"
+                Text="{Binding Path=NombreRemitente}"
+                Foreground="White"
+                FontFamily="Verdana"
+                FontSize="12"></TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="0"
+                 Margin="10,0,0,0"
+                Text="{Binding Path=FechaEnvio}"
+                 Foreground="LightGray"
+                FontFamily="Verdana"
+                FontSize="12"/>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1"
+                Text="{Binding Path=Mensaje}"
+                Foreground="Gray"
+                FontFamily="Verdana"
+                FontSize="12"></TextBlock>            
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=IsHost}" Value="true">
+                <Setter TargetName="txtNombreRemitente" Property="Foreground" Value="Blue"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsHost}" Value="false">
+                <Setter TargetName="txtNombreRemitente" Property="Foreground" Value="white"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    <!--Plantilla de las listas de alumnos-->
+    <DataTemplate x:Key="plantilla2Listas">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding XPath=nombre}" Foreground="White" FontSize="14" FontFamily="Verdana"/>
+            <Ellipse Name="colorEstado" Width="15" Height="15"/>            
+        </StackPanel>  
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding XPath=estado}" Value="1">
+                <Setter TargetName="colorEstado" Property="Fill" Value="Green"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding XPath=estado}" Value="2">
+                <Setter TargetName="colorEstado" Property="Fill" Value="Orange"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding XPath=estado}" Value="0">
+                <Setter TargetName="colorEstado" Property="Fill" Value="Red"/>
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+    <!--Plantilla de las listas de usuarios-->
+    <DataTemplate x:Key="plantilla1ListaUsuarioItems">
+        <Border BorderThickness="5" BorderBrush="{StaticResource BarraLateralIzquierdaBrush}" CornerRadius="5" Background="WhiteSmoke" >
+            <Grid  Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>                    
+                </Grid.ColumnDefinitions>    
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="0"
+                    Text="Nombre Usuario:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="1"
+                    Text="Password"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="2"
+                    Text="Tipo"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="3"
+                    Text="Nombre:"
+                />
+                <TextBlock 
+                    Grid.Column="0"  Grid.Row="4"
+                    Text="Registro:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="5"
+                    Text="Grupo:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="6"
+                    Text="Correo:"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="0"
+                    Text="{Binding Path=NombreUsuario}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="1"
+                    Text="{Binding Path=Password}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="2"
+                    Text="{Binding Path=Tipo}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="3"
+                    Text="{Binding Path=Nombre}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="4"
+                    Text="{Binding Path=Registro}"
+                />
+                <TextBlock 
+                    Grid.Column="1"  Grid.Row="5"
+                    Text="{Binding Path=Grupo}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="6"
+                    Text="{Binding Path=Correo}"
+                />                
+            </Grid>
+        </Border>        
+    </DataTemplate>
+    <!--Plantilla de alumnosAgregarGrupo-->
+    <DataTemplate x:Key="plantilla1ListaAlumnosAgregarItems">
+        <Border BorderThickness="5" BorderBrush="{StaticResource BarraLateralIzquierdaBrush}" CornerRadius="5" Background="WhiteSmoke" >
+            <Grid  Background="Transparent">
+                <Grid.ColumnDefinitions>                    
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>                
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="0"
+                    Text="Nombre Usuario:"
+                />              
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="1"
+                    Text="Nombre:"
+                />
+                <TextBlock 
+                    Grid.Column="0"  Grid.Row="2"
+                    Text="Registro:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="3"
+                    Text="Grupo:"
+                />
+                <TextBlock 
+                    Grid.Column="0" Grid.Row="4"
+                    Text="Correo:"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="0"
+                    Text="{Binding Path=NombreUsuario}"
+                />              
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="1"
+                    Text="{Binding Path=Nombre}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="2"
+                    Text="{Binding Path=Registro}"
+                />
+                <TextBlock 
+                    Grid.Column="1"  Grid.Row="3"
+                    Text="{Binding Path=Grupo}"
+                />
+                <TextBlock 
+                    Grid.Column="1" Grid.Row="4"
+                    Text="{Binding Path=Correo}"
+                />
+            </Grid>
+        </Border>
+    </DataTemplate>
+    
+    <Style x:Key="TabsItems" TargetType="TabItem">
+        <Setter Property="Background" Value="{StaticResource BarraLateralIzquierdaBrush}"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{StaticResource EditorTextoBrush}"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Trigger>
+        </Style.Triggers>
+        
+    </Style>
+    <!--Estilo para cambiar los menus-->
+    <Style  TargetType="MenuItem">
+        <Setter Property="Background" Value="{StaticResource BarraLateralDerechaBrush}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Foreground" Value="White"/>      
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+
+    <Style  TargetType="ListView">
+        <Setter Property="BorderThickness" Value="0"/>
+    </Style>
+    
+    <Style x:Key="labelVentanasAgregar" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style x:Key="textBoxVentanasAgregar" TargetType="TextBox">
+        <Setter Property="Background" Value="{StaticResource BarraLateralIzquierdaBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderThickness"  Value="0"/>      
+    </Style>
+    <Style x:Key="txtPasswordLogin" TargetType="PasswordBox">
+        <Setter Property="Background" Value="{StaticResource BarraLateralIzquierdaBrush}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="BorderThickness"  Value="0"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <!--Plantilla para hacer cambiar los tooltips a negro-->
+    <Style TargetType="ToolTip">
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="FontSize" Value="12"></Setter>
+        <Setter Property="Background" Value="Black"></Setter>
+        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="FontFamily" Value="Verdana"></Setter>       
+    </Style>
+    
+</ResourceDictionary>

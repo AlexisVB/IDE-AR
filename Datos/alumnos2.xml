@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<alumnos>
+  <alumno>
+    <nombre>Angel Zapata</nombre>
+    <estado>2</estado>
+  </alumno>
+  <alumno>
+    <nombre>Luis Quiroz</nombre>
+    <estado>2</estado>
+  </alumno> 
+</alumnos>

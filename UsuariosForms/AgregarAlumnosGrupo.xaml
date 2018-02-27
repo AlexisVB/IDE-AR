@@ -1,0 +1,86 @@
+﻿<Window x:Class="IDE_AR.UsuariosForms.AgregarAlumnosGrupo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="WindowPaleta" Height="600" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"        
+        Style="{StaticResource ventanaPopUp}"        
+        Icon="../Icono/icono.png">
+    <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
+            BorderThickness="4"
+            BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0"
+                    Background="{StaticResource BarraLateralIzquierdaBrush}"
+                    CornerRadius="30,30,0,0"
+                    >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                        Grid.Column="0"
+                        Text="Agregar Alumnos"
+                        Foreground="White"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Margin="14,27,13.8,33.8"
+                        Style="{StaticResource labelVentanasAgregar}"/>                    
+                    <Button 
+                        Grid.Column="2"
+                        Name="btnCerrar" 
+                        Style="{StaticResource botonCerrarRedondeado}"
+                        HorizontalAlignment="Right"
+                        Click="btnCerrar_Click"
+                            />
+                </Grid>
+            </Border>
+            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox
+                Grid.Column="0" Grid.Row="1" 
+                Name="txtBuscar" 
+                Margin="20,0,0,0"
+                TextChanged="txtBuscar_TextChanged"
+                PreviewTextInput="txtBuscar_PreviewTextInput"
+                PreviewKeyDown="txtBuscar_PreviewKeyDown"
+                Style="{StaticResource textBoxVentanasAgregar}">
+
+                </TextBox>
+                <Button
+                Grid.Column="2" Grid.Row="1" 
+                Name="btnAgregarAlumnos"
+                Content="Agregar Alumnos"
+                Click="btnAgregarAlumnos_Click"
+                Style="{StaticResource botonRedondeadoAgregar}"/>
+            </Grid>
+            
+            <ListView Name="lstAlumnos" Grid.Column="1"  Grid.Row="2"  Grid.RowSpan="4"         
+                SelectionMode="Multiple"         
+                Background="{StaticResource BarraLateralDerechaBrush}"
+                ItemTemplate="{StaticResource plantilla1ListaAlumnosAgregarItems}"      
+                >               
+            </ListView>            
+        </Grid>
+    </Border>
+</Window>
+

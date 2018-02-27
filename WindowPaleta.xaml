@@ -1,0 +1,125 @@
+﻿<Window x:Class="IDE_AR.WindowPaleta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowPaleta" Height="400" Width="500"
+        WindowStartupLocation="Manual"
+        Style="{StaticResource ventanaPopUp}"
+        >
+    <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
+            BorderThickness="4"
+            BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
+        <Grid>         
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Column="0" Grid.ColumnSpan="6" Grid.Row="0"
+                    Background="{StaticResource AzulIndigoBrush1}"
+                    CornerRadius="30,30,0,0"
+                    >
+                <DockPanel>
+                    <TextBlock 
+                        Text="Selecciona un color"
+                        Foreground="White"
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Margin="140,0,0,0"
+                        Style="{StaticResource labelVentanasAgregar}"/>
+                    <Button Name="btnCerrar" 
+                            Style="{StaticResource botonCerrarRedondeado}"
+                            HorizontalAlignment="Right"
+                            Click="btnCerrar_Click"
+                            />
+                </DockPanel>
+            </Border>
+            <Button Grid.Column="0" Grid.Row="1" 
+                    Name="btnRojo"
+                    Click="btnRojo_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="1" Grid.Row="1" 
+                    Name="btnRosa"
+                    Click="btnRosa_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="2" Grid.Row="1" 
+                    Name="btnMorado"                    
+                    Click="btnMorado_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="3" Grid.Row="1" 
+                    Name="btnMoradoProfundo"
+                    Click="btnMoradoProfundo_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="4" Grid.Row="1" 
+                    Name="btnAzulIndigo"
+                    Click="btnAzulIndigo_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="5" Grid.Row="1" 
+                    Name="btnAzul"
+                    Click="btnAzul_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="0" Grid.Row="2" 
+                    Name="btnAzulClaro"     
+                    Click="btnAzulClaro_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="1" Grid.Row="2" 
+                    Name="btnCyan"
+                    Click="btnCyan_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="2" Grid.Row="2" 
+                    Name="btnTeal"  
+                    Click="btnTeal_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="3" Grid.Row="2" 
+                    Name="btnVerde"
+                    Click="btnVerde_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="4" Grid.Row="2" 
+                    Name="btnVerdeClaro" 
+                    Click="btnVerdeClaro_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="5" Grid.Row="2" 
+                    Name="btnLima"  
+                    Click="btnLima_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="0" Grid.Row="3" 
+                    Name="btnAmarillo"
+                    Click="btnAmarillo_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="1" Grid.Row="3" 
+                    Name="btnAmbar" 
+                    Click="btnAmbar_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="2" Grid.Row="3" 
+                    Name="btnNaranja"  
+                    Click="btnNaranja_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="3" Grid.Row="3" 
+                    Name="btnNaranjaOscuro"  
+                    Click="btnNaranjaOscuro_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="4" Grid.Row="3" 
+                    Name="btnCafe"
+                    Click="btnCafe_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="5" Grid.Row="3" 
+                    Name="btnGris"
+                    Click="btnGris_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+            <Button Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" 
+                    Name="btnDefault"   
+                    Click="btnDefault_click"
+                    Style="{StaticResource botonColorRedondeadoPaleta}"/>
+
+        </Grid>
+    </Border>
+</Window>

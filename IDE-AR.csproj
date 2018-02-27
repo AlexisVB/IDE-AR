@@ -34,8 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,7 +56,130 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Control\Lista.xaml">
+    <Compile Include="administradorCuentas.xaml.cs">
+      <DependentUpon>administradorCuentas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgergarUsuario.xaml.cs">
+      <DependentUpon>AgergarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\Actividades.cs" />
+    <Compile Include="Datos\Chat.cs" />
+    <Compile Include="Datos\Enigma.cs" />
+    <Compile Include="Datos\Grupos.cs" />
+    <Compile Include="Datos\InterfaceHttp.cs" />
+    <Compile Include="Datos\Materias.cs" />
+    <Compile Include="Datos\mensaje.cs" />
+    <Compile Include="Datos\miColor.cs" />
+    <Compile Include="Datos\Usuarios.cs" />
+    <Compile Include="Email\email.cs" />
+    <Compile Include="InterfazAlumnos.xaml.cs">
+      <DependentUpon>InterfazAlumnos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessageBoxPersonalizado.xaml.cs">
+      <DependentUpon>MessageBoxPersonalizado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarActividad.xaml.cs">
+      <DependentUpon>ModificarActividad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarGrupo.xaml.cs">
+      <DependentUpon>ModificarGrupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarMateria.xaml.cs">
+      <DependentUpon>ModificarMateria.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarUsuario.xaml.cs">
+      <DependentUpon>ModificarUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\adminFicheros.cs" />
+    <Compile Include="Soluciones\adminSolucion.cs" />
+    <Compile Include="Soluciones\AgregarFichero.xaml.cs">
+      <DependentUpon>AgregarFichero.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\AgregarSolucion.xaml.cs">
+      <DependentUpon>AgregarSolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\BuscarSolucion.xaml.cs">
+      <DependentUpon>BuscarSolucion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Soluciones\Fichero.cs" />
+    <Compile Include="Soluciones\flowDocument.cs" />
+    <Compile Include="Soluciones\SolucionesProyecto.cs" />
+    <Compile Include="Soluciones\SolucionProyecto.cs" />
+    <Compile Include="UsuariosForms\AgregarAlumnosGrupo.xaml.cs">
+      <DependentUpon>AgregarAlumnosGrupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UsuariosForms\RegistroDeUsuario.xaml.cs">
+      <DependentUpon>RegistroDeUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaAdvertencia.xaml.cs">
+      <DependentUpon>VentanaAdvertencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VentanaEliminar.xaml.cs">
+      <DependentUpon>VentanaEliminar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowPaleta.xaml.cs">
+      <DependentUpon>WindowPaleta.xaml</DependentUpon>
+    </Compile>
+    <Page Include="administradorCuentas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgergarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Agregar Grupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgregarActividad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AgregarMateria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="configuracion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\Colores.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\EstiloRichTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\plantillas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\plantillasBotones.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\plantillasItemsListas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\TreeViewItems.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Estilos\WindowsStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InterfazAlumnos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -61,17 +187,83 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Agregar Grupo.xaml.cs">
+      <DependentUpon>Agregar Grupo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarActividad.xaml.cs">
+      <DependentUpon>AgregarActividad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarMateria.xaml.cs">
+      <DependentUpon>AgregarMateria.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Control\Lista.xaml.cs">
-      <DependentUpon>Lista.xaml</DependentUpon>
+    <Compile Include="configuracion.xaml.cs">
+      <DependentUpon>configuracion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DatosGlobales\VariablesGlobales.cs" />
+    <Compile Include="Datos\actividad.cs" />
+    <Compile Include="Datos\grupo.cs" />
+    <Compile Include="Datos\materia.cs" />
+    <Compile Include="Datos\usuario.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MessageBoxPersonalizado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarActividad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarMateria.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModificarUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Soluciones\AgregarFichero.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Soluciones\AgregarSolucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Soluciones\BuscarSolucion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsuariosForms\AgregarAlumnosGrupo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UsuariosForms\RegistroDeUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaAdvertencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VentanaEliminar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowPaleta.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -98,11 +290,79 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Imagenes\ArchivoAbrir.png" />
-    <Resource Include="Imagenes\ArchivoGuardar.png" />
+    <Resource Include="Images\acercaDe.png" />
+    <Resource Include="Images\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\abrir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cortar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\pegar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\copiar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\rehacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deshacer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Dark\darkOpen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\salir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\alumnos.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\alumnos2.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Datos\alumnos3.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\reduce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icono\icono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\send.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icono\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icFolder2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\iconoC.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

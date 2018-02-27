@@ -1,9 +1,22 @@
 ﻿<Application x:Class="IDE_AR.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml"
+             StartupUri="Login.xaml"
              Startup="Application_Startup">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!--El orden es importante-->
+                <ResourceDictionary Source="Estilos/Colores.xaml"/>
+                <ResourceDictionary Source="Estilos/plantillas.xaml"/>
+                <ResourceDictionary Source="Estilos/plantillasBotones.xaml"/>
+                <ResourceDictionary Source="Estilos/EstiloRichTextBox.xaml"/>
+                <ResourceDictionary Source="Estilos/WindowsStyles.xaml"/>
+                <ResourceDictionary Source="Estilos/PlantillasItemsListas.xaml"/>
+                <ResourceDictionary Source="Estilos/TreeViewItems.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+        </ResourceDictionary>
+       
     </Application.Resources>
 </Application>
