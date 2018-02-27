@@ -83,53 +83,69 @@ namespace IDE_AR.Soluciones
             }
 
         }
-        public FlowDocument ConstruirFlowDocument(string contenido)
+        public FlowDocument ConstruirFlowDocument(string content)
         {
             position = 0;
-            this.contenido = contenido;
-            quitarCaracteres();            
+            contenido = content;
+            contenido=quitarCaracteres(contenido);            
             documentFlow = new FlowDocument();
             //construir
+            //#Include<stdio.h\c/
+            /*
+             * <Paragrahp>
+             *  <Run>#</Run>
+             * </Paragrahp>
+             * */
             Paragraph nuevoParrafo = new Paragraph();
             while(position<this.contenido.Length)
             {
-                Run linea = new Run();
-                linea.Text = getLine();
-                if (linea.Text.Length > 0)
+                char c = contenido[position];
+                Run caracter = new Run();
+                caracter.Text = "";
+                switch (c)
                 {
-                    nuevoParrafo.Inlines.Add(linea);
-                    nuevoParrafo.Inlines.Add(new LineBreak()); 
-                }                
+                    case '►':
+                            if (position + 1 < contenido.Length && contenido[position+1] == '◄')
+                            {
+                                //agregar run especial
+                                position ++;
+                                caracter.Text = "│";
+                                caracter.FontSize = 16;
+                                caracter.Focus();
+                                caracter.FontWeight = System.Windows.FontWeights.Bold;
+                                caracter.Foreground = System.Windows.Media.Brushes.Purple;
+                                nuevoParrafo.Inlines.Add(caracter);
+                            }                           
+                            break;
+                    case '\n':
+                        nuevoParrafo.Inlines.Add(new LineBreak());
+                        break;
+                    case '\r':
+                        position++;
+                        break;
+                    default:
+                        //crear run con el puro caracter
+                        caracter.Text += contenido[position];
+                        nuevoParrafo.Inlines.Add(caracter);
+                        break;
+                }
+                position++;
             }
             documentFlow.Blocks.Add(nuevoParrafo);
-            return documentFlow;
-            
+            return documentFlow;            
         }
-        private void quitarCaracteres()
+        private string quitarCaracteres(string content)
         {
             string temp = "";
             position=0;
-            while(position<contenido.Length)
+            while(position<content.Length)
             {
-                if (contenido[position] != '\r')
-                    temp += contenido[position];
+                if (content[position] != '\r')
+                    temp += content[position];
                 position++;
-            }
-            contenido = temp;
+            }            
             position = 0;
-        }
-        private string getLine()
-        {
-            string line = "";
-
-            while (position < contenido.Length &&contenido[position] != '\n')
-            {
-                line += contenido[position];
-                position++;
-            }
-            position++;            
-            
-            return line;
-        }
+            return temp;
+        }        
     }
 }

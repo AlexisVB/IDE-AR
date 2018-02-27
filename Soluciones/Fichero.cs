@@ -23,6 +23,9 @@ namespace IDE_AR.Soluciones
         public bool IsFolder { get; set; }
         public Fichero Parent { get; set; }
         public string contenido { get; set; }
+        int posx;
+        int posy;
+        private int[,] matriz =new int[500,2000];
         public ObservableCollection<Fichero> Ficheros { get; set; }
         public bool GuardarArchivo()
         {            

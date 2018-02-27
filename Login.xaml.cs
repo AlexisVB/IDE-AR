@@ -28,7 +28,12 @@ namespace IDE_AR
         {
             InitializeComponent();
             ComprobarCredenciales();
+            ObtenerConfiguracion();
             
+        }
+        public void ObtenerConfiguracion()
+        {
+
         }
         private void btnCrearCuenta_Click(object sender, RoutedEventArgs e)
         {

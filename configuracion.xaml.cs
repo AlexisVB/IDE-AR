@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.IO;
 namespace IDE_AR
 {
     /// <summary>
@@ -26,12 +27,43 @@ namespace IDE_AR
 
         private void btnSelectRuta_Click(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog select = new FolderBrowserDialog();
-            if(select.ShowDialog()==System.Windows.Forms.DialogResult.Yes)
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog select = new FolderBrowserDialog();            
+            if (select.ShowDialog() == System.Windows.Forms.DialogResult.Yes)
             {
-                
+
             }
-            Mensaje(select.SelectedPath);
+            string ruta=select.SelectedPath;
+            lbRuta.Text = ruta;
+            if (ruta.Length < 0)
+                Mensaje("La ruta seleccionada no existe");
+            else
+            {
+                GuardarLocacionPredeterminada(ruta);
+            }
+        }
+        public void GuardarLocacionPredeterminada(string ruta)
+        {
+            string dir = "Settings";
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+            string ar = "Settings//defaultLocation.bin";                        
+            //crea el archivo de texto
+            File.Delete(ar);
+            FileStream fs = new FileStream(ar, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            StreamWriter sw = new StreamWriter(fs);
+            sw.BaseStream.Seek(0, SeekOrigin.Begin);
+            sw.Write(ruta);
+            sw.Flush();
+            sw.Close();
+            fs.Close();
+            
+        }
+        private void btnCerrar_Click(Object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
         public void Mensaje(string Text)
         {

@@ -5,8 +5,7 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         WindowStartupLocation="CenterOwner"
-        Style="{StaticResource ventanaPopUp}"
-        Background="{StaticResource DarkPrimaryColorBrush}">
+        Style="{StaticResource ventanaPopUp}">
     <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
             BorderThickness="0"
             BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
@@ -25,7 +24,7 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0" Grid.ColumnSpan="2"
-                        Text="Ajustes de Usuario"
+                        Text="Configuración"
                         Foreground="White"
                         FontSize="30"
                         HorizontalAlignment="Center"
@@ -39,36 +38,45 @@
                             />
             </Grid>
     </Border>
-    <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,0">
-                <TabItem Header="Mi cuenta" Style="{StaticResource TabsItems}">
+    <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,0" >
+                <TabItem Header="Ajustes de usuario" Style="{StaticResource TabsItems}">
                     <Grid>
                         <TextBlock>Control de la cuenta</TextBlock>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Aplicación" Style="{StaticResource TabsItems}">
-                    <Grid>
+                <TabItem Header="Ajustes de la Aplicación" Style="{StaticResource TabsItems}">                    
+                        <!--Ouche-->
+                    <Grid  Background="{StaticResource BarraLateralDerechaBrush}" Margin="0,-5,0.4,4.6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="2*"/>
-                            <ColumnDefinition Width="5*"/>                            
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <Grid Grid.Column="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                            </Grid.RowDefinitions>
-                        </Grid>
-                        <Grid Grid.Column="1">
-                            <Button Name="btnSelectRuta"
-                            Click="btnSelectRuta_Click"
-                            Content="Seleccionar ruta Predefinida" Grid.ColumnSpan="3"/>
-                        </Grid>                     
+                        <!--Label select Ruta-->
+                        <TextBlock Grid.Column="0" Grid.Row="0"
+                                   Style="{StaticResource labelVentanasAgregar}"
+                                   Text="Ruta predeterminada:"
+                                   FontSize="16"/>
+                        <TextBlock Grid.Column="1" Grid.Row="0"
+                                   Name="lbRuta"
+                                   Style="{StaticResource labelVentanasAgregar}"
+                                   Text=""
+                                   FontSize="16"/>
+                        <Button Grid.Column="2"
+                        Name="btnBuscar"
+                        Width="40" Height="40"
+                        Background="Transparent"
+                        Margin="0,0,15,0"
+                        Click="Button_Click">
+                            <Image Source="Images/icFolder2.png"/>
+                        </Button>
                     </Grid>
-                </TabItem>
-                <TabItem Header="Notificaciones" Style="{StaticResource TabsItems}">
-                   
-                </TabItem>
-
+                </TabItem>                
             </TabControl>
         </Grid>
     </Border>

@@ -769,7 +769,7 @@ namespace IDE_AR
         {
             currentFlowDocument = new flowDocument();
             
-            string contenido = "#Include<stdio.h>\n#Include<stdlib.h>\n";
+           // string contenido = "#Include<stdio.h>\n#Include<stdlib.h>\n";
             if(currentFichero!=null)
                 ctEditor.Document=currentFlowDocument.ConstruirFlowDocument(currentFichero.contenido);
             
