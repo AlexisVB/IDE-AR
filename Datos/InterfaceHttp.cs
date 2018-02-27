@@ -14,6 +14,7 @@ namespace IDE_AR.Datos
     {
         //**************************************Direccion fija del servidor****************************************
         static string baseURL = "http://proyectosinformaticatnl.ceti.mx/asistencia-automatizada/IDE-AR/";
+        //static string baseURL = "http://localhost/IDE-AR/";//url para trabajar offline
 
         //**************************************Funciones necesarias para las demás funciones****************************************
         private static string HacerRequest(string query)
@@ -648,5 +649,70 @@ namespace IDE_AR.Datos
         /*
         * ********************************Funciones de las soluciones profesor**************************************
         */
+
+        /*
+        * ********************************Funciones de los directorios en el servidor**************************************
+        */
+        public static string CrearDirectorio(string carpeta)
+        {
+            string scriptname = "CrearDirectorio.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "carpeta=" + carpeta;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                  
+            return json;          
+        }
+        public static string EliminarDirectorio(string carpeta)
+        {
+            string scriptname = "EliminarDirectorio.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "carpeta=" + carpeta;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                  
+            return json;
+        }
+        public static string RenombrarFichero(string ficheroOrigen,string ficheroDestino)
+        {
+            string scriptname = "RenombrarFichero.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "origen=" + ficheroOrigen;
+            query += "&destino=" + ficheroDestino;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                  
+            return json;
+        }
+        /*
+      * ********************************Funciones de los archivos en el servidor**************************************
+      */
+        public static string CrearArchivo(string fichero)
+        {
+            string scriptname = "CrearArchivo.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "fichero=" + fichero;            
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                  
+            return json;
+        }
+        public static string EliminarArchivo(string fichero)
+        {
+            string scriptname = "EliminarArchivo.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "fichero=" + fichero;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                  
+            return json;
+        }
+
+
     }
 }

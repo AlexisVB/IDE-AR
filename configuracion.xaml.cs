@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Windows.Forms;
 namespace IDE_AR
 {
     /// <summary>
@@ -22,6 +22,24 @@ namespace IDE_AR
         public configuracion()
         {
             InitializeComponent();
+        }
+
+        private void btnSelectRuta_Click(object sender, RoutedEventArgs e)
+        {
+            FolderBrowserDialog select = new FolderBrowserDialog();
+            if(select.ShowDialog()==System.Windows.Forms.DialogResult.Yes)
+            {
+                
+            }
+            Mensaje(select.SelectedPath);
+        }
+        public void Mensaje(string Text)
+        {
+            this.Opacity = 0.5;
+            MessageBoxPersonalizado mostrar = new MessageBoxPersonalizado();
+            mostrar.Texto = Text;
+            mostrar.ShowDialog();
+            this.Opacity = 1;
         }
     }
 }

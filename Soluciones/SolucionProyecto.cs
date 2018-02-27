@@ -8,6 +8,7 @@ namespace IDE_AR.Soluciones
 {
     public class SolucionProyecto
     {
+        //idprofesor>materia>grupo>actividad>alumno>solucion
         //tipo raiz
         //0=Es solo un archivo
         //1=Solucion Proyecto

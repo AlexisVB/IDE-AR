@@ -33,7 +33,10 @@ namespace IDE_AR.Soluciones
         {
             OpenFileDialog seleccionador= new OpenFileDialog();
             seleccionador.Filter="ficheros ar(*.ar)|*.ar|Todos (*.*)|*.*";
-            seleccionador.FilterIndex=2;
+            seleccionador.FilterIndex=1;
+            seleccionador.CheckFileExists = false;
+            seleccionador.CheckPathExists = false;            
+            
             if(seleccionador.ShowDialog()==true)
             {
                 

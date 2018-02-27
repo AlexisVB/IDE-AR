@@ -5,51 +5,57 @@
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         WindowStartupLocation="CenterOwner"
+        Style="{StaticResource ventanaPopUp}"
         Background="{StaticResource DarkPrimaryColorBrush}">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="182"/>
-            <ColumnDefinition Width="245"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="15*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
-            <TextBlock Width="230" Style="{StaticResource ResourceKey=TitulosConfiguracion}"><Run Text="Administrar"/></TextBlock>
-            <Separator BorderThickness="10" BorderBrush="White"  RenderTransformOrigin="0.5,0.5">
-                <Separator.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90.00"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Separator.RenderTransform>
-            </Separator>
-            <TextBlock Width="200" Style="{StaticResource ResourceKey=TitulosConfiguracion}"><Run Text="Configuración"/></TextBlock>
-        </StackPanel>
-        <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,5,-0.4,-4.6">
-            <TabItem Header="Materias" Style="{StaticResource TabsItems}">
-                
-            </TabItem>
-            <TabItem Header="Grupos" Style="{StaticResource TabsItems}">
+    <Border CornerRadius="30" Background="{StaticResource BarraLateralDerechaBrush}" 
+            BorderThickness="4"
+            BorderBrush="{StaticResource BarraLateralIzquierdaBrush}">
+        <Grid>
 
-            </TabItem>
-            <TabItem Header="Actividades" Style="{StaticResource TabsItems}">
-                <Grid>
-                    <TextBlock>1</TextBlock>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Mi cuenta" Style="{StaticResource TabsItems}">
-                <Grid>
-                    <Button Width="40" Height="20">Cerrar Seccion</Button>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Notificaciones" Style="{StaticResource TabsItems}">
-            </TabItem>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="182"/>
+                <ColumnDefinition Width="245"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <TextBlock Width="230" Style="{StaticResource ResourceKey=TitulosConfiguracion}"><Run Text="Administrar"/></TextBlock>
+                <Separator BorderThickness="10" BorderBrush="White"  RenderTransformOrigin="0.5,0.5">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90.00"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <TextBlock Width="200" Style="{StaticResource ResourceKey=TitulosConfiguracion}"><Run Text="Configuración"/></TextBlock>
+            </StackPanel>
+            <TabControl Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,0,0,0">
+                <TabItem Header="Mi cuenta" Style="{StaticResource TabsItems}">
+                    <Grid>
+                        <Button Width="40" Height="20">Cerrar Seccion</Button>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Notificaciones" Style="{StaticResource TabsItems}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="240*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Name="btnSelectRuta"
+                        Click="btnSelectRuta_Click"
+                        Content="Seleccionar ruta Predefinida" Grid.ColumnSpan="3"/>
+                    </Grid>
 
-        </TabControl>
-    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+    </Border>
 </Window>

@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using System.Collections.ObjectModel;
 namespace IDE_AR.Soluciones
 {
     /// <summary>
@@ -56,6 +56,14 @@ namespace IDE_AR.Soluciones
             if (admin.CrearArchivo())
             {
                 Mensaje("Fichero Creado correctamente");
+                if(FicheroRaiz.Ficheros!=null)
+                    FicheroRaiz.Ficheros.Add(fichero);
+                else
+                {
+                    FicheroRaiz.Ficheros=new ObservableCollection<Fichero>();
+                    FicheroRaiz.Ficheros.Add(fichero);
+                }
+
                 DialogResult = true;                
             }
             else

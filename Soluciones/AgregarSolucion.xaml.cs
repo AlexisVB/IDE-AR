@@ -32,7 +32,7 @@ namespace IDE_AR.Soluciones
         private void txtNombre_TextChanged(object sender, TextChangedEventArgs e)
         {
             nombre = txtNombre.Text;
-            lbRuta.Text = ruta + nombre;
+            lbRuta.Text = ruta + "//"+nombre;
             nuevaSolucion.Nombre = nombre;
             nuevaSolucion.RutaLocal = lbRuta.Text;
         }

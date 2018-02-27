@@ -105,6 +105,7 @@
       <DependentUpon>BuscarSolucion.xaml</DependentUpon>
     </Compile>
     <Compile Include="Soluciones\Fichero.cs" />
+    <Compile Include="Soluciones\flowDocument.cs" />
     <Compile Include="Soluciones\SolucionesProyecto.cs" />
     <Compile Include="Soluciones\SolucionProyecto.cs" />
     <Compile Include="UsuariosForms\AgregarAlumnosGrupo.xaml.cs">

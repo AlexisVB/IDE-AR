@@ -113,7 +113,6 @@
             </Border>
             <!--Barra de Menus-->
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Orientation="Vertical" >
-
                 <Menu Name="BarraDeMenus" Background="{StaticResource BarraLateralDerechaBrush}">
                     <MenuItem Name="MenuArchivo" Header="_Archivo" >
                         <MenuItem Name="ArchivoAbrir" Header="_Abrir"
@@ -264,9 +263,9 @@
             </StackPanel>
             <!--Barra lateral izquierda-->
 
-            <StackPanel Grid.Row="1" Grid.Column="0"
+            <StackPanel Grid.Row="2" Grid.Column="0"
                   Grid.RowSpan="3" Orientation="Horizontal"
-                    Background="{StaticResource BarraLateralIzquierdaBrush}" Margin="0,14,0.4,4.6">
+                    Background="{StaticResource BarraLateralIzquierdaBrush}" Margin="0,0,0,0">
                 <StackPanel Grid.Column="0" DataContext="lo">
                     <TextBlock Text="Materias" Foreground="White"/>
                     <ListView Name="lstMaterias" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"                  
@@ -371,7 +370,7 @@
                                 <TextBlock.ContextMenu>
                                     <ContextMenu>
                                         <MenuItem Name="agregarArchivo" Header="Agregar Fichero" Click="agregarArchivo_Click"/>
-                                        <MenuItem Name="verCarpeta" Header="Ver en carpeta" />
+                                        <MenuItem Name="verCarpeta" Header="Ver en carpeta" Click="verCarpeta_Click" />
                                     </ContextMenu>
                                 </TextBlock.ContextMenu>
                             </TextBlock>
@@ -445,8 +444,11 @@
                 AcceptsReturn="True"  
                 AcceptsTab="True" 
                BorderThickness="0"
+                IsReadOnly="True"
+                PreviewTextInput="ctEditor_PreviewTextInput_1"
+                PreviewKeyDown="ctEditor_PreviewKeyDown_1"
                 VerticalScrollBarVisibility="Auto" 
-                HorizontalScrollBarVisibility="Auto"                
+                HorizontalScrollBarVisibility="Auto" Template="{DynamicResource TextBoxBaseControlTemplate1}"                
                 >
                         <RichTextBox.ContextMenu>
                             <ContextMenu>

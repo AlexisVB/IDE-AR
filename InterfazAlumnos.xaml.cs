@@ -19,6 +19,7 @@ using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
 using System.IO;
 using IDE_AR.Soluciones;
+
 namespace IDE_AR
 {
     /// <summary>
@@ -52,12 +53,14 @@ namespace IDE_AR
         public usuario usuarioContexto;//Variable usada solo para darle contexto a las listas de usuarios
         public mensaje mensajeContexto;
         public Fichero ficheroContexto;
+
         //**********************************************************
         //*************************Variables para el editor*********************************
         private FontFamily familiaPre;
         private double sizePre;
         public static RoutedUICommand RCGuardar = new RoutedUICommand();
         SolucionProyecto misolucion;
+        public flowDocument currentFlowDocument;
         //**********************************************************************************        
         public InterfazAlumnos()
         {
@@ -81,6 +84,7 @@ namespace IDE_AR
             busquedaDatosListas();
             InicializarListas();
             InicializacionDatos();
+            
 
         }
         private void InterfazAlumnos_Loaded(Object sender, RoutedEventArgs e)
@@ -611,7 +615,7 @@ namespace IDE_AR
 
         private void EntregarActividad_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
      //************************************funciones de archivos y soluciones***********************************
         private void btnLogout_Click(object sender, RoutedEventArgs e)
@@ -657,7 +661,7 @@ namespace IDE_AR
                 misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
                 misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
                 misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
-                actualizarSolucion();
+                actualizarSolucion();                
             }
             else
             {
@@ -680,34 +684,36 @@ namespace IDE_AR
             nuevo.FicheroRaiz = fr;            
             if (nuevo.ShowDialog() == true)
             {
-                listFiles.Add(nuevo.fichero);
-                misolucion.Ficheros = listFiles;
+                misolucion.Ficheros.Add(nuevo.fichero);
                 actualizarSolucion();
             }
             else
             {
-                Mensaje("Problemas añadiendo al proyecto");
+                Mensaje("No se añadió  al proyecto");
             }
             this.Opacity = 9;
         }
-        private void agregarArchivoCarpeta()
+        private void agregarArchivoCarpeta(Fichero parent)
         {
             this.Opacity = 0.9;
-            AgregarFichero nuevo = new AgregarFichero();
-            Fichero fr = new Fichero();
-            fr.RutaLocal = misolucion.RutaLocal;
-            fr.IsFolder = false;
-            fr.Nombre = misolucion.Nombre;
-            nuevo.FicheroRaiz = fr;
+            AgregarFichero nuevo = new AgregarFichero();         
+            nuevo.FicheroRaiz = parent;
             if (nuevo.ShowDialog() == true)
             {
-                listFiles.Add(nuevo.fichero);
-                misolucion.Ficheros = listFiles;
-                actualizarSolucion();
+                if (parent.Nombre.Equals(misolucion.Nombre) && parent.RutaLocal.Equals(misolucion.RutaLocal))
+                {
+                    
+                    misolucion.Ficheros.Add(nuevo.fichero);
+                    actualizarSolucion();
+                }
+                else
+                {                    
+                    actualizarSolucion();
+                }              
             }
             else
             {
-                Mensaje("Problemas añadiendo al proyecto");
+                Mensaje("No se añadió  al proyecto");
             }
             this.Opacity = 9;
         }
@@ -728,22 +734,44 @@ namespace IDE_AR
             ICollectionView vista = ObtenerVista();
             if (vista.IsEmpty) return;
             //cada fichero es un objeto de la clase fichero
-            Fichero currentFichero = (Fichero)solucionP.SelectedItem;
+            
             if(currentFichero.IsFolder)
             {
-
+                Fichero parent = currentFichero;
+                agregarArchivoCarpeta(parent);
+                
             }
             else
             {
-                agregarArchivoSolucion();
+                Fichero parent = currentFichero.Parent;          
+               
+                agregarArchivoCarpeta(parent);
+                
             }
             
+        }
+        private void verCarpeta_Click(object sender, RoutedEventArgs e)
+        {
+            
+            string ruta ="C:\\Users\\Alexis\\Documents\\IDE-AR\\"+misolucion.Nombre+"\\";            
+            System.Diagnostics.Process.Start("explorer.exe",ruta);   
         }
 
         private void solucionP_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {            
             //cada fichero es un objeto de la clase fichero
-            Fichero currentFichero = (Fichero)solucionP.SelectedItem;          
+            currentFichero = (Fichero)solucionP.SelectedItem;
+            currentFichero.LeerArchivo();
+            cargarFlowDocument();
+            
+        }
+        public void cargarFlowDocument()
+        {
+            currentFlowDocument = new flowDocument();
+            
+            string contenido = "#Include<stdio.h>\n#Include<stdlib.h>\n";
+            if(currentFichero!=null)
+                ctEditor.Document=currentFlowDocument.ConstruirFlowDocument(currentFichero.contenido);
             
         }
      
@@ -752,5 +780,16 @@ namespace IDE_AR
         {
             return CollectionViewSource.GetDefaultView(solucionP.Items);
         }
+
+     private void ctEditor_PreviewKeyDown_1(object sender, System.Windows.Input.KeyEventArgs e)
+     {
+         
+     }
+
+     private void ctEditor_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+     {
+         currentFichero.contenido = currentFichero.contenido + e.Text;
+         cargarFlowDocument();
+     }
     }
 }

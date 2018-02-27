@@ -61,8 +61,9 @@ namespace IDE_AR.Soluciones
         public ObservableCollection<Fichero> LeerArbol()
         {
                 ObservableCollection<Fichero> lista = new ObservableCollection<Fichero>();             
-                    if (solucion[pos] == '{')
+                    if (pos<solucion.Length&&solucion[pos] == '{')
                     {
+                        //comeinza en el primer identificador
                         pos++;
                         while (pos<solucion.Length&&solucion[pos] != '}')
                         {
@@ -72,25 +73,36 @@ namespace IDE_AR.Soluciones
                             {
                                 f.IsFolder = true;                                
                                 f.Ficheros = LeerArbol();
+                                                      
                             }
                             else
                             {
-                                f.IsFolder = false;                               
-                                pos++;
+                                f.IsFolder = false;
+                                                              
                             }
-                            lista.Add(f);
+                            try { lista.Add(f); }
+                            catch { }
+                            if (pos < solucion.Length & solucion[pos] == '}')
+                            {
+                                pos++;
+                                break;
+                            }
+                                
+                            if (pos< solucion.Length&solucion[pos]==',')
+                            {
+                                //brincar coma
+                                pos++;
+                            }                  
                         }
-                       if(pos+1<solucion.Length)
-                       {
-                           //brincar coma
-                           pos++;
-                       }
+                       
                     }                
             return lista;
         }
         private string ObtenerIdentificador()
         {
             string identificador = "";
+            if (solucion[pos] == ',')
+                pos++;
             while(solucion[pos]!=','&&solucion[pos]!=':'&&solucion[pos]!='{'&&solucion[pos]!='}')
             {
                 identificador += solucion[pos];
