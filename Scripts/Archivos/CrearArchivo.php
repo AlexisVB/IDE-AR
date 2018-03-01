@@ -8,9 +8,9 @@ if(isset($_GET['fichero']))
 		{		
 			$resource=fopen($fichero, 'w');
 			if(file_exists($fichero))
-				echo "Archivo creado\n";
+				echo "1\n";
 		}
 		else
-			echo "El archivo no se ha podido crear\n";	
+			echo "0\n";	
 	}
 ?>

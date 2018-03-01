@@ -701,6 +701,18 @@ namespace IDE_AR.Datos
             //deserialización de json a c# object                  
             return json;
         }
+        public static string EscribirArchivo(string fichero,string texto)
+        {
+            string scriptname = "Archivos/EscribirArchivo.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "fichero=" + fichero;
+            query += "&texto=" + texto;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object                  
+            return json;
+        }
         public static string EliminarArchivo(string fichero)
         {
             string scriptname = "EliminarArchivo.php?";

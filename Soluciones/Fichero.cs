@@ -103,5 +103,17 @@ namespace IDE_AR.Soluciones
             }
                         
         }
+        public string ConvertirParaNube()
+        {
+            string temp="";
+           for(int cont=0;cont<contenido.Length;cont++)
+           {
+               string c = contenido[cont].ToString();
+               if(c=="#")
+                   c="\\23";
+               temp+=c;
+           }
+            return temp;
+        }
     }
 }

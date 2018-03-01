@@ -756,9 +756,12 @@ namespace IDE_AR
         {            
             //cada fichero es un objeto de la clase fichero
             currentFichero = (Fichero)solucionP.SelectedItem;
-            currentFichero.LeerArchivo();
-            cargarFlowDocument();
-            
+            if(currentFichero!=null&&!currentFichero.IsFolder)
+            {
+                currentFichero.LeerArchivo();
+                cargarFlowDocument();            
+            }
+    
         }
         public void cargarFlowDocument()
         {
@@ -766,7 +769,8 @@ namespace IDE_AR
             
            // string contenido = "#Include<stdio.h>\n#Include<stdlib.h>\n";
             if(currentFichero!=null)
-                ctEditor.Document=currentFlowDocument.ConstruirFlowDocument(currentFichero.contenido);
+                if(currentFichero.contenido.Length>0)
+                    ctEditor.Document=currentFlowDocument.ConstruirFlowDocument(currentFichero.contenido);
             
         }
      
@@ -790,15 +794,9 @@ namespace IDE_AR
      private void solucionSubir_Click(object sender, RoutedEventArgs e)
      {
          adminSolucion admin = new adminSolucion(misolucion);
-         string respuesta=admin.SubirANube();
-         if(respuesta.Length>0)
-         {
-             Mensaje(respuesta);
-         }
-         else
-         {
-             Mensaje("Subido Correctamente");
-         }
+         int[] comparar=admin.SubirANube();
+         string cadena="Ficheros:"+comparar[0]+"/Subidos:"+comparar[1];
+         Mensaje(cadena);
      }
     }
 }

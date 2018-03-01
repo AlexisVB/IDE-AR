@@ -20,6 +20,8 @@ namespace IDE_AR.Soluciones
         int pos = 10;
         public SolucionProyecto miSolucion;
         string ruta = VariablesGlobales.RutaPredeterminada;
+        private int subidos;//variable que cuenta cuantos archivos se subieron
+        private int todos;//variable que cuenta cuantos archivos hay
         public adminSolucion()
         {
 
@@ -230,16 +232,24 @@ namespace IDE_AR.Soluciones
 
             }
         }
-        public string SubirANube()
+        public int[] SubirANube()
         {
+            subidos = 0;
+            todos = 0;
             Fichero padre = new Fichero();
             padre.IdFichero = miSolucion.IdProyecto;
             padre.TipoRaiz = 0;
             padre.Nombre = miSolucion.Nombre;
             padre.Ruta = miSolucion.Ruta;
-            string cadena=InterfaceHttp.CrearDirectorio(miSolucion.Ruta);
+            todos++;
+            int response= Int32.Parse(InterfaceHttp.CrearDirectorio(miSolucion.Ruta));
+            if (response == 1)
+                subidos++;
             subirFicheros(padre, miSolucion.Ficheros);
-            return cadena;
+            int[] arreglo = new int[2];
+            arreglo[0] = todos;
+            arreglo[1] = subidos;
+            return arreglo;
         }
         private void subirFicheros(Fichero padre,ObservableCollection<Fichero> lista)
         {
@@ -250,17 +260,25 @@ namespace IDE_AR.Soluciones
                 for (cont = 0; cont < lista.Count; cont++)
                 {
                     f = lista[cont];
-                    string dir = f.Ruta + "/" + f.Nombre;
+                    string dir = padre.Ruta + "/" + f.Nombre;
+                    f.Ruta = padre.Ruta + "/" + f.Nombre;
+                    todos++;
                     if (f.IsFolder)
                     {
                        //mkdir
-                        InterfaceHttp.CrearDirectorio(dir);
+                        int response=Int32.Parse(InterfaceHttp.CrearDirectorio(dir));
+                        if (response == 1)
+                            subidos++;
                         subirFicheros(f, f.Ficheros);
                     }
                     else
                     {
-                        //subirArchivo                        
-                        InterfaceHttp.CrearArchivo(dir);
+                        //leerArchivo
+                        f.LeerArchivo();
+                        //subirArchivo                                                
+                        int response = Int32.Parse(InterfaceHttp.EscribirArchivo(dir,f.ConvertirParaNube()));
+                        if (response == 1)
+                            subidos++;
                     }
 
                 }

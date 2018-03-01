@@ -1,17 +1,25 @@
 <?php 
 	if(isset($_GET['carpeta']))
-	{	
+	{
 		$carpeta=$_GET['carpeta'];//fichero que vamos a copiar			
 		$dirBase=dirname(__FILE__)."/"."Soluciones";
 		if(!file_exists($dirBase))
 			mkdir($dirBase);
-		$Ruta=$dirBase."/".$carpeta;	
-		if(mkdir($Ruta))
-		{		
-			echo "Carpeta creada con éxito\n";
+		$Ruta=$dirBase."/".$carpeta;			
+		if(file_exists($Ruta))
+		{
+				echo "1\n";//Ya existe
 		}
 		else
-			echo "No se ha podido crear la carpeta\n";	
+		{
+			if(mkdir($Ruta))
+			{		
+				echo "1\n";//Se creo correctamente
+			}
+			else
+				echo "0\n";//Error al crear
+		}	
+		
 	}
 	else
 		echo "No hay parametros";
