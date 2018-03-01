@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.IO;
+using IDE_AR.DatosGlobales;
 namespace IDE_AR
 {
     /// <summary>
@@ -23,6 +24,7 @@ namespace IDE_AR
         public configuracion()
         {
             InitializeComponent();
+            lbRuta.Text = VariablesGlobales.RutaPredeterminada;
         }
 
         private void btnSelectRuta_Click(object sender, RoutedEventArgs e)
@@ -50,8 +52,8 @@ namespace IDE_AR
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
             string ar = "Settings//defaultLocation.bin";                        
-            //crea el archivo de texto
-            File.Delete(ar);
+            //crea el archivo de texto   
+            VariablesGlobales.RutaPredeterminada = ar;
             FileStream fs = new FileStream(ar, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter sw = new StreamWriter(fs);
             sw.BaseStream.Seek(0, SeekOrigin.Begin);

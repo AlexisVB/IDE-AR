@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using IDE_AR.Datos;
+using IDE_AR.Settings;
 namespace IDE_AR
 {
     /// <summary>
@@ -24,6 +25,7 @@ namespace IDE_AR
             bool nueva;
             exmut = new System.Threading.Mutex(true, nombre_exmut, out nueva);
             if (!nueva) Shutdown();
+            
         }
     }
 }

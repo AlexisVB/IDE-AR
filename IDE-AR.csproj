@@ -93,6 +93,7 @@
     <Compile Include="ModificarUsuario.xaml.cs">
       <DependentUpon>ModificarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings\Settings.cs" />
     <Compile Include="Soluciones\adminFicheros.cs" />
     <Compile Include="Soluciones\adminSolucion.cs" />
     <Compile Include="Soluciones\AgregarFichero.xaml.cs">

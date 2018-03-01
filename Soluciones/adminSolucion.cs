@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.ObjectModel;
 using IDE_AR.DatosGlobales;
+using IDE_AR.Datos;
 namespace IDE_AR.Soluciones
 {
     public class adminSolucion
@@ -213,15 +214,54 @@ namespace IDE_AR.Soluciones
                     if (f.IsFolder)
                     {
                          f.Parent = padre;
-                            f.RutaLocal = padre.RutaLocal + "//"+padre.Nombre;
-                            Padrificar(f, f.Ficheros);     
+                         f.Ruta = padre.Ruta + "/" + padre.Nombre;
+                         f.RutaLocal = padre.RutaLocal + "//"+padre.Nombre;
+                         Padrificar(f, f.Ficheros);     
                        
                     }
                     else
                     {
                         f.Parent = padre;
+                        f.Ruta = padre.Ruta + "/" + padre.Nombre;
                         f.RutaLocal = padre.RutaLocal + "//" + padre.Nombre;
                     }                    
+
+                }
+
+            }
+        }
+        public string SubirANube()
+        {
+            Fichero padre = new Fichero();
+            padre.IdFichero = miSolucion.IdProyecto;
+            padre.TipoRaiz = 0;
+            padre.Nombre = miSolucion.Nombre;
+            padre.Ruta = miSolucion.Ruta;
+            string cadena=InterfaceHttp.CrearDirectorio(miSolucion.Ruta);
+            subirFicheros(padre, miSolucion.Ficheros);
+            return cadena;
+        }
+        private void subirFicheros(Fichero padre,ObservableCollection<Fichero> lista)
+        {
+            if (lista != null)
+            {
+                int cont;
+                Fichero f;
+                for (cont = 0; cont < lista.Count; cont++)
+                {
+                    f = lista[cont];
+                    string dir = f.Ruta + "/" + f.Nombre;
+                    if (f.IsFolder)
+                    {
+                       //mkdir
+                        InterfaceHttp.CrearDirectorio(dir);
+                        subirFicheros(f, f.Ficheros);
+                    }
+                    else
+                    {
+                        //subirArchivo                        
+                        InterfaceHttp.CrearArchivo(dir);
+                    }
 
                 }
 

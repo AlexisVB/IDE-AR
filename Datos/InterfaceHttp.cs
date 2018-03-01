@@ -655,7 +655,7 @@ namespace IDE_AR.Datos
         */
         public static string CrearDirectorio(string carpeta)
         {
-            string scriptname = "CrearDirectorio.php?";
+            string scriptname = "Archivos/CrearDirectorio.php?";
             //Se crea la cadena para hacer el request
             string query = baseURL + scriptname;
             query += "carpeta=" + carpeta;
@@ -692,7 +692,7 @@ namespace IDE_AR.Datos
       */
         public static string CrearArchivo(string fichero)
         {
-            string scriptname = "CrearArchivo.php?";
+            string scriptname = "Archivos/CrearArchivo.php?";
             //Se crea la cadena para hacer el request
             string query = baseURL + scriptname;
             query += "fichero=" + fichero;            

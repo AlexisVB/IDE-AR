@@ -612,12 +612,6 @@ namespace IDE_AR
         {
 
         }
-
-        private void EntregarActividad_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-     //************************************funciones de archivos y soluciones***********************************
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -625,23 +619,23 @@ namespace IDE_AR
                 string nombre = "log.rup";
                 File.Delete(nombre);
             }
-            catch{}
+            catch { }
             Login x = new Login();
             x.Show();
             this.Close();
-            
+
         }
+      
+     //************************************funciones de archivos y soluciones***********************************
+     
         private void crearSolucion_Click(object sender, RoutedEventArgs e)
         {
             this.Opacity = 0.9;
             AgregarSolucion nueva = new AgregarSolucion();
             if (nueva.ShowDialog() == true)
             {
-                misolucion = nueva.nuevaSolucion;           
-                misolucion.IdActividad = currentActividad.IdActividad;
-                misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
-                misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
-                misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
+                misolucion = nueva.nuevaSolucion;          
+               
                 actualizarSolucion();
                 //obtener la ruta en el servidor
                 //misolucion.Ruta
@@ -656,16 +650,12 @@ namespace IDE_AR
             if (buscar.ShowDialog() == true)
             {
 
-                misolucion = buscar.solucion;                
-                misolucion.IdActividad = currentActividad.IdActividad;
-                misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
-                misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
-                misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
+                misolucion = buscar.solucion;             
                 actualizarSolucion();                
             }
             else
             {
-                Mensaje("Problemas añadiendo al proyecto");
+                Mensaje("No se ha añadido ninguna solución");
             }
             this.Opacity = 9;
         }
@@ -719,13 +709,18 @@ namespace IDE_AR
         }
         public void actualizarSolucion()
         {
+            misolucion.IdActividad = currentActividad.IdActividad;
+            misolucion.IdPropietario = VariablesGlobales.miusuario.IdUsuario;
+            misolucion.Fecha = DateTime.Now.ToShortDateString().ToString();
+            misolucion.NombrePropietario = VariablesGlobales.miusuario.Nombre;
+            misolucion.Ruta = currentMateria.IdProfesor + "/" + currentMateria.IdMateria + "/" + currentGrupo.IdGrupo + "/" + currentActividad.IdActividad + "/"+misolucion.IdPropietario+"/"+misolucion.Nombre;
             NombreP.Text = "-- " + misolucion.Nombre + " --";            
             solucionP.ItemsSource = null;
             solucionP.Items.Clear();
             listFiles = misolucion.Ficheros;
-            solucionP.ItemsSource=listFiles;
+            solucionP.ItemsSource=listFiles;            
             adminSolucion admin = new adminSolucion(misolucion);
-            admin.ActualizarSolucion();
+            admin.ActualizarSolucion();            
             admin.AsignarPadres();            
         }
 
@@ -790,6 +785,20 @@ namespace IDE_AR
      {
          currentFichero.contenido = currentFichero.contenido + e.Text;
          cargarFlowDocument();
+     }
+
+     private void solucionSubir_Click(object sender, RoutedEventArgs e)
+     {
+         adminSolucion admin = new adminSolucion(misolucion);
+         string respuesta=admin.SubirANube();
+         if(respuesta.Length>0)
+         {
+             Mensaje(respuesta);
+         }
+         else
+         {
+             Mensaje("Subido Correctamente");
+         }
      }
     }
 }

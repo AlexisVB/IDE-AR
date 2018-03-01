@@ -371,6 +371,7 @@
                                     <ContextMenu>
                                         <MenuItem Name="agregarArchivo" Header="Agregar Fichero" Click="agregarArchivo_Click"/>
                                         <MenuItem Name="verCarpeta" Header="Ver en carpeta" Click="verCarpeta_Click" />
+                                        <MenuItem Name="solucionSubir" Header="Guardar en  nube" Click="solucionSubir_Click"/>
                                     </ContextMenu>
                                 </TextBlock.ContextMenu>
                             </TextBlock>

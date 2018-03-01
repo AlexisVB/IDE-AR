@@ -16,6 +16,7 @@ using IDE_AR.Datos;
 using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
 using System.IO;
+using IDE_AR.Settings;
 namespace IDE_AR
 {
     /// <summary>
@@ -27,6 +28,7 @@ namespace IDE_AR
         public Login()
         {
             InitializeComponent();
+            Settings.Settings cargador = new Settings.Settings();
             ComprobarCredenciales();
             ObtenerConfiguracion();
             

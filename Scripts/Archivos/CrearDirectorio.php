@@ -1,11 +1,11 @@
 <?php 
-	if(isset($_GET['dir']))
+	if(isset($_GET['carpeta']))
 	{	
 		$carpeta=$_GET['carpeta'];//fichero que vamos a copiar			
-		$dirBase=dirname(__FILE__)."\\"."Soluciones";
+		$dirBase=dirname(__FILE__)."/"."Soluciones";
 		if(!file_exists($dirBase))
 			mkdir($dirBase);
-		$Ruta=$dirBase."\\".$carpeta;	
+		$Ruta=$dirBase."/".$carpeta;	
 		if(mkdir($Ruta))
 		{		
 			echo "Carpeta creada con éxito\n";
@@ -13,7 +13,8 @@
 		else
 			echo "No se ha podido crear la carpeta\n";	
 	}
-	
+	else
+		echo "No hay parametros";
 	//agregar usuario agrega una carpeta para sus archivos 
 	//agregar materia crea un nuevo directorio para la materia
 	//agregar un grupo crea un nuevo directorio para el grupo
