@@ -53,7 +53,7 @@ namespace IDE_AR
                 Directory.CreateDirectory(dir);
             string ar = "Settings//defaultLocation.bin";                        
             //crea el archivo de texto   
-            VariablesGlobales.RutaPredeterminada = ar;
+            VariablesGlobales.RutaPredeterminada = ruta;
             FileStream fs = new FileStream(ar, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             StreamWriter sw = new StreamWriter(fs);
             sw.BaseStream.Seek(0, SeekOrigin.Begin);
