@@ -234,21 +234,29 @@ namespace IDE_AR.Soluciones
         }
         public int[] SubirANube()
         {
-            subidos = 0;
-            todos = 0;
-            Fichero padre = new Fichero();
-            padre.IdFichero = miSolucion.IdProyecto;
-            padre.TipoRaiz = 0;
-            padre.Nombre = miSolucion.Nombre;
-            padre.Ruta = miSolucion.Ruta;
-            todos++;
-            int response= Int32.Parse(InterfaceHttp.CrearDirectorio(miSolucion.Ruta));
-            if (response == 1)
-                subidos++;
-            subirFicheros(padre, miSolucion.Ficheros);
-            int[] arreglo = new int[2];
-            arreglo[0] = todos;
-            arreglo[1] = subidos;
+            int[] arreglo = new int[2]; 
+            if(InterfaceHttp.InsertarSolucion(miSolucion))
+            {
+                subidos = 0;
+                todos = 0;
+                Fichero padre = new Fichero();                
+                padre.IdFichero = miSolucion.IdProyecto;
+                padre.TipoRaiz = 0;
+                padre.Nombre = miSolucion.Nombre;
+                padre.Ruta = miSolucion.Ruta;
+                todos++;
+                int response = Int32.Parse(InterfaceHttp.CrearDirectorio(miSolucion.Ruta));
+                if (response == 1)
+                    subidos++;
+                subirFicheros(padre, miSolucion.Ficheros);
+                arreglo[0] = todos;
+                arreglo[1] = subidos;
+            }
+            else
+            {
+                arreglo[0]=-1;
+                arreglo[1] =-1;
+            } 
             return arreglo;
         }
         private void subirFicheros(Fichero padre,ObservableCollection<Fichero> lista)

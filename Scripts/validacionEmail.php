@@ -22,15 +22,34 @@
 			echo "ocupado";
 		}
 		else
-		{
+		{*/
 			//si no hay ninguna fila quiere decir que no se encuentra
-			$keysafe="NGNVGDF5894XCNJ7";
-			$codigo=sha1($usuario.$password.$correo.$keysafe);		
-			$key="";
-				for($cont=0;$cont<strlen($codigo);$cont+=5)
+			$keysafe="";
+			//generar keysafe
+			$codigo=sha1($usuario.$password.$correo.$keysafe);
+			for($cont=0;$cont<8;$cont++)
+			{
+				$pos=rand(0, strlen($codigo)-1);
+				$keysafe=$keysafe.$codigo[$pos];
+			}
+			//dezplazar cadena
+			$pos=0;
+			while($pos<strlen($codigo)-1)
+			{
+				for($cont=0;$cont<8;$cont++)
 				{
-					$key=$key.$codigo[$cont];
+					$codigo[$pos]=$keysafe[$cont]+$codigo[$pos];
+					$pos++;
 				}
+			}
+			//obtener el codigo de longitud x			
+			$x=8;
+			$key="";
+			for($cont=0;$cont<8;$cont++)
+			{
+				$pos=rand(0, strlen($codigo)-1);
+				$key=$key.$codigo[$pos];
+			}
 			echo $key;			
 		}		
 	}

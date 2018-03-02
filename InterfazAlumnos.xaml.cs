@@ -793,9 +793,14 @@ namespace IDE_AR
 
      private void solucionSubir_Click(object sender, RoutedEventArgs e)
      {
+         misolucion.Fecha = DateTime.Now.ToShortDateString();
          adminSolucion admin = new adminSolucion(misolucion);
          int[] comparar=admin.SubirANube();
-         string cadena="Ficheros:"+comparar[0]+"/Subidos:"+comparar[1];
+         string cadena;
+         if (comparar[0] != -1)
+             cadena = "Subidos:" + comparar[0] + "/" + comparar[1];
+         else
+             cadena = "Error al subir la solución";
          Mensaje(cadena);
      }
     }

@@ -7,6 +7,7 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json.Linq;
 using Newtonsoft;
+using IDE_AR.Soluciones;
 namespace IDE_AR.Datos
 {
     
@@ -724,7 +725,29 @@ namespace IDE_AR.Datos
             //deserialización de json a c# object                  
             return json;
         }
-
+        /*
+        * ********************************Funciones de las soluciones  en el servidor**************************************
+        */
+        public static bool InsertarSolucion(SolucionProyecto solucion)
+        {
+            string scriptname = "Archivos/InsertarSolucion.php?";
+            //Se crea la cadena para hacer el request
+            string query = baseURL + scriptname;
+            query += "Nombre=" + solucion.Nombre;
+            query += "&Ruta=" + solucion.Ruta;
+            query += "&IdPropietario=" + solucion.IdPropietario;
+            query += "&IdActividad=" + solucion.IdActividad;
+            query += "&Fecha=" + solucion.Fecha;
+            //se hace el request
+            string json = HacerRequest(query);
+            //deserialización de json a c# object
+            SolucionProyecto x = new SolucionProyecto();
+            try { Newtonsoft.Json.JsonConvert.PopulateObject(json, x); }
+            catch { }
+            if (x.Nombre != null)
+                return true;
+            return false;
+        }
 
     }
 }
