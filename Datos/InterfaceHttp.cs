@@ -14,8 +14,10 @@ namespace IDE_AR.Datos
     public static class InterfaceHttp
     {
         //**************************************Direccion fija del servidor****************************************
-        static string baseURL = "http://proyectosinformaticatnl.ceti.mx/asistencia-automatizada/IDE-AR/";
+        //static string baseURL = "http://proyectosinformaticatnl.ceti.mx/asistencia-automatizada/IDE-AR/";
         //static string baseURL = "http://localhost/IDE-AR/";//url para trabajar offline
+        //www.onlineprint.com.mx/ide_ar/
+        static string baseURL = "http://www.onlineprint.com.mx/ide_ar/";
 
         //**************************************Funciones necesarias para las demás funciones****************************************
         private static string HacerRequest(string query)

@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IDE_AR.Datos
+namespace IDE_AR.Analizadores
 {
-    public class Grupos
+    public class Errores
     {
-        public int IdGrupo { get; set; }
-        public List<grupo> grupos { get; set; }
+        List<error> errores=new List<error>();
     }
 }

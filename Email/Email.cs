@@ -11,7 +11,7 @@ namespace IDE_AR.Email
     {
         //Las credenciales del correo de la aplicación IDE-AR
         //correo: ide.ar.asistencia@gmail.com
-        //contrseña: e31d9348
+        //contrseña:  e31d9348
         private string from;
         private string to;
         private string subject;
