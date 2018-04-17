@@ -112,7 +112,7 @@ namespace IDE_AR.Soluciones
                                 caracter.Text = "│";
                                 caracter.FontSize = 16;
                                 caracter.Focus();
-                                caracter.FontWeight = System.Windows.FontWeights.Bold;
+                                caracter.FontWeight = System.Windows.FontWeights.Light;
                                 caracter.Foreground = System.Windows.Media.Brushes.Purple;
                                 nuevoParrafo.Inlines.Add(caracter);
                             }                           
@@ -123,6 +123,7 @@ namespace IDE_AR.Soluciones
                     case '\r':
                         position++;
                         break;
+                    
                     default:
                         //crear run con el puro caracter
                         caracter.Text += contenido[position];

@@ -6,17 +6,14 @@
 	//Obtiene los parametros
 	$IdUsuario=$_GET['idUsuario'];
 	$NombreUsuario=$_GET['nombreUsuario'];
-	$Password=$_GET['password'];
 	$Tipo=$_GET['tipo'];
 	$Nombre=$_GET['nombre'];
 	$Registro=$_GET['registro'];
 	$Grupo=$_GET['grupo'];
 	$Correo=$_GET['correo'];
-	$Password=md5($Password);
 	//realiza la modificación de la materia
 	$sql="UPDATE  Usuarios_IDE SET
-	NombreUsuario='$NombreUsuario', 
-	 Password='$Password', 
+	NombreUsuario='$NombreUsuario',  
 	 Tipo=$Tipo ,
 	 Nombre='$Nombre',
 	 Registro='$Registro',
