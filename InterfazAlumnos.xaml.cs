@@ -19,7 +19,7 @@ using IDE_AR.DatosGlobales;
 using IDE_AR.UsuariosForms;
 using System.IO;
 using IDE_AR.Soluciones;
-
+using IDE_AR.Analizadores;
 namespace IDE_AR
 {
     /// <summary>
@@ -128,9 +128,15 @@ namespace IDE_AR
         }
         public void btConfiguracion_Click(Object sender, RoutedEventArgs e)
         {
+           
+            //mostar la ventana
+            this.Opacity = 0.5;
             ventanaConfiguracion = new configuracion();
+            ventanaConfiguracion.Owner = this;
             //mostar la ventana
             ventanaConfiguracion.ShowDialog();
+            tbUserName.Text = VariablesGlobales.miusuario.NombreUsuario;
+            this.Opacity = 1;
         }
         private void btnMin_Click(Object sender, RoutedEventArgs e)
         {
@@ -761,6 +767,10 @@ namespace IDE_AR
                 currentFichero.LeerArchivo();
                 cargarFlowDocument();            
             }
+            else
+            {
+                currentFichero = new Fichero();
+            }
     
         }
         public void cargarFlowDocument()
@@ -770,7 +780,10 @@ namespace IDE_AR
            // string contenido = "#Include<stdio.h>\n#Include<stdlib.h>\n";
             if(currentFichero!=null)
                 if(currentFichero.contenido.Length>0)
-                    ctEditor.Document=currentFlowDocument.ConstruirFlowDocument(currentFichero.contenido);
+                {
+                    currentFichero.ObtenerContenido();
+                    ctEditor.Document = currentFlowDocument.ConstruirFlowDocument(currentFichero.contenido);
+                }
             
         }
      
@@ -782,12 +795,46 @@ namespace IDE_AR
 
      private void ctEditor_PreviewKeyDown_1(object sender, System.Windows.Input.KeyEventArgs e)
      {
-         
+         switch(e.Key)
+         {
+             case Key.Space:
+                 currentFichero.EscribirCaracter(' ');
+                 cargarFlowDocument();
+                 break;
+             case Key.Back:
+                 cargarFlowDocument();
+                 break;
+             case Key.Enter:
+                 currentFichero.Enter();
+                 cargarFlowDocument();
+                 break;
+             case Key.Left:
+                 currentFichero.MoverCursorIzquierda();
+                 cargarFlowDocument();
+                 break;
+             case Key.Right:
+                 currentFichero.MoverCursorDerecha();
+                 cargarFlowDocument();
+                 break;
+             case Key.Up:
+                 currentFichero.MoverCursorArriba();
+                 cargarFlowDocument();
+                 break;
+             case Key.Down:
+                 currentFichero.MoverCursorAbajo();
+                 cargarFlowDocument();
+                 break;
+         }      
+         if(e.Key==Key.Left)
+         {
+             
+         }
      }
 
      private void ctEditor_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
-     {
-         currentFichero.contenido = currentFichero.contenido + e.Text;
+     {        
+         char c = e.Text[0];         
+         currentFichero.EscribirCaracter(c);         
          cargarFlowDocument();
      }
 

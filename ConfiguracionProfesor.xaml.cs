@@ -15,31 +15,31 @@ using System.Windows.Forms;
 using System.IO;
 using IDE_AR.DatosGlobales;
 using IDE_AR.Datos;
+
 namespace IDE_AR
 {
     /// <summary>
-    /// Interaction logic for configuracion.xaml
+    /// Interaction logic for ConfiguracionProfesor.xaml
     /// </summary>
-    public partial class configuracion : Window
+    public partial class ConfiguracionProfesor : Window
     {
-        public configuracion()
+        public ConfiguracionProfesor()
         {
             InitializeComponent();
             lbRuta.Text = VariablesGlobales.RutaPredeterminada;
             ObtenerDatos();
         }
-
         private void btnSelectRuta_Click(object sender, RoutedEventArgs e)
         {
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            FolderBrowserDialog select = new FolderBrowserDialog();            
+            FolderBrowserDialog select = new FolderBrowserDialog();
             if (select.ShowDialog() == System.Windows.Forms.DialogResult.Yes)
             {
 
             }
-            string ruta=select.SelectedPath;
+            string ruta = select.SelectedPath;
             lbRuta.Text = ruta;
             if (ruta.Length < 0)
                 Mensaje("La ruta seleccionada no existe");
@@ -53,7 +53,7 @@ namespace IDE_AR
             string dir = "Settings";
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
-            string ar = "Settings//defaultLocation.bin";                        
+            string ar = "Settings//defaultLocation.bin";
             //crea el archivo de texto   
             VariablesGlobales.RutaPredeterminada = ruta;
             FileStream fs = new FileStream(ar, FileMode.OpenOrCreate, FileAccess.ReadWrite);
@@ -63,7 +63,7 @@ namespace IDE_AR
             sw.Flush();
             sw.Close();
             fs.Close();
-            
+
         }
         private void btnCerrar_Click(Object sender, RoutedEventArgs e)
         {
@@ -80,10 +80,9 @@ namespace IDE_AR
         public void ObtenerDatos()
         {
             tbUser.Text = VariablesGlobales.miusuario.NombreUsuario;
-            tbGrupo.Text = VariablesGlobales.miusuario.Grupo;
             tbRegistro.Text = VariablesGlobales.miusuario.Registro;
             tbCorreo.Text = VariablesGlobales.miusuario.Correo;
-            
+
 
         }
 
@@ -98,7 +97,6 @@ namespace IDE_AR
             Mostrar.Visibility = Visibility.Hidden;
             Editar.Visibility = Visibility.Visible;
             txtUser.Text = VariablesGlobales.miusuario.NombreUsuario;
-            txtGrupo.Text = VariablesGlobales.miusuario.Grupo;
             txtRegistro.Text = VariablesGlobales.miusuario.Registro;
             txtCorreo.Text = VariablesGlobales.miusuario.Correo;
         }
@@ -121,7 +119,6 @@ namespace IDE_AR
             x.NombreUsuario = txtUser.Text;
             x.Correo = txtCorreo.Text;
             x.Registro = txtRegistro.Text;
-            x.Grupo = txtGrupo.Text;
             if (InterfaceHttp.modificarUsuario(x))
             {
                 string h = "Modificaciones exitosas";
@@ -142,8 +139,8 @@ namespace IDE_AR
             Mostrar.Visibility = Visibility.Visible;
             Editar.Visibility = Visibility.Hidden;
             ObtenerDatos();
-            
-          
+
+
         }
     }
 }

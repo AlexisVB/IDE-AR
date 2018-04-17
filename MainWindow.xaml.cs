@@ -23,7 +23,7 @@ namespace IDE_AR
     /// </summary>
     public partial class MainWindow : Window
     {        
-        private configuracion ventanaConfiguracion;
+        private ConfiguracionProfesor ventanaConfiguracion;
         //*********************Variables para las listas************************************
         private List<materia> listAsignatures=new List<materia>();
         private List<grupo> listGroups = new List<grupo>();
@@ -118,9 +118,14 @@ namespace IDE_AR
         }
         public void btConfiguracion_Click(Object sender, RoutedEventArgs e)
         {
-            ventanaConfiguracion = new configuracion();
+            //mostar la ventana
+            this.Opacity = 0.5;
+            ventanaConfiguracion = new ConfiguracionProfesor();
+            ventanaConfiguracion.Owner = this;
             //mostar la ventana
             ventanaConfiguracion.ShowDialog();
+            tbUserName.Text = VariablesGlobales.miusuario.NombreUsuario;
+            this.Opacity = 1;
         }
         private void btnMin_Click(Object sender, RoutedEventArgs e)
         {

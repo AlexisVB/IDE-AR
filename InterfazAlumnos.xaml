@@ -309,6 +309,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Name="tbUserName"
+                           
                        Grid.Column="0" 
                        FontSize="16" 
                        Foreground="White" 

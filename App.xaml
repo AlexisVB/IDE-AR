@@ -14,9 +14,8 @@
                 <ResourceDictionary Source="Estilos/WindowsStyles.xaml"/>
                 <ResourceDictionary Source="Estilos/PlantillasItemsListas.xaml"/>
                 <ResourceDictionary Source="Estilos/TreeViewItems.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-            
-        </ResourceDictionary>
-       
+                <ResourceDictionary Source="Estilos/TabsStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>            
+        </ResourceDictionary>       
     </Application.Resources>
 </Application>

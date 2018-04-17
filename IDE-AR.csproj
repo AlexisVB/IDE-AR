@@ -62,6 +62,14 @@
     <Compile Include="AgergarUsuario.xaml.cs">
       <DependentUpon>AgergarUsuario.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Analizadores\AL.cs" />
+    <Compile Include="Analizadores\error.cs" />
+    <Compile Include="Analizadores\Errores.cs" />
+    <Compile Include="Analizadores\RS.cs" />
+    <Compile Include="Analizadores\token.cs" />
+    <Compile Include="ConfiguracionProfesor.xaml.cs">
+      <DependentUpon>ConfiguracionProfesor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Actividades.cs" />
     <Compile Include="Datos\Chat.cs" />
     <Compile Include="Datos\Enigma.cs" />
@@ -148,6 +156,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ConfiguracionProfesor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Estilos\Colores.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -165,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Estilos\plantillasItemsListas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Estilos\TabsStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
